@@ -13,34 +13,12 @@ i18n
     resources: {
       en: {
         translations: {
-<<<<<<< Updated upstream
-          title: "Thompson Boiler Works",
-          nav: {
-            about: "About",
-            services: "Services",
-            projects: "Project",
-            careers: "Careers",
-            contact: "Contact"
-          }
-=======
           translationEN
->>>>>>> Stashed changes
         }
       },
       fr: {
         translations: {
-<<<<<<< Updated upstream
-          title: "Thompson Boiler Works",
-          nav: {
-            about: "About",
-            services: "Services",
-            projects: "Projects",
-            careers: "Careers",
-            contact: "Contact"
-          }
-=======
           translationFR
->>>>>>> Stashed changes
         }
       }
     },
