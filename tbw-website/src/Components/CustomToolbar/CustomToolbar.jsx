@@ -5,7 +5,7 @@ import "./CustomToolbar.scss";
 const CustomToolbar = ({ title }) => (
   <AppBar position="static">
     <Toolbar>
-      <Typography class="title">{title}</Typography>
+      <Typography className="title">{title}</Typography>
       <Button>About</Button>
       <Button>Services</Button>
       <Button>Projects</Button>
