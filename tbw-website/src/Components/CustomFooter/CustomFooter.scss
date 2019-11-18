@@ -1,1 +1,14 @@
 @import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+
+.footer {
+  background-color: $color-primary;
+  padding: $default-spacing * 2 $default-spacing * 4;
+
+  .footer-subtitle {
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    font-size: $font-size-subtitle;
+    color: $color-footer-subtitle;
+  }
+}

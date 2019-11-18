@@ -1,18 +1,26 @@
 import React from "react";
-import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import { FooterList } from "Components/";
 import "./CustomFooter.scss";
 
-const CustomFooter = ({ title }) => (
-  <AppBar position="static">
-    <Toolbar>
-      <Typography class="title">{title}</Typography>
-      <Button>About</Button>
-      <Button>Services</Button>
-      <Button>Projects</Button>
-      <Button>Careers</Button>
-      <Button>Contact</Button>
-    </Toolbar>
-  </AppBar>
+const CustomFooter = () => (
+  <div className="footer">
+    <Grid container spacing={3}>
+      <Grid item xs={3}>
+        <h3 className="footer-subtitle">Connect</h3>
+        <FooterList />
+      </Grid>
+      <Grid item xs={3}>
+        <h3 className="footer-subtitle">Links</h3>
+      </Grid>
+      <Grid item xs={3}>
+        <h3 className="footer-subtitle">Hours of Operation</h3>
+      </Grid>
+      <Grid item xs={3}>
+        <p>hello</p>
+      </Grid>
+    </Grid>
+  </div>
 );
 
 export default CustomFooter;
