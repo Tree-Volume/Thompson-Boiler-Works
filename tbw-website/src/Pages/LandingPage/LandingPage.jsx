@@ -7,7 +7,7 @@ function LandingPage() {
   return (
     <>
       <CustomToolbar title={t("title")} />
-      <div Style="height: 500px" />
+      <div style={{ height: "500px" }} />
       <CustomFooter />
     </>
   );
