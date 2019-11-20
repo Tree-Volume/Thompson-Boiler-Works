@@ -26,13 +26,16 @@ const CustomFooter = () => {
 
   const linksList = [
     {
-      primaryText: "Services"
+      primaryText: "Services",
+      link: "/services"
     },
     {
-      primaryText: "Projects"
+      primaryText: "Projects",
+      link: "/Projects"
     },
     {
-      primaryText: "Careers"
+      primaryText: "Careers",
+      link: "/Careers"
     }
   ];
 

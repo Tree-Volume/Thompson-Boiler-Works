@@ -17,7 +17,9 @@ const FooterList = ({ listItems }) => {
               <ListItemText className="secondary-text" primary={listItem.secondaryText} />
             )}
             {listItem.primaryText && (
-              <ListItemText className="primary-text" primary={listItem.primaryText} />
+              <a href={listItem.link ? listItem.link : null}>
+                <ListItemText className="primary-text" primary={listItem.primaryText} />
+              </a>
             )}
           </ListItem>
         ))}
