@@ -2,15 +2,13 @@ import React from "react";
 import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
 import "./CustomToolbar.scss";
 
-const CustomToolbar = ({ title }) => (
-  <AppBar position="static">
+const CustomToolbar = ({ title, options }) => (
+  <AppBar className="AppBar" position="static">
     <Toolbar>
-      <Typography className="title">{title}</Typography>
-      <Button>About</Button>
-      <Button>Services</Button>
-      <Button>Projects</Button>
-      <Button>Careers</Button>
-      <Button>Contact</Button>
+      <Typography className="nav-title">{title}</Typography>
+      {options.map((value,index) => {
+        return <Button key={index}>{value}</Button>;
+      })}
     </Toolbar>
   </AppBar>
 );

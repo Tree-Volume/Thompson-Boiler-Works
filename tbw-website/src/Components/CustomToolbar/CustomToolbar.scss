@@ -1,1 +1,11 @@
 @import "Styles/Colours.scss";
+
+.AppBar {
+    background: transparent !important;   
+    box-shadow: none !important;
+}
+
+.nav-title {
+    color: $color-primary;
+    flex-grow: 1;
+}

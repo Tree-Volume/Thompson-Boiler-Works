@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
   ns: ["translations"],
   defaultNS: "translations",
 
-  keySeparator: false, // we use content as keys
+  keySeparator: ".", // we use content as keys
 
   interpolation: {
     escapeValue: false, // not needed for react!!
