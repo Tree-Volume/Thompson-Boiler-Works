@@ -4,15 +4,15 @@ import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png"
 
 const CustomToolbar = ({ title, options }) => (
-  <AppBar className="toolbar" position="static">
+  <AppBar className="toolbar">
     <Toolbar>
       <a class="toolbar-logo" href="/">
         <div class="toolbar-logo-image">
-              <img src={logo} class="img-fluid" alt={title}/>
+              <img src={logo} alt={title}/>
         </div>
       </a>
       {options.map((value,index) => {
-        return <Button key={index}>{value}</Button>;
+        return <Button href={"/" + value} key={index}>{value}</Button>;
       })}
     </Toolbar>
   </AppBar>
