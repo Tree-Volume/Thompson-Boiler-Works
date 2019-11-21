@@ -1,11 +1,16 @@
 @import "Styles/Colours.scss";
 
-.AppBar {
+.toolbar {
     background: transparent !important;   
     box-shadow: none !important;
 }
 
-.nav-title {
+.toolbar-logo {
     color: $color-primary;
-    flex-grow: 1;
+    margin-right: auto;
 }
+
+.toolbar-logo-image {
+    display: flex;
+    max-width: 200px;
+  }
