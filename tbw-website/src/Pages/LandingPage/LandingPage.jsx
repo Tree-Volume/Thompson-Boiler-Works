@@ -1,10 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { CustomToolbar } from "Components/";
+import { CustomToolbar, CustomFooter } from "Components/";
 
 function LandingPage() {
   const { t } = useTranslation();
-  return <CustomToolbar title={t("title")} />;
+  return (
+    <>
+      <CustomToolbar title={t("title")} />
+      <div style={{ height: "500px" }} />
+      <CustomFooter />
+    </>
+  );
 }
 
 export default LandingPage;

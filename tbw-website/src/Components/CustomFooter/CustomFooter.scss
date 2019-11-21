@@ -1,1 +1,35 @@
 @import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
+
+.footer {
+  background-color: $color-primary;
+  padding: $default-spacing $default-spacing * 2;
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .footer-column {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      padding: $default-spacing $default-spacing * 2;
+
+      .footer-logo {
+        display: flex;
+        margin: 0 auto;
+        max-width: 200px;
+      }
+
+      .footer-subtitle {
+        color: $color-footer-subtitle;
+        font-family: "Roboto Condensed";
+        font-weight: bold;
+        font-size: $font-size-subtitle;
+        margin: 0;
+      }
+    }
+  }
+}
