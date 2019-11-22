@@ -1,16 +1,19 @@
 import React from "react";
-import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Button } from "@material-ui/core";
 import "./CustomToolbar.scss";
+import logo from "Assets/images/tbw-logo.png"
 
-const CustomToolbar = ({ title }) => (
-  <AppBar position="static">
+const CustomToolbar = ({ title, options }) => (
+  <AppBar className="toolbar">
     <Toolbar>
-      <Typography className="title">{title}</Typography>
-      <Button>About</Button>
-      <Button>Services</Button>
-      <Button>Projects</Button>
-      <Button>Careers</Button>
-      <Button>Contact</Button>
+      <a class="toolbar-logo" href="/">
+        <div class="toolbar-logo-image">
+              <img src={logo} alt={title}/>
+        </div>
+      </a>
+      {options.map((value,index) => {
+        return <Button href={"/" + value} key={index}>{value}</Button>;
+      })}
     </Toolbar>
   </AppBar>
 );
