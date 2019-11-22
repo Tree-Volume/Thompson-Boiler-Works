@@ -1,12 +1,12 @@
 @import "Styles/Colours.scss";
 
-.landing {
+.landing-title {
     background-image: url("../../Assets/images/landing.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    .landing-title {
+    .landing-title-text {
         margin-left: 50px !important;
         padding-top: 45vh;
         max-width: 450px;
