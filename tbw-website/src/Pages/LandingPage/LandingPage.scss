@@ -1,1 +1,22 @@
 @import "Styles/Colours.scss";
+
+.landing {
+    background-image: url("../../Assets/images/landing.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 92vh;
+    .landing-title {
+        margin-left: 50px !important;
+        padding-top: 45vh;
+        max-width: 450px;
+        color: $color-white;
+        h1 {
+            font-size: 76px;
+            line-height: 85px;
+        }
+        h2 {
+            font-size: 32px;
+        }
+    }
+}
