@@ -1,0 +1,49 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+
+.contact-page {
+  display: flex;
+
+  .contact-form,
+  .contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form {
+    .contact-form-title {
+      font-size: $font-size-subtitle * 1.2;
+      font-family: "Roboto Condensed";
+      color: $color-text-gray;
+    }
+
+    .MuiOutlinedInput-input {
+      background-color: #e8e8e8;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: transparent;
+      border-radius: 0px;
+
+      &.Mui-focused {
+        border-color: black;
+      }
+    }
+    .MuiInputLabel-outlined {
+      &.Mui-focused {
+        color: black;
+      }
+    }
+    .Mui-focused {
+      .MuiOutlinedInput-notchedOutline {
+        border-color: black;
+      }
+
+      .MuiOutlinedInput-input {
+        background-color: $color-white;
+      }
+    }
+  }
+}
