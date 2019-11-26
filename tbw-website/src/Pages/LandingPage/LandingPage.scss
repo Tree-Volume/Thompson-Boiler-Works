@@ -44,4 +44,19 @@
         padding-top: 50px;
         font-weight: 300;
     }
+
+    .landing-services-body {
+        .landing-section-body {
+            @extend .landing-section-body;
+            float:left;
+            width: 45%;
+        }
+
+        img {
+            float: right;
+            margin-top: 55px;
+            width: 480px;
+            height: 300px;
+        }
+    }
 }
