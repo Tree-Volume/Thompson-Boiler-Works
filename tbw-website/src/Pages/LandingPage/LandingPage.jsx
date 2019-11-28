@@ -1,10 +1,14 @@
 import React from "react";
 import CustomDivider from "Components/CustomDivider/CustomDivider";
 import { Typography, Container, Button } from "@material-ui/core/";
-import landing from "Assets/images/landing.png"
+import landing from "Assets/images/landing.png";
+import services_background from "Assets/images/divider.png";
 
 import "./LandingPage.scss";
 
+const landing_section_services = {
+  backgroundImage: "url(" + { services_background } + ")"
+};
 
 function LandingPage() {
   return (
@@ -16,8 +20,8 @@ function LandingPage() {
         </div>
       </div>
       <CustomDivider></CustomDivider>
-      <Container>
-        <div class="landing-section">
+      <div class="landing-section">
+        <Container>
           <Typography variant="h2" align="center">
             Who are we?
           </Typography>
@@ -35,8 +39,10 @@ function LandingPage() {
             Proin vehicula dignissim cursus.
           </Typography>
           <Button variant="contained">Learn more about us!</Button>
-        </div>
-        <div class="landing-section">
+        </Container>
+      </div>
+      <div style={landing_section_services} class="landing-section">
+        <Container>
           <Typography variant="h2" align="center">
             Services
           </Typography>
@@ -48,17 +54,20 @@ function LandingPage() {
               fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,
               quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehicula
               dignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              porttitor urna quis sapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis,
-              cursus convallis magna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue.
-              Donec enim metus, fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam
-              ut sem eleifend, quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim.
-              Proin vehicula dignissim cursus.
+              porttitor urna quis sapien rutrum volutpat.
             </Typography>
-            <img src={landing} class="landing-services-image" alt="image of services"></img>
+            <div class="landing-services-image">
+              <img src={landing} alt="services"></img>
+              <Typography variant="h6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </Typography>
+            </div>
           </div>
           <Button variant="contained">Learn more about our services!</Button>
-        </div>
-        <div class="landing-section">
+        </Container>
+      </div>
+      <div class="landing-section">
+        <Container>
           <Typography variant="h2" align="center">
             Projects
           </Typography>
@@ -76,8 +85,8 @@ function LandingPage() {
             Proin vehicula dignissim cursus.
           </Typography>
           <Button variant="contained">Learn more about our projects!</Button>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </div>
   );
 }
