@@ -84,6 +84,12 @@ function LandingPage() {
             ut sem eleifend, quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim.
             Proin vehicula dignissim cursus.
           </Typography>
+          <div class="landing-projects-image">
+            <img src={landing} alt="projects"></img>
+            <img src={landing} alt="projects"></img>
+            <img src={landing} alt="projects"></img>
+            <img src={landing} alt="projects"></img>
+          </div>
           <Button variant="contained">Learn more about our projects!</Button>
         </Container>
       </div>

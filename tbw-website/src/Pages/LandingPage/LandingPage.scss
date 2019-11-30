@@ -1,70 +1,77 @@
 @import "Styles/Colours.scss";
 
 .landing-title {
-    background-image: url("../../Assets/images/landing.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    .landing-title-text {
-        margin-left: 50px !important;
-        padding-top: 40vh;
-        max-width: 450px;
-        color: $color-white;
-        h1 {
-            font-size: 76px;
-            line-height: 85px;
-        }
-        h3 {
-            font-size: 32px;
-        }
+  background-image: url("../../Assets/images/landing.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  .landing-title-text {
+    margin-left: 50px !important;
+    padding-top: 40vh;
+    max-width: 450px;
+    color: $color-white;
+    h1 {
+      font-size: 76px;
+      line-height: 85px;
     }
+    h3 {
+      font-size: 32px;
+    }
+  }
 }
 
 .landing-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 25vh 0 25vh 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 25vh 0 25vh 0;
 
-    h2 {
-        font-weight: 500;
+  h2 {
+    font-weight: 500;
+  }
+
+  button {
+    margin: 15px 25% 15px 25%;
+    padding: 10px 20px 10px 20px;
+    background: $color-secondary !important;
+  }
+
+  .landing-section-body {
+    margin: 0 50px 50px 50px;
+    padding-top: 50px;
+    font-weight: 400;
+  }
+
+  .landing-services-body {
+    .landing-section-body {
+      @extend .landing-section-body;
+      float: left;
+      width: 45%;
     }
 
-    button {
-        margin: 15px 25% 15px 25%;
-        padding: 10px 20px 10px 20px;
-        background: $color-secondary !important;
+    .landing-services-image {
+      float: right;
+      text-align: center;
+
+      img {
+        margin-top: 55px;
+        width: 480px;
+        height: 300px;
+      }
+      h6 {
+        margin: 10px 0 0 0;
+        font-weight: 300;
+      }
     }
+  }
 
-    .landing-section-body { 
-        margin: 0 50px 50px 50px;
-        padding-top: 50px;
-        font-weight: 400;
-    }
-
-    .landing-services-body {
-        .landing-section-body {
-            @extend .landing-section-body;
-            float:left;
-            width: 45%;
-        }
-
-        img {
-            margin-top: 55px;
-            width: 480px;
-            height: 300px;
-        }
-
-        .landing-services-image {
-            float: right;
-            text-align: center;
-            h6 {
-                margin: 10px 0 0 0;
-                font-weight: 300;
-            }
-        }
-
-    }
+  .landing-projects-image {
+    img {
+        margin: 0px 15px 50px 15px;
+        width: 160px;
+        height: 100px;
+      }
+  }
 }
