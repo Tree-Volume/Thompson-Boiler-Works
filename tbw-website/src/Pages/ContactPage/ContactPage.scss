@@ -3,12 +3,14 @@
 
 .contact-page {
   display: flex;
+  flex-wrap: wrap-reverse;
 
   .contact-form,
   .contact-info {
     flex: 1;
-    display: flex;
     flex-direction: column;
+    min-width: 300px;
+    display: flex;
     align-items: center;
   }
 
@@ -19,30 +21,23 @@
       color: $color-text-gray;
     }
 
-    .MuiOutlinedInput-input {
-      background-color: #e8e8e8;
-    }
+    .MuiTextField-root {
+      padding-bottom: $default-spacing;
+      width: 80%;
+      max-width: 400px;
 
-    .MuiOutlinedInput-notchedOutline {
-      border-color: transparent;
-      border-radius: 0px;
+      .MuiFilledInput-underline {
+        border-radius: 0;
 
-      &.Mui-focused {
-        border-color: black;
-      }
-    }
-    .MuiInputLabel-outlined {
-      &.Mui-focused {
-        color: black;
-      }
-    }
-    .Mui-focused {
-      .MuiOutlinedInput-notchedOutline {
-        border-color: black;
+        &::after {
+          border-color: black;
+        }
       }
 
-      .MuiOutlinedInput-input {
-        background-color: $color-white;
+      .MuiInputLabel-filled {
+        &.Mui-focused {
+          color: black;
+        }
       }
     }
   }

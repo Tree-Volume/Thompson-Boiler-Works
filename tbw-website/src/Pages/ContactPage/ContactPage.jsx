@@ -23,12 +23,23 @@ const ContactPage = () => {
       <Container className="contact-page" style={{ height: "500px" }}>
         <div className="contact-form">
           <p className="contact-form-title">Send us an email!</p>
-          <TextField label="Name" variant="outlined" />
-          <TextField label="Email" variant="outlined" />
-          <TextField label="Subject" variant="outlined" />
-          <TextField label="Body" variant="outlined" />
+          <TextField label="Name" variant="filled" />
+          <TextField label="Email" variant="filled" />
+          <TextField label="Subject" variant="filled" />
+          <TextField label="Body" multiline rows="5" variant="filled" />
         </div>
         <div className="contact-info">
+          {/*
+            <iframe
+              title="map"
+              width="600"
+              height="450"
+              frameBorder="0"
+              style={{ border: 0 }}
+              src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZy1pVWMKzkwRzSNkeLZIx5s&key=..."
+              allowFullScreen
+            />
+          */}
           <h1>Send us an email!</h1>
         </div>
       </Container>
