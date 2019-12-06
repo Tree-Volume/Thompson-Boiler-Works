@@ -50,7 +50,8 @@
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
-      "body": "Body"
+      "body": "Body",
+      "button": "Submit"
     },
     "info": {
       "company": "Thompson Boiler Works",

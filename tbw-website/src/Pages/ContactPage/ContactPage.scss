@@ -23,6 +23,12 @@
       color: $color-text-gray;
     }
 
+    button {
+      background: $color-secondary !important;
+      margin: 15px 25% 15px 25%;
+      padding: 10px 100px 10px 100px;
+    }
+
     .MuiTextField-root {
       padding-bottom: $default-spacing;
       width: 80%;

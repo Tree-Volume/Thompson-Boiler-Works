@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { CustomToolbar, CustomFooter, PageHeader } from "Components/";
-import { Container, TextField } from "@material-ui/core";
+import { Button, Container, TextField } from "@material-ui/core";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
@@ -27,6 +27,7 @@ const ContactPage = () => {
           <TextField label={t("contact.form.email")} variant="filled" />
           <TextField label={t("contact.form.subject")} variant="filled" />
           <TextField label={t("contact.form.body")} multiline rows="5" variant="filled" />
+          <Button variant="contained">{t("contact.form.button")}</Button>
         </div>
         <div className="contact-info">
           {/*
