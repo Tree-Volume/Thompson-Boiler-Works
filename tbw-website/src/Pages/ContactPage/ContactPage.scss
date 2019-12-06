@@ -3,7 +3,8 @@
 
 .contact-page {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
+  padding-bottom: $default-spacing * 2;
 
   .contact-form,
   .contact-info {

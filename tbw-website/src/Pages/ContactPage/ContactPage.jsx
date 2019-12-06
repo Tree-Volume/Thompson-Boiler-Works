@@ -20,7 +20,7 @@ const ContactPage = () => {
         ]}
       />
       <PageHeader imagePath={contactImage} pageTitle="Contact" />
-      <Container className="contact-page" style={{ height: "500px" }}>
+      <Container className="contact-page">
         <div className="contact-form">
           <p className="contact-form-title">Send us an email!</p>
           <TextField label="Name" variant="filled" />
@@ -40,7 +40,7 @@ const ContactPage = () => {
               allowFullScreen
             />
           */}
-          <h1>Send us an email!</h1>
+          <h1>Thompson Boiler Works</h1>
         </div>
       </Container>
       <CustomFooter />
