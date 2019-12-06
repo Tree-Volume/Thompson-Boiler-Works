@@ -4,9 +4,9 @@ import "./CustomDivider.scss";
 
 const CustomDivider = () => {
   return (
-    <div class="divider">
-      <div class="filter-gradient">
-        <div class="filter-black"></div>
+    <div className="divider">
+      <div className="filter-gradient">
+        <div className="filter-black" />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import CustomDivider from "Components/CustomDivider/CustomDivider";
 import { Typography, Container, Button } from "@material-ui/core/";
+import { useTranslation } from "react-i18next";
 import landing from "Assets/images/landing.png";
 import servicesBackground from "Assets/images/divider.png";
 
@@ -11,78 +12,49 @@ const landingSectionServices = {
 };
 
 function LandingPage() {
+  const { t } = useTranslation();
   return (
     <div className="landing">
       <div className="landing-title">
         <div className="landing-title-text">
           <Typography variant="h1">Thompson Boiler Works</Typography>
-          <Typography variant="h3">Welding since 1988</Typography>
+          <Typography variant="h3">{t("landing.subtitle")}</Typography>
         </div>
       </div>
       <CustomDivider />
       <div className="landing-section">
         <Container>
           <Typography variant="h2" align="center">
-            Who are we?
+            {t("landing.about.title")}
           </Typography>
-          <Typography className="landing-section-body" variant="h6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quis
-            sapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallis
-            magna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,
-            fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,
-            quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehicula
-            dignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            porttitor urna quis sapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis,
-            cursus convallis magna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue.
-            Donec enim metus, fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam
-            ut sem eleifend, quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim.
-            Proin vehicula dignissim cursus.
-          </Typography>
-          <Button variant="contained">Learn more about us!</Button>
+          <Typography className="landing-section-body" variant="h6" />
+          <Button variant="contained">{t("landing.about.button")}</Button>
         </Container>
       </div>
       <div style={landingSectionServices} className="landing-section">
         <Container>
           <Typography variant="h2" align="center">
-            Services
+            {t("landing.services.title")}
           </Typography>
           <div className="landing-services-body">
             <Typography className="landing-section-body" variant="h6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quis
-              sapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallis
-              magna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,
-              fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,
-              quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehicula
-              dignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              porttitor urna quis sapien rutrum volutpat.
+              {t("landing.services.body")}
             </Typography>
             <div className="landing-services-image">
               <img src={landing} alt="services" />
-              <Typography variant="h6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </Typography>
+              <Typography variant="h6">{t("landing.services.imageCaption")}</Typography>
             </div>
           </div>
-          <Button variant="contained">Learn more about our services!</Button>
+          <Button variant="contained">{t("landing.services.button")}</Button>
         </Container>
       </div>
       <div className="landing-section">
         <Container>
           <Typography variant="h2" align="center">
-            Projects
+            {t("landing.projects.title")}
           </Typography>
           <Typography className="landing-section-body" variant="h6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quis
-            sapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallis
-            magna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,
-            fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,
-            quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehicula
-            dignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            porttitor urna quis sapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis,
-            cursus convallis magna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue.
-            Donec enim metus, fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam
-            ut sem eleifend, quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim.
-            Proin vehicula dignissim cursus.
+            {t("landing.projects.body")}
           </Typography>
           <div className="landing-projects-image">
             <img src={landing} alt="projects" />
@@ -90,7 +62,7 @@ function LandingPage() {
             <img src={landing} alt="projects" />
             <img src={landing} alt="projects" />
           </div>
-          <Button variant="contained">Learn more about our projects!</Button>
+          <Button variant="contained">{t("landing.projects.button")}</Button>
         </Container>
       </div>
     </div>
