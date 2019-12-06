@@ -22,14 +22,16 @@ const ContactPage = () => {
       <PageHeader imagePath={contactImage} pageTitle="Contact" />
       <Container className="contact-page">
         <div className="contact-form">
-          <p className="contact-form-title">Send us an email!</p>
-          <TextField label="Name" variant="filled" />
-          <TextField label="Email" variant="filled" />
-          <TextField label="Subject" variant="filled" />
-          <TextField label="Body" multiline rows="5" variant="filled" />
+          <p className="contact-form-title">{t("contact.form.tagline")}</p>
+          <TextField label={t("contact.form.name")} variant="filled" />
+          <TextField label={t("contact.form.email")} variant="filled" />
+          <TextField label={t("contact.form.subject")} variant="filled" />
+          <TextField label={t("contact.form.body")} multiline rows="5" variant="filled" />
         </div>
         <div className="contact-info">
           {/*
+            The google maps embed that needs an api key
+
             <iframe
               title="map"
               width="600"
@@ -40,7 +42,23 @@ const ContactPage = () => {
               allowFullScreen
             />
           */}
-          <h1>Thompson Boiler Works</h1>
+          <h1 className="google emebed">GOOGLE EMBED HERE</h1>
+          <div className="contact-info-div">
+            <h2 className="contact-info-title">{t("contact.info.company")}</h2>
+            <p className="contact-info-text">
+              {`${t("contact.info.address")}
+              ${t("contact.info.city-province")}
+              ${t("contact.info.country")}
+              ${t("contact.info.postal-code")}
+            `}
+            </p>
+
+            <p className="contact-info-text">
+              {`${t("contact.info.email")}
+              ${t("contact.info.phone")}
+            `}
+            </p>
+          </div>
         </div>
       </Container>
       <CustomFooter />
