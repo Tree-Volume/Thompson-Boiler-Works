@@ -17,7 +17,7 @@ function LandingPage() {
     <div className="landing">
       <div className="landing-title">
         <div className="landing-title-text">
-          <Typography variant="h1">Thompson Boiler Works</Typography>
+          <Typography variant="h1">{t("title")}</Typography>
           <Typography variant="h3">{t("landing.subtitle")}</Typography>
         </div>
       </div>
@@ -27,7 +27,9 @@ function LandingPage() {
           <Typography variant="h2" align="center">
             {t("landing.about.title")}
           </Typography>
-          <Typography className="landing-section-body" variant="h6" />
+          <Typography className="landing-section-body" variant="h6">
+            {t("landing.about.body")}
+          </Typography>
           <Button variant="contained">{t("landing.about.button")}</Button>
         </Container>
       </div>
