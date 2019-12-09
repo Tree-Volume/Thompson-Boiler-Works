@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import translationEN from "./Values/locales/en/translation.json.js";
-import translationFR from "./Values/locales/fr/translation.json.js";
+import translationEN from "./Values/locales/en/translation.json";
+import translationFR from "./Values/locales/fr/translation.json";
 
 i18n.use(initReactI18next).init({
   lng: "en",
