@@ -10,8 +10,8 @@ function App() {
       <div className="App">
         <CustomToolbar />
         <Switch>
-          <Route path="/Contact">
-            <ContactPage />
+          <Route path="/About">
+            <AboutPage />
           </Route>
           <Route path="/Contact">
             <ContactPage />
