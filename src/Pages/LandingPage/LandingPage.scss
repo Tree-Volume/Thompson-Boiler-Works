@@ -1,70 +1,82 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
 .landing-title {
-    background-image: url("../../Assets/images/landing.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    .landing-title-text {
-        margin-left: $default-spacing*4 !important;
-        padding-top: 40vh;
-        max-width: 450px;
-        color: $color-white;
-        h1 {
-            font-size: 76px;
-            line-height: $default-spacing*5;
-        }
-        h3 {
-            font-size: $font-size-subtitle
-        }
+  background-image: url("../../Assets/images/landing.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(transparent 75%, black 100%);
+    opacity: 0.9;
+  }
+
+  .landing-title-text {
+    margin-left: $default-spacing * 4 !important;
+    padding-top: 40vh;
+    max-width: 450px;
+    color: $color-white;
+    h1 {
+      font-size: 76px;
+      line-height: $default-spacing * 5;
     }
+    h3 {
+      font-size: $font-size-subtitle;
+    }
+  }
 }
 
 .landing-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 25vh 0 25vh 0;
-    h2 {
-        font-weight: 500;
-    }
-    button {
-        margin: $default-spacing 25% $default-spacing 25%;
-        padding: $default-spacing $default-spacing $default-spacing $default-spacing;
-        background: $color-secondary !important;
-    }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 25vh 0 25vh 0;
+  h2 {
+    font-weight: 500;
+  }
+  button {
+    margin: $default-spacing 25% $default-spacing 25%;
+    padding: $default-spacing $default-spacing $default-spacing $default-spacing;
+    background: $color-secondary !important;
+  }
+  .landing-section-body {
+    margin: 0 $default-spacing * 4 $default-spacing * 4 $default-spacing * 4;
+    padding-top: $default-spacing * 4;
+    font-weight: 400;
+  }
+  .landing-services-body {
     .landing-section-body {
-        margin: 0 $default-spacing*4 $default-spacing*4 $default-spacing*4;
-        padding-top: $default-spacing*4;
-        font-weight: 400;
+      @extend .landing-section-body;
+      float: left;
+      width: 45%;
     }
-    .landing-services-body {
-        .landing-section-body {
-            @extend .landing-section-body;
-            float: left;
-            width: 45%;
-        }
-        .landing-services-image {
-            float: right;
-            text-align: center;
-            img {
-                margin-top: $default-spacing*4;
-                width: 480px;
-                height: 300px;
-            }
-            h6 {
-                margin: $default-spacing 0 0 0;
-                font-weight: 300;
-            }
-        }
+    .landing-services-image {
+      float: right;
+      text-align: center;
+      img {
+        margin-top: $default-spacing * 4;
+        width: 480px;
+        height: 300px;
+      }
+      h6 {
+        margin: $default-spacing 0 0 0;
+        font-weight: 300;
+      }
     }
-    .landing-projects-image {
-        img {
-            margin: 0px $default-spacing $default-spacing*4 $default-spacing;
-            width: 160px;
-            height: 100px;
-        }
+  }
+  .landing-projects-image {
+    img {
+      margin: 0px $default-spacing $default-spacing * 4 $default-spacing;
+      width: 160px;
+      height: 100px;
     }
+  }
 }
