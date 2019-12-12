@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import "./FooterList.scss";
 
@@ -17,9 +18,9 @@ const FooterList = ({ listItems }) => {
               <ListItemText className="secondary-text" primary={listItem.secondaryText} />
             )}
             {listItem.primaryText && (
-              <a className="primary-text-link" href={listItem.link ? listItem.link : null}>
+              <Link className="primary-text-link" to={listItem.link ? listItem.link : null}>
                 <ListItemText className="primary-text" primary={listItem.primaryText} />
-              </a>
+              </Link>
             )}
           </ListItem>
         ))}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { CustomToolbar, CustomFooter, PageHeader } from "Components/";
+import { PageHeader } from "Components/";
 import { Button, Container, TextField } from "@material-ui/core";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
@@ -9,16 +9,6 @@ const ContactPage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <CustomToolbar
-        title={t("title")}
-        options={[
-          t("nav.about"),
-          t("nav.services"),
-          t("nav.projects"),
-          t("nav.careers"),
-          t("nav.contact")
-        ]}
-      />
       <PageHeader imagePath={contactImage} pageTitle="Contact" />
       <Container className="contact-page">
         <div className="contact-form">
@@ -62,7 +52,6 @@ const ContactPage = () => {
           </div>
         </div>
       </Container>
-      <CustomFooter />
     </>
   );
 };
