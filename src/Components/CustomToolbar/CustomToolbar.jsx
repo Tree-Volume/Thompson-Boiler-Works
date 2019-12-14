@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import "./CustomToolbar.scss";
@@ -24,9 +25,9 @@ const CustomToolbar = () => {
         </a>
         {options.map(value => {
           return (
-            <Button href={`/${value}`} key={value}>
-              {value}
-            </Button>
+            <Link to={`/${value}`}>
+              <Button key={value}>{value}</Button>
+            </Link>
           );
         })}
       </Toolbar>
