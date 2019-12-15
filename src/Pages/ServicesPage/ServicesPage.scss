@@ -2,8 +2,8 @@
 @import "Styles/Variables.scss";
 
 .services-page {
+    padding-bottom: $default-spacing * 5;
     .services-nav {
-
         margin: $default-spacing auto $default-spacing auto;
         text-align: center;
         color: $color-gray;
@@ -12,6 +12,31 @@
         }
         .MuiButton-label {
             color: $color-gray;
+        }
+    }
+    .flavor {
+        margin: $default-spacing 0 0 0;
+        .flavor-text {
+            font-weight: 300;
+        }
+    }
+    .service {
+        margin: $default-spacing * 2 0 $default-spacing * 3 0;
+        h2 {
+            font-size: $font-size-subtitle;
+            font-weight: 400;
+        }
+        .service-body {
+            float: left;
+            width: 35%;
+            font-weight: 300;
+        }
+        .service-image {
+            margin-left: auto;
+            img {
+                width: 430px;
+                height: 250px;
+            }
         }
     }
 }
