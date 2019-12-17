@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CustomToolbar, CustomFooter } from "Components/";
 import { ContactPage, LandingPage, AboutPage, ServicesPage } from "Pages/";
 import "./Styles/App.scss";
 
-function App() {
+const App = () => {
+  // to-do, setNotLanding to true when not on landing page
+  const [notLanding, setNotLanding] = useState(false);
   return (
     <Router>
       <div className="App">
-        <CustomToolbar />
+        <CustomToolbar notLanding={notLanding} />
         <Switch>
           <Route path="/About">
             <AboutPage />
@@ -27,6 +29,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
