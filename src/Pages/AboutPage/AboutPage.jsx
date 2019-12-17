@@ -9,7 +9,6 @@ const AboutPage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <CustomToolbar />
       <PageHeader imagePath={aboutImage} pageTitle={t("about.title")} />
       <Container className="about-page">
         <div className="about-section">
@@ -29,7 +28,6 @@ const AboutPage = () => {
           </div>
         </div>
       </Container>
-      <CustomFooter />
     </>
   );
 };
