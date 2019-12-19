@@ -13,16 +13,16 @@ const App = () => {
         <CustomToolbar notLanding={notLanding} />
         <Switch>
           <Route path="/About">
-            <AboutPage />
+            <AboutPage setNotLanding={setNotLanding} />
           </Route>
           <Route path="/Services">
             <ServicesPage />
           </Route>
           <Route path="/Contact">
-            <ContactPage />
+            <ContactPage setNotLanding={setNotLanding} />
           </Route>
           <Route path="/">
-            <LandingPage />
+            <LandingPage setNotLanding={setNotLanding} />
           </Route>
         </Switch>
         <CustomFooter />
