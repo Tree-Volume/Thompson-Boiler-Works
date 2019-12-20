@@ -6,7 +6,7 @@ import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
 const CustomToolbar = props => {
-  const [toolbarColor, setToolbarColor] = useState("#22222200");
+  const [toolbarColor, setToolbarColor] = useState("#0b121000");
   const { notLanding } = props;
   const { t } = useTranslation();
   const title = t("title");
@@ -19,7 +19,7 @@ const CustomToolbar = props => {
   ];
   // set toolbar to gray if not on landing
   useEffect(() => {
-    if (notLanding) setToolbarColor("#222222");
+    if (notLanding) setToolbarColor("#0b1210");
   }, [notLanding]);
   // update toolbar color on scroll
   window.addEventListener("scroll", () => {
@@ -27,10 +27,10 @@ const CustomToolbar = props => {
     if (!notLanding) {
       // if scroll is not at 0
       if (window.scrollY > 0)
-        setToolbarColor(`#222222${Math.min(Math.max(window.scrollY, 0), 255).toString(16)}`);
+        setToolbarColor(`#0b1210${Math.min(Math.max(window.scrollY, 0), 255).toString(16)}`);
       // if scroll is at zero, make toolbar transparent
       else setToolbarColor("transparent");
-    } else setToolbarColor("#222222");
+    } else setToolbarColor("#0b1210");
   });
   return (
     <AppBar className="toolbar" style={{ backgroundColor: toolbarColor }}>

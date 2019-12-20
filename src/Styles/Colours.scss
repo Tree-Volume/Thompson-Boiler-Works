@@ -10,3 +10,10 @@ $color-dm-link: #2734dd;
 
 $color-text-gray: #222222;
 $color-footer-subtitle: #c91331;
+
+:export {
+    color-primary: $color-primary;
+    color-secondary: $color-secondary;
+    color-gray: $color-gray;
+    color-white: $color-white;
+}
