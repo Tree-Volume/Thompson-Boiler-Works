@@ -1,42 +1,41 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 .services-page {
-    padding-bottom: $default-spacing * 5;
-    .services-nav {
-        margin: $default-spacing auto $default-spacing auto;
-        text-align: center;
-        color: $color-gray;
-        .row {
-            min-width: 50%;
-        }
-        .MuiButton-label {
-            color: $color-gray;
-        }
+  padding-bottom: $default-spacing;
+  margin-top: $default-spacing * 2 !important;
+
+  .services-nav {
+    margin: $default-spacing auto $default-spacing auto;
+    text-align: center;
+    color: $color-gray;
+
+    .row {
+      min-width: 50%;
     }
-    .flavor {
-        margin: $default-spacing 0 0 0;
-        .flavor-text {
-            font-weight: 300;
-        }
+
+    .MuiButton-label {
+      color: $color-gray;
     }
-    .service {
-        margin: $default-spacing * 2 0 $default-spacing * 3 0;
-        h2 {
-            font-size: $font-size-subtitle;
-            font-weight: 400;
-        }
-        .service-body {
-            float: left;
-            width: 35%;
-            font-weight: 300;
-        }
-        .service-image {
-            margin-left: auto;
-            img {
-                width: 430px;
-                height: 250px;
-            }
-        }
+  }
+  .linebreak {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  .flavor {
+    margin: $default-spacing * 4 0 $default-spacing * 2 0;
+
+    .flavor-text {
+      font-weight: 300;
     }
+  }
+
+  margin: $default-spacing * 2 0 $default-spacing * 3 0;
+  h2 {
+    font-size: $font-size-subtitle;
+    font-weight: 400;
+  }
 }

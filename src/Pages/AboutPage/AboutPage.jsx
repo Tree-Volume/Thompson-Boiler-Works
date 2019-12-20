@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomToolbar, CustomFooter, PageHeader } from "Components/";
+import { PageHeader } from "Components/";
 import { Container, Typography } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import aboutImage from "Assets/images/contact-page-header.jpg";
