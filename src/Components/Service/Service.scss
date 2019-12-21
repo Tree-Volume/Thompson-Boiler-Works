@@ -1,0 +1,55 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
+
+.service {
+    margin-top: $default-spacing;
+
+    .service-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $default-spacing * 2;
+      flex-wrap: wrap;
+
+      @include tablet {
+        flex-wrap: wrap;
+      }
+
+      @include desktop {
+        flex-wrap: nowrap;
+      }
+
+      .service-body,
+      .service-image {
+        min-width: 400px;
+      }
+
+      .service-body {
+        flex: 1;
+        padding-right: $default-spacing;
+
+        .service-body-text {
+          font-weight: 300;
+        }
+      }
+
+      .service-image {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        @include tablet {
+          justify-content: flex-end;
+        }
+
+        @include desktop {
+          justify-content: flex-end;
+        }
+
+        img {
+          max-width: 400px;
+          height: max-content;
+        }
+      }
+    }
+  }

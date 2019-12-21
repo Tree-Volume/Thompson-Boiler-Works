@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CustomToolbar, CustomFooter } from "Components/";
-import { ContactPage, LandingPage, AboutPage } from "Pages/";
+import { ContactPage, LandingPage, AboutPage, ServicesPage } from "Pages/";
 import "./Styles/App.scss";
 
 function App() {
@@ -12,6 +12,9 @@ function App() {
         <Switch>
           <Route path="/About">
             <AboutPage />
+          </Route>
+          <Route path="/Services">
+            <ServicesPage />
           </Route>
           <Route path="/Contact">
             <ContactPage />

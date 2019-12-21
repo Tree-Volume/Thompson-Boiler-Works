@@ -1,0 +1,42 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
+
+.services-page {
+  padding-bottom: $default-spacing;
+  margin-top: $default-spacing * 2 !important;
+
+  .services-nav {
+    margin: $default-spacing auto $default-spacing auto;
+    text-align: center;
+    color: $color-gray;
+
+    .row {
+      min-width: 50%;
+    }
+
+    .MuiButton-label {
+      color: $color-gray;
+    }
+  }
+  .linebreak {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  .flavor {
+    margin: $default-spacing * 4 0 $default-spacing * 2 0;
+
+    .flavor-text {
+      font-weight: 300;
+    }
+  }
+
+  margin: $default-spacing * 2 0 $default-spacing * 3 0;
+  h2 {
+    font-size: $font-size-subtitle;
+    font-weight: 400;
+  }
+}

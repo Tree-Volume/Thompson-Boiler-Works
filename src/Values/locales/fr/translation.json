@@ -26,6 +26,29 @@
       "button": "Learn more about our projects!"
     }
   },
+  "about": {
+    "title": "About",
+    "section": {
+      "one": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
+      "two": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat."
+    }
+  },
+  "services": {
+    "title": "Services",
+    "flavorText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "service": {
+      "one": {
+        "title": "Service 1",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
+        "imageAlt": "service 1"
+      },
+      "two": {
+        "title": "Service 2",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
+        "imageAlt": "service 2"
+      }
+    }
+  },
   "footer": {
     "connectList": {
       "title": "Connect",
