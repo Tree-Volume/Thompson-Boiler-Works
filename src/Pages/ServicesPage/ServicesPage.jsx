@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PageHeader, Service } from "Components/";
 import { Container, Typography, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import servicesImage from "Assets/images/contact-page-header.jpg";
 import "./ServicesPage.scss";
 
-const ServicesPage = () => {
+const ServicesPage = (props) => {
   const { t } = useTranslation();
+  useEffect(() => {
+    props.setNotLanding(true);
+  });
   return (
     <>
       <PageHeader imagePath={servicesImage} pageTitle={t("services.title")} />
