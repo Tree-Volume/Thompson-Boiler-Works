@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { PageHeader } from "Components/";
 import { Button, Container, TextField } from "@material-ui/core";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
-const ContactPage = () => {
+const ContactPage = props => {
   const { t } = useTranslation();
+  useEffect(() => {
+    props.setNotLanding(true);
+  });
   return (
     <>
       <PageHeader imagePath={contactImage} pageTitle="Contact" />

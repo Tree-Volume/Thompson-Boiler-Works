@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomDivider from "Components/CustomDivider/CustomDivider";
 import { Typography, Container, Button } from "@material-ui/core/";
 import { useTranslation } from "react-i18next";
@@ -11,8 +11,11 @@ const landingSectionServices = {
   backgroundImage: `url(${{ servicesBackground }})`
 };
 
-function LandingPage() {
+const LandingPage = props => {
   const { t } = useTranslation();
+  useEffect(() => {
+    props.setNotLanding(false);
+  });
   return (
     <div className="landing">
       <div className="landing-title">

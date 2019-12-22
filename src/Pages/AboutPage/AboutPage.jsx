@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PageHeader } from "Components/";
 import { Container, Typography } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import aboutImage from "Assets/images/contact-page-header.jpg";
 import "./AboutPage.scss";
 
-const AboutPage = () => {
+const AboutPage = props => {
   const { t } = useTranslation();
+  useEffect(() => {
+    props.setNotLanding(true);
+  });
   return (
     <>
       <PageHeader imagePath={aboutImage} pageTitle={t("about.title")} />

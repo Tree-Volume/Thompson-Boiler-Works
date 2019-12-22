@@ -1,32 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CustomToolbar, CustomFooter } from "Components/";
 import { ContactPage, LandingPage, AboutPage, ServicesPage } from "Pages/";
 import "./Styles/App.scss";
 
-function App() {
+const App = () => {
+  // to-do, setNotLanding to true when not on landing page
+  const [notLanding, setNotLanding] = useState(false);
   return (
     <Router>
       <div className="App">
-        <CustomToolbar />
+        <CustomToolbar notLanding={notLanding} />
         <Switch>
           <Route path="/About">
-            <AboutPage />
+            <AboutPage setNotLanding={setNotLanding} />
           </Route>
           <Route path="/Services">
             <ServicesPage />
           </Route>
           <Route path="/Contact">
-            <ContactPage />
+            <ContactPage setNotLanding={setNotLanding} />
           </Route>
           <Route path="/">
-            <LandingPage />
+            <LandingPage setNotLanding={setNotLanding} />
           </Route>
         </Switch>
         <CustomFooter />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
