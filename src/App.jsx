@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CustomToolbar, CustomFooter } from "Components/";
-import { ContactPage, LandingPage, AboutPage, ServicesPage } from "Pages/";
+import { ContactPage, LandingPage, AboutPage, CareersPage, ServicesPage } from "Pages/";
 import "./Styles/App.scss";
 
 const App = () => {
@@ -17,6 +17,9 @@ const App = () => {
           </Route>
           <Route path="/Services">
             <ServicesPage setNotLanding={setNotLanding} />
+          </Route>
+          <Route path="/Careers">
+            <CareersPage setNotLanding={setNotLanding} />
           </Route>
           <Route path="/Contact">
             <ContactPage setNotLanding={setNotLanding} />
