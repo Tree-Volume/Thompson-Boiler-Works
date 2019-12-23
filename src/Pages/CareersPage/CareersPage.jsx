@@ -29,15 +29,14 @@ const AboutPage = props => {
       <Container className="careers-page">
         <div className="flavor">
           <Typography align="center" className="flavor-text" variant="h5">
-            At Thompson Boiler Works we are constantly looking for new and passionate employees. If
-            you are interested in a possible position please fill out and attach your resume below!
+            {t("careers.flavorText")}
           </Typography>
         </div>
         <form>
           <div className="careers-form">
-            <TextField label="Name" variant="filled" />
-            <TextField label="Email" variant="filled" />
-            <TextField label="Body / Cover Letter" multiline rows="5" variant="filled" />
+            <TextField label={t("careers.labels.name")} variant="filled" />
+            <TextField label={t("careers.labels.email")} variant="filled" />
+            <TextField label={t("careers.labels.body")} multiline rows="5" variant="filled" />
             <RadioGroup
               aria-label="upload format"
               name="format"
@@ -48,19 +47,24 @@ const AboutPage = props => {
               <FormControlLabel
                 value="upload"
                 control={<Radio disableRipple />}
-                label="Upload a file"
+                label={t("careers.labels.upload")}
               />
               <FormControlLabel
                 value="paste"
                 control={<Radio control={<Radio disableRipple />} />}
-                label="Copy and Paste"
+                label={t("careers.labels.paste")}
               />
             </RadioGroup>
             <div className="careers-form-resume">
               {radioValue === "paste" ? (
-                <TextField label="Resume" multiline rows="10" variant="filled" />
+                <TextField
+                  label={t("careers.labels.resume")}
+                  multiline
+                  rows="10"
+                  variant="filled"
+                />
               ) : (
-                <DropzoneArea filesLimit={1} dropzoneText="Upload your resume" />
+                <DropzoneArea filesLimit={1} dropzoneText={t("careers.dropzoneText")} />
               )}
             </div>
           </div>
