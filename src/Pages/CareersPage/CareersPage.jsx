@@ -64,7 +64,11 @@ const AboutPage = props => {
                   variant="filled"
                 />
               ) : (
-                <DropzoneArea filesLimit={1} dropzoneText={t("careers.dropzoneText")} />
+                <DropzoneArea
+                  dropzoneClass="dropzone"
+                  filesLimit={1}
+                  dropzoneText={t("careers.dropzoneText")}
+                />
               )}
             </div>
           </div>

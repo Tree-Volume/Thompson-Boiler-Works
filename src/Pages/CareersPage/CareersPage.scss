@@ -21,11 +21,16 @@
     }
     .careers-form {
       min-width: 300px;
+      .dropzone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .careers-form-radios {
         margin-bottom: $default-spacing;
       }
       .MuiRadio-colorSecondary.Mui-checked {
-        color: $color-gray;
+        color: $color-primary;
       }
       .MuiTextField-root {
         padding-bottom: $default-spacing;
