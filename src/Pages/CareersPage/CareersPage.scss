@@ -2,6 +2,7 @@
 @import "Styles/Colours.scss";
 
 .careers-page {
+  padding-bottom: $default-spacing * 3;
   .flavor {
     margin: $default-spacing * 2 0 $default-spacing * 2 0;
 
@@ -15,7 +16,7 @@
     flex-direction: column;
     .submit {
       background: $color-secondary !important;
-      margin: $default-spacing 35% $default-spacing 35%;
+      margin: $default-spacing 25% $default-spacing 25%;
       padding: $default-spacing $default-spacing * 6 $default-spacing $default-spacing * 6;
     }
     .careers-form {
