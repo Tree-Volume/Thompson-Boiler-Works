@@ -21,9 +21,6 @@ const App = () => {
           <Route path="/Careers">
             <CareersPage setNotLanding={setNotLanding} />
           </Route>
-          <Route path="/Careers">
-            <CareersPage />
-          </Route>
           <Route path="/Contact">
             <ContactPage setNotLanding={setNotLanding} />
           </Route>
