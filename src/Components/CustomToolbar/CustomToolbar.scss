@@ -1,19 +1,19 @@
 @import "Styles/Colours.scss";
 
 .toolbar {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .toolbar-logo {
-    margin-right: auto;
-    margin: 5px auto 5px 0 ;
+  margin-right: auto;
+  margin: 5px auto 5px 0;
 }
 
 .toolbar-logo-image {
-    display: flex;
-    max-width: 200px;
+  display: flex;
+  max-width: 200px;
 }
 
 .MuiButton-label {
-    color: $color-white;
+  color: $color-white;
 }

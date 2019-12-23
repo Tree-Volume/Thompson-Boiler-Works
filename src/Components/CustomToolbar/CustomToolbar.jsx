@@ -33,7 +33,10 @@ const CustomToolbar = props => {
     } else setToolbarColor("#0b1210");
   });
   return (
-    <AppBar className="toolbar" style={{ backgroundColor: toolbarColor }}>
+    <AppBar
+      className="toolbar"
+      style={{ backgroundColor: toolbarColor, transition: "background-color 0.2s" }}
+    >
       <Toolbar>
         <a className="toolbar-logo" href="/">
           <div className="toolbar-logo-image">
@@ -42,8 +45,8 @@ const CustomToolbar = props => {
         </a>
         {options.map(value => {
           return (
-            <Link to={`/${value}`}>
-              <Button key={value}>{value}</Button>
+            <Link key={value} to={`/${value}`}>
+              <Button>{value}</Button>
             </Link>
           );
         })}
