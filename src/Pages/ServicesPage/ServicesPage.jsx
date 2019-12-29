@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import servicesImage from "Assets/images/contact-page-header.jpg";
 import "./ServicesPage.scss";
 
-const ServicesPage = (props) => {
+const ServicesPage = props => {
   const { t } = useTranslation();
   useEffect(() => {
     props.setNotLanding(true);
