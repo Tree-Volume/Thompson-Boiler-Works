@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CustomToolbar, CustomFooter } from "Components/";
-import { ContactPage, LandingPage, AboutPage, CareersPage, ServicesPage } from "Pages/";
+import {
+  ContactPage,
+  LandingPage,
+  AboutPage,
+  CareersPage,
+  ServicesPage,
+  ProjectsPage
+} from "Pages/";
 import "./Styles/App.scss";
 
 const App = () => {
@@ -23,6 +30,9 @@ const App = () => {
           </Route>
           <Route path="/Contact">
             <ContactPage setNotLanding={setNotLanding} />
+          </Route>
+          <Route path="/projects">
+            <ProjectsPage setNotLanding={setNotLanding} />
           </Route>
           <Route path="/">
             <LandingPage setNotLanding={setNotLanding} />
