@@ -1,0 +1,23 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
+
+.project-card {
+  margin: $default-spacing;
+  margin-bottom: $default-spacing * 2;
+  margin-top: 0;
+  width: 100%;
+
+  @include tablet {
+    width: 30%;
+    min-width: 250px;
+  }
+  @include desktop {
+    width: 30%;
+    min-width: 250px;
+  }
+
+  .MuiCardMedia-root {
+    height: 140px;
+  }
+}

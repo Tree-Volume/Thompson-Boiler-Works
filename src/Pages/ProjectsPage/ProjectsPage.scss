@@ -1,0 +1,23 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+
+.projects-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $default-spacing;
+
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .flavor {
+    margin: $default-spacing * 2 0 $default-spacing * 2 0;
+
+    .flavor-text {
+      font-weight: 300;
+    }
+  }
+}
