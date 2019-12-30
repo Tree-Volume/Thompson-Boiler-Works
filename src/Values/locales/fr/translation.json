@@ -46,11 +46,26 @@
         "title": "Service 2",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
         "imageAlt": "service 2"
+      },
+      "three": {
+        "title": "Service 3",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
+        "imageAlt": "service 3"
       }
     }
   },
   "careers": {
-    "title": "Careers"
+    "title": "Careers",
+    "flavorText": "At Thompson Boiler Works we are constantly looking for new and passionate employees. If you are interested in a possible position please fill out and attach your resume below!",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "body": "Body / Cover Letter",
+      "upload": "Upload a file",
+      "paste": "Copy and Paste",
+      "resume": "Resume"
+    },
+    "dropzoneText": "Upload your resume"
   },
   "footer": {
     "connectList": {
