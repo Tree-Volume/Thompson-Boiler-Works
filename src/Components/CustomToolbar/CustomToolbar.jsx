@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import routerPaths from "Utils/RouterPaths";
 import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
@@ -20,6 +21,7 @@ const CustomToolbar = props => {
   // set toolbar to gray if not on landing
   useEffect(() => {
     if (notLanding) setToolbarColor("#0b1210");
+    else setToolbarColor("transparent");
   }, [notLanding]);
   // update toolbar color on scroll
   window.addEventListener("scroll", () => {
@@ -38,15 +40,15 @@ const CustomToolbar = props => {
       style={{ backgroundColor: toolbarColor, transition: "background-color 0.2s" }}
     >
       <Toolbar>
-        <a className="toolbar-logo" href="/">
+        <Link className="toolbar-logo" to={routerPaths.LANDING}>
           <div className="toolbar-logo-image">
             <img src={logo} alt={title} />
           </div>
-        </a>
+        </Link>
         {options.map(value => {
           return (
-            <Link to={`/${value.toLowerCase()}`}>
-              <Button key={value}>{value}</Button>
+            <Link key={value} to={`/${value.toLowerCase()}`}>
+              <Button>{value}</Button>
             </Link>
           );
         })}
