@@ -1,10 +1,10 @@
-const routerPaths = {
-  CONTACT: "/Contact",
-  ABOUT: "/About",
-  SERVICES: "/Services",
-  PROJECTS: "/Projects",
-  CAREERS: "/Careers",
+const RouterPaths = {
+  CONTACT: "/contact",
+  ABOUT: "/about",
+  SERVICES: "/services",
+  PROJECTS: "/projects",
+  CAREERS: "/careers",
   LANDING: "/"
 };
 
-export default routerPaths;
+export default RouterPaths;
