@@ -10,10 +10,8 @@
     margin: $default-spacing auto $default-spacing auto;
     text-align: center;
     color: $color-gray;
-
-    .row {
-      min-width: 50%;
-    }
+    max-width: 50%;
+    min-width: 400px;
 
     .MuiButton-label {
       color: $color-gray;
