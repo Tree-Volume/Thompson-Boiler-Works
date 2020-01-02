@@ -45,8 +45,8 @@ const CustomToolbar = props => {
         </a>
         {options.map(value => {
           return (
-            <Link key={value} to={`/${value}`}>
-              <Button>{value}</Button>
+            <Link to={`/${value.toLowerCase()}`}>
+              <Button key={value}>{value}</Button>
             </Link>
           );
         })}
