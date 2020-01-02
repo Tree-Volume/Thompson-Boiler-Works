@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CustomToolbar, CustomFooter } from "Components/";
+import { RouterPaths, ScrollToTop } from "Utils";
 import {
   ContactPage,
   LandingPage,
@@ -16,25 +17,26 @@ const App = () => {
   const [notLanding, setNotLanding] = useState(false);
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <CustomToolbar notLanding={notLanding} />
         <Switch>
-          <Route path="/About">
+          <Route path={RouterPaths.ABOUT}>
             <AboutPage setNotLanding={setNotLanding} />
           </Route>
-          <Route path="/Services">
+          <Route path={RouterPaths.SERVICES}>
             <ServicesPage setNotLanding={setNotLanding} />
           </Route>
-          <Route path="/Careers">
+          <Route path={RouterPaths.CAREERS}>
             <CareersPage setNotLanding={setNotLanding} />
           </Route>
-          <Route path="/Contact">
+          <Route path={RouterPaths.CONTACT}>
             <ContactPage setNotLanding={setNotLanding} />
           </Route>
-          <Route path="/projects">
+          <Route path={RouterPaths.PROJECTS}>
             <ProjectsPage setNotLanding={setNotLanding} />
           </Route>
-          <Route path="/">
+          <Route path={RouterPaths.LANDING}>
             <LandingPage setNotLanding={setNotLanding} />
           </Route>
         </Switch>
