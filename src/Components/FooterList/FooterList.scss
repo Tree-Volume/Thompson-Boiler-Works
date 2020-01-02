@@ -33,12 +33,12 @@
       &:hover {
         opacity: 0.7;
       }
+    }
 
-      .primary-text {
-        flex: initial;
-        color: $color-white;
-        font-size: $font-size-links;
-      }
+    .primary-text {
+      flex: initial;
+      color: $color-white;
+      font-size: $font-size-links;
     }
   }
 }
