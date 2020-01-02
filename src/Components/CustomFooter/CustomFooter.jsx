@@ -4,7 +4,7 @@ import { Email, LocationOn, Phone } from "@material-ui/icons";
 import { FooterList } from "Components/";
 import { useTranslation } from "react-i18next";
 import logo from "Assets/images/tbw-logo.png";
-import routerPaths from "Utils/RouterPaths";
+import { RouterPaths } from "Utils";
 import "./CustomFooter.scss";
 
 const CustomFooter = () => {
@@ -30,15 +30,15 @@ const CustomFooter = () => {
   const linksList = [
     {
       primaryText: t("nav.services"),
-      link: routerPaths.SERVICES
+      link: RouterPaths.SERVICES
     },
     {
       primaryText: t("nav.projects"),
-      link: routerPaths.PROJECTS
+      link: RouterPaths.PROJECTS
     },
     {
       primaryText: t("nav.careers"),
-      link: routerPaths.CAREERS
+      link: RouterPaths.CAREERS
     }
   ];
 
