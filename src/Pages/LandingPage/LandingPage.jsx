@@ -72,6 +72,6 @@ const LandingPage = props => {
       </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

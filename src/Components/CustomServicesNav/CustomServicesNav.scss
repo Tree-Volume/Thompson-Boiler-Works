@@ -1,0 +1,14 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+
+.services-nav {
+    margin: $default-spacing auto $default-spacing auto;
+    text-align: center;
+    color: $color-gray;
+    max-width: 50%;
+    min-width: 400px;
+
+    .MuiButton-label {
+        color: $color-text-gray;
+    }
+}
