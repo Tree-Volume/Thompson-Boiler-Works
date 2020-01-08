@@ -5,18 +5,6 @@
 .services-page {
   padding-bottom: $default-spacing;
   margin-top: $default-spacing * 2 !important;
-
-  .services-nav {
-    margin: $default-spacing auto $default-spacing auto;
-    text-align: center;
-    color: $color-gray;
-    max-width: 50%;
-    min-width: 400px;
-
-    .MuiButton-label {
-      color: $color-gray;
-    }
-  }
   .linebreak {
     box-sizing: border-box;
     position: absolute;
