@@ -69,7 +69,7 @@ const CustomFooter = () => {
           <FooterList listItems={hoursList} />
         </div>
         <div className="footer-column">
-          <img className="footer-logo" src={logo} alt="temp" />
+          <img className="footer-logo" src={logo} alt="thompson boiler works logo" />
         </div>
       </Container>
     </div>
