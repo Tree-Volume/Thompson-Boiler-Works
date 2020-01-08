@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import CustomDivider from "Components/CustomDivider/CustomDivider";
 import { Typography, Container, Button } from "@material-ui/core/";
+import { Link } from "react-router-dom";
+import routerPaths from "Utils/RouterPaths";
 import { useTranslation } from "react-i18next";
 import landing from "Assets/images/landing.png";
 import servicesBackground from "Assets/images/divider.png";
@@ -33,7 +35,9 @@ const LandingPage = props => {
           <Typography className="landing-section-body" variant="h6">
             {t("landing.about.body")}
           </Typography>
-          <Button variant="contained">{t("landing.about.button")}</Button>
+          <Link to={routerPaths.ABOUT}>
+            <Button variant="contained">{t("landing.about.button")}</Button>
+          </Link>
         </Container>
       </div>
       <div style={landingSectionServices} className="landing-section">
@@ -50,7 +54,9 @@ const LandingPage = props => {
               <Typography variant="h6">{t("landing.services.imageCaption")}</Typography>
             </div>
           </div>
-          <Button variant="contained">{t("landing.services.button")}</Button>
+          <Link to={routerPaths.SERVICES}>
+            <Button variant="contained">{t("landing.services.button")}</Button>
+          </Link>
         </Container>
       </div>
       <div className="landing-section">
@@ -67,7 +73,9 @@ const LandingPage = props => {
             <img src={landing} alt="projects" />
             <img src={landing} alt="projects" />
           </div>
-          <Button variant="contained">{t("landing.projects.button")}</Button>
+          <Link to={routerPaths.PROJECTS}>
+            <Button variant="contained">{t("landing.projects.button")}</Button>
+          </Link>
         </Container>
       </div>
     </div>
