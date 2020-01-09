@@ -50,7 +50,7 @@ const LandingPage = props => {
               {t("landing.services.body")}
             </Typography>
             <div className="landing-services-image">
-              <img src={landing} alt="services" />
+              <img src={landing} alt={t("landing.services.imageAlt")} />
               <Typography variant="h6">{t("landing.services.imageCaption")}</Typography>
             </div>
           </div>
@@ -68,10 +68,10 @@ const LandingPage = props => {
             {t("landing.projects.body")}
           </Typography>
           <div className="landing-projects-image">
-            <img src={landing} alt="projects" />
-            <img src={landing} alt="projects" />
-            <img src={landing} alt="projects" />
-            <img src={landing} alt="projects" />
+            <img src={landing} alt={t("landing.projects.imageAlt.one")} />
+            <img src={landing} alt={t("landing.projects.imageAlt.two")} />
+            <img src={landing} alt={t("landing.projects.imageAlt.three")} />
+            <img src={landing} alt={t("landing.projects.imageAlt.four")} />
           </div>
           <Link to={routerPaths.PROJECTS}>
             <Button variant="contained">{t("landing.projects.button")}</Button>

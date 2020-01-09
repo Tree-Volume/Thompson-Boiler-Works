@@ -7,6 +7,7 @@ import "./AboutPage.scss";
 
 const AboutPage = props => {
   const { t } = useTranslation();
+  const aboutObject = t("about.section", { returnObjects: true });
   useEffect(() => {
     props.setNotLanding(true);
   });
@@ -14,22 +15,17 @@ const AboutPage = props => {
     <>
       <PageHeader imagePath={aboutImage} pageTitle={t("about.title")} />
       <Container className="about-page">
-        <div className="about-section">
-          <Typography className="about-section-text" variant="h6">
-            {t("about.section.one")}
-          </Typography>
-          <div className="about-section-image">
-            <img src={aboutImage} alt="about 1" />
-          </div>
-        </div>
-        <div className="about-section">
-          <Typography className="about-section-text" variant="h6">
-            {t("about.section.two")}
-          </Typography>
-          <div className="about-section-image">
-            <img src={aboutImage} alt="about 2" />
-          </div>
-        </div>
+        {aboutObject != null &&
+          Object.keys(aboutObject).map(key => (
+            <div className="about-section">
+              <Typography className="about-section-text" variant="h6">
+                {t(`about.section.${key}.body`)}
+              </Typography>
+              <div className="about-section-image">
+                <img src={aboutImage} alt={t(`about.section.${key}.imageAlt`)} />
+              </div>
+            </div>
+          ))}
       </Container>
     </>
   );

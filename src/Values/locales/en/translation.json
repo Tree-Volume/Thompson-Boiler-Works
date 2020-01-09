@@ -18,19 +18,32 @@
       "title": "Services",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
       "imageCaption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "button": "Learn more about our services!"
+      "button": "Learn more about our services!",
+      "imageAlt": "alt text"
     },
     "projects": {
       "title": "Projects",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
-      "button": "Learn more about our projects!"
+      "button": "Learn more about our projects!",
+      "imageAlt": {
+        "one": "project 1",
+        "two": "project 2",
+        "three": "project 3",
+        "four": "project 4"
+      }
     }
   },
   "about": {
     "title": "About",
     "section": {
-      "one": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
-      "two": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat."
+      "one": {
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
+        "imageAlt": "alt text"
+      },
+      "two": {
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor urna quissapien rutrum volutpat. Nullam lectus magna, lacinia nec orci quis, cursus convallismagna. Cras dictum laoreet tellus a rutrum. Donec ac commodo augue. Donec enim metus,fringilla id suscipit ac, malesuada non ligula. Aenean ultricies quam ut sem eleifend,quis condimentum diam rutrum. Duis pulvinar at turpis vitae dignissim. Proin vehiculadignissim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiamporttitor urna quis sapien rutrum volutpat.",
+        "imageAlt": "alt text"
+      }
     }
   },
   "services": {
@@ -107,7 +120,8 @@
       "weekends": "Saturday-Sunday",
       "weekdayTimes": "5:00am-9:00pm",
       "weekendTimes": "Closed"
-    }
+    },
+    "imageAlt": "thompson boiler works logo"
   },
   "contact": {
     "form": {
