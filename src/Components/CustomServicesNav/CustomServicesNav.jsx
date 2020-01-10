@@ -5,6 +5,13 @@ import "./CustomServicesNav.scss";
 
 const CustomServicesNav = props => {
   const { t } = useTranslation();
+  const handleClick = index => {
+    const serviceRefs = props.serviceRefs;
+    window.scrollTo({
+      top: serviceRefs.current[index].current.offsetTop - 125,
+      behavior: "smooth"
+    });
+  };
   const buildNav = () => {
     const servicesKeys = Object.keys(props.servicesObject);
     const nav = [];
@@ -14,7 +21,9 @@ const CustomServicesNav = props => {
         <div className="row">
           {keySplice.map((key, index) => (
             <>
-              <Button key={key}>{t(`services.service.${key}.title`)}</Button>
+              <Button key={key} onClick={() => handleClick(index)}>
+                {t(`services.service.${key}.title`)}{" "}
+              </Button>
               {index + 1 !== keySplice.length && <span>|</span>}
             </>
           ))}

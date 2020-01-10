@@ -3,9 +3,9 @@ import { Container, Typography } from "@material-ui/core";
 import "./Service.scss";
 
 const Service = props => {
-  const { title, content, image, imageAlt } = props;
+  const { reference, title, content, image, imageAlt } = props;
   return (
-    <div className="service">
+    <div ref={reference} className="service">
       <Container className="service-container">
         <div className="service-body">
           <Typography variant="h2">{title}</Typography>
