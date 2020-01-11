@@ -18,9 +18,8 @@ const ServicesPage = props => {
   return (
     <>
       <PageHeader imagePath={servicesImage} pageTitle={t("services.title")} />
+      <CustomServicesNav servicesObject={servicesObject} serviceRefs={serviceRefs} />
       <Container className="services-page">
-        <CustomServicesNav servicesObject={servicesObject} serviceRefs={serviceRefs} />
-        <hr className="linebreak" />
         <div className="flavor">
           <Typography align="center" variant="h6" className="flavor-text">
             {t("services.flavorText")}

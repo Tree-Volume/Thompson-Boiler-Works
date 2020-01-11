@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@material-ui/core/";
+import { Link, Typography } from "@material-ui/core/";
 import "./CustomServicesNav.scss";
 
 const CustomServicesNav = props => {
   const { t } = useTranslation();
+  const navRef = useRef(null);
+  let fixed = false;
+  window.addEventListener("scroll", () => {
+    var className = navRef.current.className;
+    if ((window.scrollY >= 280)){
+      if (!fixed) {
+        fixed = true;
+        navRef.current.className += " fixed";
+      }
+    } else {
+      fixed = false;
+      navRef.current.className = className.replace("fixed", "");
+    }
+  });
   const handleClick = index => {
     const serviceRefs = props.serviceRefs;
     window.scrollTo({
@@ -20,19 +34,22 @@ const CustomServicesNav = props => {
       nav.push(
         <div className="row">
           {keySplice.map((key, index) => (
-            <>
-              <Button key={key} onClick={() => handleClick(index)}>
-                {t(`services.service.${key}.title`)}{" "}
-              </Button>
-              {index + 1 !== keySplice.length && <span>|</span>}
-            </>
+            <Link component="button" key={key} onClick={() => handleClick(index)}>
+              <Typography variant="h3">{t(`services.service.${key}.title`)}</Typography>
+            </Link>
           ))}
         </div>
       );
     } while (servicesKeys.length > 0);
     return nav;
   };
-  return <div className="services-nav">{buildNav()}</div>;
+  return (
+    <div ref={navRef} className="services-nav">
+      <Typography variant="h2">Our Services</Typography>
+      <hr></hr>
+      {buildNav()}
+    </div>
+  );
 };
 
 export default CustomServicesNav;

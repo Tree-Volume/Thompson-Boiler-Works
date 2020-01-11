@@ -1,14 +1,28 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
-
 .services-nav {
-    margin: $default-spacing auto $default-spacing auto;
-    text-align: center;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    padding-left: $default-spacing * 7;
+    padding-top: $default-spacing * 4;
     color: $color-gray;
-    max-width: 50%;
-    min-width: 400px;
-
-    .MuiButton-label {
-        color: $color-text-gray;
+    h2 {
+        font-size: $font-size-subtitle;
+        color: black;
     }
+    .MuiLink-root {
+        margin-bottom: $default-spacing / 2;
+        display: block;
+        color: $color-gray;
+        h3 {
+            font-size: $font-size-links;
+            font-weight: 300;
+        }
+    }
+}
+
+.fixed {
+    top: 100px;
+    position: fixed;
 }
