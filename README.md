@@ -1,68 +1,96 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Thompson Boiler Works
+<img src="TBW-mockups.png" width="100%" />
 
-## Available Scripts
+## Table of Contents
+- [About the Repo](#about-the-repo)
+- [Getting Started](#getting-started)
+- [Code Structure](#code-structure)
+- [Tech](#tech)
+- [Deployment](#deployment)
+- [Contributors](#contributors)
+- [License](#license)
 
-In the project directory, you can run:
 
-### `npm start`
+## About the Repo
+This repo shows the development state of the website built at [ThompsonBoilerWorks.ca](https://ThompsonBoilerWorks.ca).
 
-Runs the app in the development mode.<br>
+Despite being available on github, this repo is intended as a read-only resource and has been licensed as such. Permissions are not given to use or modify this software.
+
+## Getting Started
+*This section is intended for usage of future developers or upon permissional changes.*
+
+After cloning the repo to your local machine enter the `frontend` directory and run `npm install`.
+
+Having completed this, in the root directory run `docker-compose up`.
+
+This runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+## Code Structure
+```
+.
+├── backend
+│   ├── .gitignore          # Files that should not be posted to git (ex. npm modules)
+│   ├── Dockerfile          # Backend container configs
+│   ├── package.json        # Backend code dependencies
+│   ├── server.js           # Main app file starting and handling node server.
+│   └── ...
+├── frontend                
+│   ├── public              # Static assets that are deployed as-is when built
+│   ├── src                 # Code directory for frontend container
+│   │   ├── Assets          # Static assets (images, icons)
+│   │   ├── Components      # Non-page level react components (ex. navbar)
+│   │   ├── Pages           # React component pages (ex. about, contact)
+│   │   ├── Styles          # Global styles and SCSS mixins
+│   │   ├── Utils           # Reusable functions and globals\
+│   │   ├── Values          # Localization data (language translations)
+│   │   ├── App.jsx         # Main app file composing the entire application
+│   │   └── ...
+│   ├── .gitignore          # Files that should not be posted to git (ex. npm modules)
+│   ├── jsconfig.json       # Project config (enables absolute path imports)
+│   ├── Dockerfile          # Frontend container configs
+│   ├── package.json        # Frontend code dependencies
+│   └── ...
+├── .eslintrc               # Airbnb Eslint configs/rules
+├── .prettierrc             # Prettier configs/rules
+├── docker-compose.yaml     # Container runner and configurations
+└── ...
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech
+Frontend: 
+- [React](https://reactjs.org/)
+- [Material-ui](https://material-ui.com/)
+- [SCSS](https://sass-lang.com/)
 
-### `npm run build`
+Backend:
+- [Node](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+DevOps:
+- [Docker-compose](https://docs.docker.com/compose/)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Linting and Formatting: 
+- [Airbnb style guide](https://airbnb.io/javascript/react/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Deployment
+This website is currently deployed onto Amazon Web Services by making use of the free plans 750 hours of free EC2 usage.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+//more to come
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contributors
+- Eros Di Pede
+  + [github ](https://github.com/ForkBombGIT)
+  + [website](https://erosdipede.me/)
+- Josh Gorman
+  + [github](https://github.com/Liannus)
+  + [website](https://joshgorman.ca/)
+  
+## License
+As this code is currently unlicensed, no permissions are given to use or modify this software.
