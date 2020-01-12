@@ -39,8 +39,7 @@ const CustomToolbar = props => {
     // if on landing, else set toolbar to non transparent gray
     if (!notLanding) {
       // if scroll is not at 0
-      if (window.scrollY > 0)
-        setToolbarColor(`#0b1210${Math.min(Math.max(window.scrollY, 0), 255).toString(16)}`);
+      if (window.scrollY > 0) setToolbarColor(`#0b1210`);
       // if scroll is at zero, make toolbar transparent
       else setToolbarColor("transparent");
     } else setToolbarColor("#0b1210");
@@ -48,7 +47,7 @@ const CustomToolbar = props => {
   return (
     <AppBar
       className="toolbar"
-      style={{ backgroundColor: toolbarColor, transition: "background-color 0.2s" }}
+      style={{ backgroundColor: toolbarColor, transition: "background-color 0.5s" }}
     >
       <Toolbar>
         <Link className="toolbar-logo" to={RouterPaths.LANDING}>
