@@ -23,20 +23,15 @@ const ContactPage = props => {
           <Button variant="contained">{t("contact.form.button")}</Button>
         </div>
         <div className="contact-info">
-          {/*
-            The google maps embed that needs an api key
-
-            <iframe
-              title="map"
-              width="600"
-              height="450"
-              frameBorder="0"
-              style={{ border: 0 }}
-              src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZy1pVWMKzkwRzSNkeLZIx5s&key=..."
-              allowFullScreen
-            />
-          */}
-          <h1 className="google emebed">GOOGLE EMBED HERE</h1>
+          <iframe
+            title="map"
+            width="100%"
+            height="50%"
+            frameBorder="0"
+            style={{ border: 0 }}
+            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZy1pVWMKzkwRzSNkeLZIx5s&key="
+            allowFullScreen
+          />
           <div className="contact-info-div">
             <h2 className="contact-info-title">{t("contact.info.company")}</h2>
             <p className="contact-info-text">
