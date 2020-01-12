@@ -27,7 +27,7 @@ const LandingPage = props => {
         </div>
       </div>
       <CustomDivider />
-      <div className="landing-section">
+      <div id="top-section" className="landing-section">
         <Container>
           <Typography variant="h2" align="center">
             {t("landing.about.title")}
