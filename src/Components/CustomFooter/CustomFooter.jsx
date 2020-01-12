@@ -29,6 +29,10 @@ const CustomFooter = () => {
   const linkTitle = t("footer.linksList.title");
   const linksList = [
     {
+      primaryText: t("nav.about"),
+      link: RouterPaths.ABOUT
+    },
+    {
       primaryText: t("nav.services"),
       link: RouterPaths.SERVICES
     },
