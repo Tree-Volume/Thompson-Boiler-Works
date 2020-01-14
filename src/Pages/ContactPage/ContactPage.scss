@@ -63,6 +63,9 @@
       margin-left: $default-spacing;
     }
 
+    iframe {
+      margin: $font-size-subtitle * 1.2 0 $default-spacing 0;
+    }
     .contact-info-div {
       .contact-info-title {
         font: bold $font-size-subtitle Roboto;
