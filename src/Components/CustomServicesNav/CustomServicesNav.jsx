@@ -51,7 +51,6 @@ const CustomServicesNav = props => {
   return (
     <div ref={navRef} className="services-nav">
       <Typography variant="h2">Our Services</Typography>
-      <hr></hr>
       {buildNav()}
     </div>
   );
