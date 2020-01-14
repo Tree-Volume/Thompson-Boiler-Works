@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { PageHeader, Service } from "Components/";
 import { Container, Typography } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -12,20 +12,23 @@ const ServicesPage = props => {
     props.setNotLanding(true);
   });
   const servicesObject = t("services.service", { returnObjects: true });
+  const serviceRefs = useRef(
+    Array.from({ length: Object.keys(servicesObject).length }, () => React.createRef())
+  );
   return (
     <>
       <PageHeader imagePath={servicesImage} pageTitle={t("services.title")} />
+      <CustomServicesNav servicesObject={servicesObject} serviceRefs={serviceRefs} />
       <Container className="services-page">
-        <CustomServicesNav servicesObject={servicesObject} />
-        <hr className="linebreak" />
         <div className="flavor">
           <Typography align="center" variant="h6" className="flavor-text">
             {t("services.flavorText")}
           </Typography>
         </div>
         {servicesObject != null &&
-          Object.keys(servicesObject).map(key => (
+          Object.keys(servicesObject).map((key, index) => (
             <Service
+              reference={serviceRefs.current[index]}
               key={key}
               title={t(`services.service.${key}.title`)}
               content={t(`services.service.${key}.body`)}
