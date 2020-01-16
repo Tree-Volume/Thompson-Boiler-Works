@@ -1,29 +1,29 @@
 version: "3.7"
 services:
-    reverseproxy:
-        build: ./reverseproxy
-        container_name: reverseproxy
-        depends_on:
-            - frontend
-            - backend
-        ports:
-            - "80:80"
-    backend:
-        build: ./backend
-        container_name: backend
-        command: npm start
-        volumes:
-            - ./backend/:/backend
-            - backend-modules:/backend/node_modules
-    frontend:
-        build: ./frontend
-        container_name: frontend
-        command: npm start
-        ports:
-            - 3000:3000
-        volumes:
-            - ./frontend/:/frontend
-            - frontend-modules:/frontend/node_modules
+  reverseproxy:
+    build: ./reverseproxy
+    container_name: reverseproxy
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - "80:80"
+  backend:
+    build: ./backend
+    container_name: backend
+    command: npm start
+    volumes:
+      - ./backend/:/backend
+      - backend-modules:/backend/node_modules
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    command: npm start
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/:/frontend
+      - frontend-modules:/frontend/node_modules
 volumes:
-    backend-modules:
-    frontend-modules:
+  backend-modules:
+  frontend-modules:
