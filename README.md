@@ -1,4 +1,4 @@
-## Thompson Boiler Works
+# Thompson Boiler Works
 <img src="TBW-mockups.png" width="100%" />
 
 ## Table of Contents
