@@ -1,7 +1,9 @@
 {
   "env": {
     "browser": true,
-    "node": true
+    "es6": true,
+    "node": true,
+    "commonjs": true
   },
   "extends": ["airbnb", "plugin:prettier/recommended"],
   "settings": {
@@ -13,7 +15,6 @@
   },
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
-    "react/prop-types": "off"
+    "prettier/prettier": "error"
   }
 }
