@@ -1,5 +1,8 @@
 FROM node:current-alpine
 
+ARG ENV
+ENV NODE_ENV ${ENV}
+
 RUN mkdir /frontend
 WORKDIR /frontend
 
