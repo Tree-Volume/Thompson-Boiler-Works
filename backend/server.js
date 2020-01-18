@@ -10,8 +10,9 @@ const transporter = nodemailer.createTransport({
 });
 
 const app = express();
+const router = express.Router();
 
-app.post("/email", (req,res) => {
+router.post("/email", (req, res) => {
   const options = {
     from: req.body.from,
     to: email,
@@ -21,6 +22,8 @@ app.post("/email", (req,res) => {
 
   transporter.sendMail(options, (error, info) => {});
 });
+
+app.use("/api", router);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
