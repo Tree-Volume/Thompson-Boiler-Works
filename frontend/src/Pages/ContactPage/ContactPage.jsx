@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { PageHeader } from "Components/";
 import { Button, Container, TextField } from "@material-ui/core";
+import sendEmail from "Utils/EmailSending";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
@@ -20,7 +21,9 @@ const ContactPage = props => {
           <TextField label={t("contact.form.email")} variant="filled" />
           <TextField label={t("contact.form.subject")} variant="filled" />
           <TextField label={t("contact.form.body")} multiline rows="5" variant="filled" />
-          <Button variant="contained">{t("contact.form.button")}</Button>
+          <Button variant="contained" onClick={sendEmail}>
+            {t("contact.form.button")}
+          </Button>
         </div>
         <div className="contact-info">
           <iframe
