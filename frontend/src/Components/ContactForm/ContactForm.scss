@@ -1,0 +1,45 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+
+.contact-form,
+.contact-info {
+  flex: 1;
+  flex-direction: column;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-form {
+  .contact-form-title {
+    font-size: $font-size-subtitle * 1.2;
+    font-family: "Roboto Condensed";
+    color: $color-text-gray;
+  }
+
+  button {
+    background: $color-secondary !important;
+    margin: $default-spacing 25% $default-spacing 25%;
+    padding: $default-spacing 100px $default-spacing 100px;
+  }
+
+  .MuiTextField-root {
+    padding-bottom: $default-spacing;
+    width: 80%;
+    max-width: 400px;
+
+    .MuiFilledInput-underline {
+      border-radius: 0;
+
+      &::after {
+        border-color: black;
+      }
+    }
+
+    .MuiInputLabel-filled {
+      &.Mui-focused {
+        color: black;
+      }
+    }
+  }
+}
