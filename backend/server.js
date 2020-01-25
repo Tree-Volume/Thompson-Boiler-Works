@@ -40,9 +40,11 @@ router.post("/email", (req, res) => {
   const body = emailObject.body;
   const options = {
     from: email,
-    to: "",
+    to: "erosdipede@gmail.com",
     subject: subject,
-    html: body
+    html:`<h1>${emailObject.subject}</h1>
+          <p>From: ${emailObject.name} (${emailObject.from})</p>
+          <p>${body}</p>`
   };
 
   transporter.sendMail(options, (error, info) => {
