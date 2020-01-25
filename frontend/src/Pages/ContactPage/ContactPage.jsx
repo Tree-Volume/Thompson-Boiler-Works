@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { PageHeader } from "Components/";
-import { Button, Container, TextField } from "@material-ui/core";
+import { PageHeader, ContactForm } from "Components/";
+import { Container } from "@material-ui/core";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
@@ -14,14 +14,7 @@ const ContactPage = props => {
     <>
       <PageHeader imagePath={contactImage} pageTitle="Contact" />
       <Container className="contact-page">
-        <div className="contact-form">
-          <p className="contact-form-title">{t("contact.form.tagline")}</p>
-          <TextField label={t("contact.form.name")} variant="filled" />
-          <TextField label={t("contact.form.email")} variant="filled" />
-          <TextField label={t("contact.form.subject")} variant="filled" />
-          <TextField label={t("contact.form.body")} multiline rows="5" variant="filled" />
-          <Button variant="contained">{t("contact.form.button")}</Button>
-        </div>
+        <ContactForm />
         <div className="contact-info">
           <iframe
             title="map"

@@ -5,3 +5,4 @@ export { default as FooterList } from "./FooterList";
 export { default as Service } from "./Service";
 export { default as CustomServicesNav } from "./CustomServicesNav";
 export { default as Project } from "./Project";
+export { default as ContactForm } from "./ContactForm";

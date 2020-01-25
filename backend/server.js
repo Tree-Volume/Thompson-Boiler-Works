@@ -1,26 +1,57 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
-
-const email = "tbw@thompsonboilerworks.ca";
-
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const oauth2Client = new OAuth2(
+  "",
+  "",
+  "https://developers.google.com/oauthplayground"
+);
+oauth2Client.setCredentials({
+  refresh_token:
+    ""
+});
+const accessToken = oauth2Client.getAccessToken();
 const port = 5000;
+const email = "";
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  auth: {}
+  auth: {
+    type: "OAuth2",
+    user: "",
+    clientId: "",
+    clientSecret: "",
+    refreshToken:
+      "",
+    accessToken: accessToken
+  }
 });
 
 const app = express();
 const router = express.Router();
+app.use(express.json());
 
 router.post("/email", (req, res) => {
+  const emailObject = req.body.emailObject;
+  let subject = `TBW-WEBSITE - ${emailObject.origin} - FROM: ${emailObject.name} ${
+    emailObject.origin === "CONTACT" ? `REGARDING:${emailObject.subject}` : ""
+  }`;
+
+  const body = emailObject.body;
   const options = {
-    from: req.body.from,
-    to: email,
-    subject: req.body.subject,
-    body: req.body.body
+    from: email,
+    to: "erosdipede@gmail.com",
+    subject: subject,
+    html:`<h1>${emailObject.subject}</h1>
+          <p>From: ${emailObject.name} (${emailObject.from})</p>
+          <p>${body}</p>`
   };
 
-  transporter.sendMail(options, (error, info) => {});
+  transporter.sendMail(options, (error, info) => {
+    if (error) res.status(500).send(error.message);
+    transporter.close();
+    res.send(info);
+  });
 });
 
 app.use("/api", router);
