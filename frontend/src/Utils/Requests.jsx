@@ -6,9 +6,9 @@ const sendEmail = emailParameters => {
     name: emailParameters.name,
     from: emailParameters.from,
     subject: emailParameters.subject,
-    body: emailParameters.body
+    body: emailParameters.body,
+    resumeText: emailParameters.resumeText
   };
-  console.log(emailParameters)
   axios
     .post(
       "/api/email",
@@ -27,4 +27,25 @@ const sendEmail = emailParameters => {
     });
 };
 
-export default sendEmail;
+const sendFile = file => {
+  let formData = new FormData();
+  formData.append("resume", file);
+  axios
+    .post(
+      "/api/file",
+      { formData },
+      {
+        headers: {
+          "Content-Type": 'multipart/form-data'
+        }
+      }
+    )
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export { sendEmail, sendFile };

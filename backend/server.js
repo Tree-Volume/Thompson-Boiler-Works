@@ -36,15 +36,15 @@ router.post("/email", (req, res) => {
   let subject = `TBW-WEBSITE - ${emailObject.origin} - FROM: ${emailObject.name} ${
     emailObject.origin === "CONTACT" ? `REGARDING:${emailObject.subject}` : ""
   }`;
-
-  const body = emailObject.body;
   const options = {
     from: email,
     to: "erosdipede@gmail.com",
     subject: subject,
-    html:`<h1>${emailObject.subject}</h1>
+    html: `<h1>${
+      emailObject.origin === "CONTACT" ? emailObject.subject : "Careers Application"
+    }</h1>
           <p>From: ${emailObject.name} (${emailObject.from})</p>
-          <p>${body}</p>`
+          <p>${emailObject.body}</p>`
   };
 
   transporter.sendMail(options, (error, info) => {
@@ -53,6 +53,8 @@ router.post("/email", (req, res) => {
     res.send(info);
   });
 });
+
+router.post("/file", (req, res) => {});
 
 app.use("/api", router);
 

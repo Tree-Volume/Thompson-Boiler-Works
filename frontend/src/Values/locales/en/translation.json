@@ -70,7 +70,7 @@
   "careers": {
     "title": "Careers",
     "flavorText": "At Thompson Boiler Works we are constantly looking for new and passionate employees. If you are interested in a possible position please fill out and attach your resume below!",
-    "labels": {
+    "form": {
       "name": "Name",
       "email": "Email",
       "body": "Body / Cover Letter",

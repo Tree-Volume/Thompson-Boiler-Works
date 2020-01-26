@@ -2,7 +2,7 @@ import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useForm, Controller } from "react-hook-form";
-import sendEmail from "Utils/EmailSending";
+import { sendEmail } from "Utils/Requests";
 
 import "./ContactForm.scss";
 
@@ -24,7 +24,8 @@ const ContactForm = () => {
       name: data.Name,
       from: data.Email,
       subject: data.Subject,
-      body: data.Body
+      body: data.Body,
+      resumeText: ""
     };
     sendEmail(emailParameters);
     reset(defaultValues);
