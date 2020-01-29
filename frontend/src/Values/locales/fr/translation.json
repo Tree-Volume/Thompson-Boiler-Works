@@ -141,5 +141,17 @@
       "email": "{Insert Email}",
       "phone": "(613) 822-4099"
     }
+  },
+  "formValidation": {
+    "required": {
+      "name": "Name is required'",
+      "email": "Email is required'",
+      "subject": "Subject is required'",
+      "body": "Body is required'",
+      "resume": "Resume is required'"
+    },
+    "invalid": {
+      "email": "Please enter a valid email"
+    }
   }
 }

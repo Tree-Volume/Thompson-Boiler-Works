@@ -1,61 +1,87 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+<<<<<<< HEAD
+import { string as yupstring, object as yupobject } from "yup";
+import { useForm } from "react-hook-form";
+=======
 import { useForm, Controller } from "react-hook-form";
+>>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
 import { sendEmail } from "Utils/Requests";
 
 import "./ContactForm.scss";
 
-const defaultValues = {
-  Name: "",
-  Email: "",
-  Subject: "",
-  Body: ""
-};
-
 const ContactForm = () => {
-  const { handleSubmit, reset, control } = useForm({ defaultValues });
   const { t } = useTranslation();
-
-  //if form passes validation, send email
+  const { handleSubmit, reset, register, errors } = useForm({
+    validationSchema: yupobject().shape({
+      name: yupstring().required(t("formValidation.required.name")),
+      email: yupstring()
+        .required(t("formValidation.required.email"))
+        .email(t("formValidation.invalid.email")),
+      subject: yupstring().required(t("formValidation.required.subject")),
+      body: yupstring().required(t("formValidation.required.body"))
+    })
+  });
   const onSubmit = data => {
     const emailParameters = {
       origin: "CONTACT",
+<<<<<<< HEAD
+      name: data.name,
+      from: data.email,
+      subject: data.subject,
+      body: data.body
+=======
       name: data.Name,
       from: data.Email,
       subject: data.Subject,
       body: data.Body,
       resumeText: ""
+>>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
     };
     sendEmail(emailParameters);
-    reset(defaultValues);
+    reset({ name: "", email: "", subject: "", body: "" });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
       <p className="contact-form-title">{t("contact.form.tagline")}</p>
-      <Controller
-        as={<TextField label={t("contact.form.name")} variant="filled" />}
-        name="Name"
-        control={control}
-        rules={{ required: true, maxLength: 80 }}
+      <TextField
+        id="name"
+        label={t("contact.form.name")}
+        name="name"
+        inputRef={register({ required: true })}
+        variant="filled"
+        error={errors.name ? true : false}
+        helperText={errors.name ? errors.name.message : ""}
       />
-      <Controller
-        as={<TextField label={t("contact.form.email")} variant="filled" />}
-        name="Email"
-        control={control}
-        rules={{ required: true, pattern: /^\S+@\S+$/i }}
+      <TextField
+        id="email"
+        label={t("contact.form.email")}
+        name="email"
+        inputRef={register({ required: true, pattern: /^\S+@\S+$/i })}
+        variant="filled"
+        error={errors.email ? true : false}
+        helperText={errors.email ? errors.email.message : ""}
       />
-      <Controller
-        as={<TextField label={t("contact.form.subject")} variant="filled" />}
-        name="Subject"
-        control={control}
-        rules={{ required: true, maxLength: 40 }}
+      <TextField
+        id="subject"
+        label={t("contact.form.subject")}
+        name="subject"
+        inputRef={register({ required: true })}
+        variant="filled"
+        error={errors.subject ? true : false}
+        helperText={errors.subject ? errors.subject.message : ""}
       />
-      <Controller
-        as={<TextField label={t("contact.form.body")} multiline rows="5" variant="filled" />}
-        name="Body"
-        control={control}
-        rules={{ required: true, maxLength: 500 }}
+      <TextField
+        id="body"
+        label={t("contact.form.body")}
+        name="body"
+        multiline
+        rows="5"
+        inputRef={register({ required: true })}
+        variant="filled"
+        error={errors.body ? true : false}
+        helperText={errors.body ? errors.body.message : ""}
       />
       <Button variant="contained" type="submit">
         {t("contact.form.button")}
