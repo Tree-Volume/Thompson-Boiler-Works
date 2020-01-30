@@ -1,74 +1,80 @@
-<<<<<<< HEAD
-import React, { useState, useCallback } from "react";
-import { Button, TextField, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
-import { useTranslation } from "react-i18next";
-import { useForm, Controller } from "react-hook-form";
-import { sendEmail, sendFile } from "Utils/Requests";
-import { useDropzone } from "react-dropzone";
-=======
 import React, { useState } from "react";
 import { Button, TextField, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import { useForm, Controller } from "react-hook-form";
+import { string as yupstring, object as yupobject } from "yup";
+import { useForm } from "react-hook-form";
 import { sendEmail } from "Utils/Requests";
->>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
 
 import "./CareersForm.scss";
 
-const defaultValues = {
-  Name: "",
-  Email: "",
-  Subject: "",
-  Body: "",
-  ResumeText: ""
-};
-
 const CareersForm = () => {
   const { t } = useTranslation();
-  const { handleSubmit, reset, control, error } = useForm({ defaultValues });
+  const { handleSubmit, reset, register, errors } = useForm({
+    validationSchema: yupobject().shape({
+      name: yupstring()
+        .required(t("formValidation.required.name"))
+        .max(50, t("formValidation.length.name")),
+      email: yupstring()
+        .required(t("formValidation.required.email"))
+        .email(t("formValidation.invalid.email")),
+      subject: yupstring()
+        .required(t("formValidation.required.subject"))
+        .max(80, t("formValidation.length.subject")),
+      body: yupstring()
+        .required(t("formValidation.required.body"))
+        .max(500, t("formValidation.length.body")),
+      resumeText: yupstring()
+        .required(t("formValidation.required.resumeText"))
+        .max(1000, t("formValidation.length.resumeText"))
+    })
+  });
   const [radioValue, setRadioValue] = useState("upload");
   const updateRadio = e => {
     setRadioValue(e.target.value);
   };
-<<<<<<< HEAD
-  const onFileDrop = useCallback(acceptedFiles => {}, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onFileDrop });
-=======
->>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
 
   //if form passes validation, send email
   const onSubmit = data => {
     const emailParameters = {
       origin: "CAREERS",
-      name: data.Name,
-      from: data.Email,
-      subject: data.Subject,
-      body: data.Body,
-      resumeText: data.ResumeText
+      name: data.name,
+      from: data.email,
+      subject: data.subject,
+      body: data.body,
+      resumeText: data.resumeText
     };
     sendEmail(emailParameters);
-    reset(defaultValues);
+    reset({ name: "", email: "", subject: "", body: "" });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="careers-form">
-        <Controller
-          as={<TextField label={t("careers.form.name")} variant="filled" />}
-          name="Name"
-          control={control}
-          rules={{ required: true, maxLength: 80 }}
+        <TextField
+          id="name"
+          label={t("careers.form.name")}
+          name="name"
+          inputRef={register}
+          variant="filled"
+          error={errors.name ? true : false}
+          helperText={errors.name ? errors.name.message : ""}
         />
-        <Controller
-          as={<TextField name="Email" label={t("careers.form.email")} variant="filled" />}
-          name="Email"
-          control={control}
-          rules={{ required: true, pattern: /^\S+@\S+$/i }}
+        <TextField
+          id="email"
+          label={t("careers.form.email")}
+          name="email"
+          inputRef={register}
+          variant="filled"
+          error={errors.email ? true : false}
+          helperText={errors.email ? errors.email.message : ""}
         />
-        <Controller
-          as={<TextField label={t("careers.form.body")} multiline rows="5" variant="filled" />}
-          name="Body"
-          control={control}
-          rules={{ required: true, maxLength: 500 }}
+        <TextField
+          id="body"
+          label={t("careers.form.body")}
+          name="body"
+          inputRef={register}
+          variant="filled"
+          error={errors.body ? true : false}
+          helperText={errors.body ? errors.body.message : ""}
         />
         <RadioGroup
           aria-label="upload format"
@@ -90,38 +96,21 @@ const CareersForm = () => {
         </RadioGroup>
         <div className="careers-form-resume">
           {radioValue === "paste" ? (
-            <Controller
-              as={
-                <TextField label={t("careers.form.resume")} multiline rows="10" variant="filled" />
-              }
-              name="ResumeText"
-              control={control}
-              rules={{ required: true, maxLength: 500 }}
+            <TextField
+              id="resumeText"
+              label={t("careers.form.resumeText")}
+              name="resumeText"
+              inputRef={register}
+              variant="filled"
+              error={errors.resumeText ? true : false}
+              helperText={errors.resumeText ? errors.resumeText.message : ""}
             />
           ) : (
-<<<<<<< HEAD
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              {isDragActive ? (
-                <p>Drop the files here ...</p>
-              ) : (
-                <p>Drag 'n' drop some files here, or click to select files</p>
-              )}
-            </div>
-=======
             <></>
->>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
           )}
         </div>
       </div>
-      <Button
-        className="submit"
-        type="submit"
-        variant="contained"
-        onClick={() => {
-          console.log(error);
-        }}
-      >
+      <Button className="submit" type="submit" variant="contained">
         {t("contact.form.button")}
       </Button>
     </form>

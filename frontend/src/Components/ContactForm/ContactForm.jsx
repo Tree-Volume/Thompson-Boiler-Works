@@ -1,12 +1,8 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-<<<<<<< HEAD
 import { string as yupstring, object as yupobject } from "yup";
 import { useForm } from "react-hook-form";
-=======
-import { useForm, Controller } from "react-hook-form";
->>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
 import { sendEmail } from "Utils/Requests";
 
 import "./ContactForm.scss";
@@ -15,29 +11,27 @@ const ContactForm = () => {
   const { t } = useTranslation();
   const { handleSubmit, reset, register, errors } = useForm({
     validationSchema: yupobject().shape({
-      name: yupstring().required(t("formValidation.required.name")),
+      name: yupstring()
+        .required(t("formValidation.required.name"))
+        .max(50, t("formValidation.length.name")),
       email: yupstring()
         .required(t("formValidation.required.email"))
         .email(t("formValidation.invalid.email")),
-      subject: yupstring().required(t("formValidation.required.subject")),
-      body: yupstring().required(t("formValidation.required.body"))
+      subject: yupstring()
+        .required(t("formValidation.required.subject"))
+        .max(80, t("formValidation.length.subject")),
+      body: yupstring()
+        .required(t("formValidation.required.body"))
+        .max(1000, t("formValidation.length.resumeText"))
     })
   });
   const onSubmit = data => {
     const emailParameters = {
       origin: "CONTACT",
-<<<<<<< HEAD
       name: data.name,
       from: data.email,
       subject: data.subject,
       body: data.body
-=======
-      name: data.Name,
-      from: data.Email,
-      subject: data.Subject,
-      body: data.Body,
-      resumeText: ""
->>>>>>> 74a1587af5a691b1715115081004bfa98acf965d
     };
     sendEmail(emailParameters);
     reset({ name: "", email: "", subject: "", body: "" });
@@ -49,7 +43,7 @@ const ContactForm = () => {
         id="name"
         label={t("contact.form.name")}
         name="name"
-        inputRef={register({ required: true })}
+        inputRef={register}
         variant="filled"
         error={errors.name ? true : false}
         helperText={errors.name ? errors.name.message : ""}
@@ -58,7 +52,7 @@ const ContactForm = () => {
         id="email"
         label={t("contact.form.email")}
         name="email"
-        inputRef={register({ required: true, pattern: /^\S+@\S+$/i })}
+        inputRef={register}
         variant="filled"
         error={errors.email ? true : false}
         helperText={errors.email ? errors.email.message : ""}
@@ -67,7 +61,7 @@ const ContactForm = () => {
         id="subject"
         label={t("contact.form.subject")}
         name="subject"
-        inputRef={register({ required: true })}
+        inputRef={register}
         variant="filled"
         error={errors.subject ? true : false}
         helperText={errors.subject ? errors.subject.message : ""}
@@ -78,7 +72,7 @@ const ContactForm = () => {
         name="body"
         multiline
         rows="5"
-        inputRef={register({ required: true })}
+        inputRef={register}
         variant="filled"
         error={errors.body ? true : false}
         helperText={errors.body ? errors.body.message : ""}
