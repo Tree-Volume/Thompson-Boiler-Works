@@ -34,8 +34,8 @@ const CareersForm = () => {
   const updateRadio = e => {
     setRadioValue(e.target.value);
   };
-  const onFile = (file) => {
-    console.log("ping")
+  const onFile = file => {
+    console.log("ping");
     sendFile(file);
   };
 
@@ -122,7 +122,18 @@ const CareersForm = () => {
               helperText={errors.resumeText ? errors.resumeText.message : ""}
             />
           ) : (
+<<<<<<< HEAD
             <DropzoneArea onChange={onFile} showPreviewsInDropzone={false} filesLimit={1} showPreviews={true}></DropzoneArea>
+=======
+            <DropzoneArea
+              dropzoneClass="resume-upload"
+              onChange={onFile}
+              showPreviewsInDropzone={false}
+              filesLimit={1}
+              showPreviews={true}
+              useChipsForPreview={true}
+            ></DropzoneArea>
+>>>>>>> 05745a7739989e571db7ab5284e7e5b7ddc341d6
           )}
         </div>
       </div>
