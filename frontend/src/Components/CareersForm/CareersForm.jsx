@@ -3,7 +3,8 @@ import { Button, TextField, RadioGroup, FormControlLabel, Radio } from "@materia
 import { useTranslation } from "react-i18next";
 import { string as yupstring, object as yupobject } from "yup";
 import { useForm } from "react-hook-form";
-import { sendEmail } from "Utils/Requests";
+import { sendEmail, sendFile } from "Utils/Requests";
+import { DropzoneArea } from "material-ui-dropzone";
 
 import "./CareersForm.scss";
 
@@ -32,6 +33,10 @@ const CareersForm = () => {
   const [radioValue, setRadioValue] = useState("upload");
   const updateRadio = e => {
     setRadioValue(e.target.value);
+  };
+  const onFile = (file) => {
+    console.log("ping")
+    sendFile(file);
   };
 
   //if form passes validation, send email
@@ -117,7 +122,7 @@ const CareersForm = () => {
               helperText={errors.resumeText ? errors.resumeText.message : ""}
             />
           ) : (
-            <></>
+            <DropzoneArea onChange={onFile} showPreviewsInDropzone={false} filesLimit={1} showPreviews={true}></DropzoneArea>
           )}
         </div>
       </div>
