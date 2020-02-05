@@ -55,7 +55,9 @@ router.post("/email", (req, res) => {
   });
 });
 
-router.post("/file", (req, res) => {});
+router.post("/file", (req, res) => {
+  console.log(req.body);
+});
 
 app.use("/api", router);
 
