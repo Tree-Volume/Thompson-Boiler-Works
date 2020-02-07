@@ -32,24 +32,6 @@ const CustomServicesNav = props => {
     } while (servicesKeys.length > 0);
     return nav;
   };
-  //sets up event handlers
-  useEffect(() => {
-    //handles scroll on page
-    const handleScroll = () => {
-      var className = navRef.current.className;
-      if (window.scrollY >= 280) {
-        if (!navRef.current.className.includes(" fixed")) {
-          navRef.current.className += " fixed";
-        }
-      } else {
-        navRef.current.className = className.replace(" fixed", "");
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
-  });
 
   return (
     <div ref={navRef} className="services-nav">

@@ -3,7 +3,9 @@
 @import "Styles/MediaQueries.scss";
 
 .service {
+    margin: $default-spacing auto 0 auto;
     margin-top: $default-spacing;
+    width: 75%;
 
     .service-container {
       display: flex;

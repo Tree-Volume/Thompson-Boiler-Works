@@ -1,11 +1,13 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
+
 .services-nav {
+    position: sticky;
+    top: 100px;
     float: left;
     display: flex;
     flex-direction: column;
-    padding-left: $default-spacing * 7;
-    padding-top: $default-spacing * 4;
     color: $color-gray;
     h2 {
         font-size: $font-size-subtitle;
@@ -21,9 +23,4 @@
             font-weight: 300;
         }
     }
-}
-
-.fixed {
-    top: 94px;
-    position: fixed;
 }
