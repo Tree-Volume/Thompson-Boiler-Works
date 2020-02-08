@@ -41,6 +41,12 @@ form {
     }
     .resume-upload {
       margin-bottom: $default-spacing;
+      display: flex;
+      justify-content: center;
+
+      div {
+        align-self: center;
+      }
     }
   }
 }
