@@ -28,6 +28,7 @@ const sendEmail = emailParameters => {
 };
 
 const sendFile = file => {
+  console.log(file);
   let formData = new FormData();
   formData.append("resume", file);
   axios
@@ -36,7 +37,7 @@ const sendFile = file => {
       { formData },
       {
         headers: {
-          "Content-Type": 'multipart/form-data'
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
         }
       }
     )

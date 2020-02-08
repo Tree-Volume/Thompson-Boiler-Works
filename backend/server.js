@@ -1,6 +1,18 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
+const uuidv4 = require('uuid/v4');
+var multer  = require('multer')
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './uploads');
+  },
+  filename: (req, file, cb) => {
+    const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
+    cb(null, newFilename);
+  },
+});
+var upload = multer({ dest: storage })
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
   "",
@@ -55,8 +67,9 @@ router.post("/email", (req, res) => {
   });
 });
 
-router.post("/file", (req, res) => {
-  console.log(req.body);
+router.post("/file", upload.single('resume'), (req, res) => {
+  console.log(req);
+  res.send();
 });
 
 app.use("/api", router);
