@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Typography } from "@material-ui/core/";
+import MediaQuery from "react-responsive";
 import "./CustomServicesNav.scss";
 
 const CustomServicesNav = props => {
@@ -35,7 +36,9 @@ const CustomServicesNav = props => {
 
   return (
     <div ref={navRef} className="services-nav">
-      <Typography variant="h2">Our Services</Typography>
+      <MediaQuery query="(min-width: 1024px)">
+        <Typography variant="h2">Our Services</Typography>
+      </MediaQuery>
       {buildNav()}
     </div>
   );

@@ -13,10 +13,6 @@
       margin-bottom: $default-spacing * 2;
       flex-wrap: wrap;
 
-      @include tablet {
-        flex-wrap: wrap;
-      }
-
       @include desktop {
         flex-wrap: nowrap;
       }
@@ -29,6 +25,7 @@
       .service-body {
         flex: 1;
         padding-right: $default-spacing;
+        margin-bottom: $default-spacing * 2;
 
         .service-body-text {
           font-weight: 300;

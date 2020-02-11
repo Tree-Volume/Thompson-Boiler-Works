@@ -66,7 +66,7 @@ const CustomToolbar = props => {
             <img src={logo} alt={title} />
           </div>
         </Link>
-        <MediaQuery query="(min-device-width: 1024px)">
+        <MediaQuery query="(min-width: 1024px)">
           {options.map(value => {
             return (
               <Link key={value} to={`/${value.toLowerCase()}`}>
@@ -101,7 +101,7 @@ const CustomToolbar = props => {
           </MenuItem>
         </Menu>
 
-        <MediaQuery query="(max-device-width: 1023px)">
+        <MediaQuery query="(max-width: 1023px)">
           <Button
             className="menu-button"
             aria-controls="nav-menu"
