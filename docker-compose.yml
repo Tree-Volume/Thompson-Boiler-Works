@@ -3,11 +3,15 @@ services:
   reverseproxy:
     build: ./reverseproxy
     container_name: reverseproxy
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
     depends_on:
       - frontend
       - backend
     ports:
       - "80:80"
+      - "443:443"
 
   backend:
     build:
