@@ -1,5 +1,6 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 .page-header {
   background-size: cover;
@@ -13,7 +14,10 @@
 
   .page-header-text {
     font-family: "Roboto";
-    font-size: $font-size-header;
+    font-size: $font-size-header-mobile;
+    @include desktop {
+      font-size: $font-size-header;
+    }
     color: $color-white;
   }
 }

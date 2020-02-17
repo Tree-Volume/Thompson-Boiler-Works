@@ -24,7 +24,9 @@
 
       .service-body {
         flex: 1;
-        padding-right: $default-spacing;
+        @include desktop {
+          padding-right: $default-spacing;
+        }
         margin-bottom: $default-spacing * 2;
 
         .service-body-text {
@@ -47,7 +49,6 @@
 
         img {
           max-width: 400px;
-          height: max-content;
         }
       }
     }

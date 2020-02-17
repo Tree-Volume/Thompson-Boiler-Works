@@ -7,11 +7,13 @@
 .toolbar-logo {
   margin-right: auto;
   margin: 5px auto 5px 0;
+  img {
+    width: 200px;
+  }
 }
 
 .toolbar-logo-image {
   display: flex;
-  max-width: 200px;
 }
 
 .MuiButton-label {
