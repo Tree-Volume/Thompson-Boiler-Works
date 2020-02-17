@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { PageHeader, Service } from "Components/";
-import { Container, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import servicesImage from "Assets/images/contact-page-header.jpg";
 import CustomServicesNav from "Components/CustomServicesNav";
@@ -19,23 +19,22 @@ const ServicesPage = props => {
     <>
       <PageHeader imagePath={servicesImage} pageTitle={t("services.title")} />
       <Container className="services-page">
+        <div>
         <CustomServicesNav className="services-nav" servicesObject={servicesObject} serviceRefs={serviceRefs} />
-        <div className="flavor">
-          <Typography align="center" variant="h6" className="flavor-text">
-            {t("services.flavorText")}
-          </Typography>
         </div>
-        {servicesObject != null &&
-          Object.keys(servicesObject).map((key, index) => (
-            <Service
-              reference={serviceRefs.current[index]}
-              key={key}
-              title={t(`services.service.${key}.title`)}
-              content={t(`services.service.${key}.body`)}
-              image={servicesImage}
-              imageAlt={t(`services.service.${key}.imageAlt`)}
-            />
-          ))}
+        <div className="services-content">
+          {servicesObject != null &&
+            Object.keys(servicesObject).map((key, index) => (
+              <Service
+                reference={serviceRefs.current[index]}
+                key={key}
+                title={t(`services.service.${key}.title`)}
+                content={t(`services.service.${key}.body`)}
+                image={servicesImage}
+                imageAlt={t(`services.service.${key}.imageAlt`)}
+              />
+            ))}
+        </div>
       </Container>
     </>
   );

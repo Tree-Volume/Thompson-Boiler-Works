@@ -5,6 +5,9 @@
 .services-page {
   padding-bottom: $default-spacing;
   margin-top: $default-spacing * 2 !important;
+  @include desktop {
+    display: flex;
+  }
   .linebreak {
     box-sizing: border-box;
     position: absolute;

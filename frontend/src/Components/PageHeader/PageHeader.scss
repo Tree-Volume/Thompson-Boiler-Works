@@ -7,6 +7,9 @@
   background-position: center;
   height: 40vh;
   margin-top: $navbar-height;
+  @include mobile {
+    margin-top: $navbar-height - 50;
+  }
 
   display: flex;
   justify-content: center;

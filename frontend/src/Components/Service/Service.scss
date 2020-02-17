@@ -5,7 +5,6 @@
 .service {
     margin: $default-spacing auto 0 auto;
     margin-top: $default-spacing;
-    width: 75%;
 
     .service-container {
       display: flex;
@@ -20,12 +19,17 @@
       .service-body,
       .service-image {
         min-width: 400px;
+        
+        @include mobile {
+          min-width: 250px;
+        }
       }
 
       .service-body {
         flex: 1;
-        @include desktop {
-          padding-right: $default-spacing;
+        padding-right: $default-spacing * 2;
+        @include mobile {
+          padding-right: 0px;
         }
         margin-bottom: $default-spacing * 2;
 
@@ -49,6 +53,9 @@
 
         img {
           max-width: 400px;
+          @include mobile {
+            min-width: 250px;
+          }
         }
       }
     }

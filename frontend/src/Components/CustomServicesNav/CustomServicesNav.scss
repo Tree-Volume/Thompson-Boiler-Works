@@ -5,10 +5,11 @@
 .services-nav {
   text-align: center;
   @include desktop {
+    text-align: left;
     position: sticky;
-    top: 100px;
+    margin: $default-spacing $default-spacing 0 0;
+    top: 125px;
     float: left;
-    margin-left: -2%;
   }
   display: flex;
   flex-direction: column;
