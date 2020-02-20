@@ -5,7 +5,6 @@
 .contact-info {
   flex: 1;
   flex-direction: column;
-  min-width: 300px;
   display: flex;
   align-items: center;
 }
@@ -26,7 +25,9 @@
   .MuiTextField-root {
     padding-bottom: $default-spacing;
     width: 80%;
-    max-width: 400px;
+    @include mobile {
+      width: 100%;
+    }
 
     .MuiFilledInput-underline {
       border-radius: 0;
