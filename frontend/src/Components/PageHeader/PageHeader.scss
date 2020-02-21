@@ -17,9 +17,9 @@
 
   .page-header-text {
     font-family: "Roboto";
-    font-size: $font-size-header-mobile;
-    @include desktop {
-      font-size: $font-size-header;
+    font-size: $font-size-header;
+    @include mobile {
+      font-size: $font-size-header-mobile;
     }
     color: $color-white;
   }
