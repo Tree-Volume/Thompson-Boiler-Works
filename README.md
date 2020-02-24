@@ -66,10 +66,13 @@ Frontend:
 - [React](https://reactjs.org/)
 - [Material-ui](https://material-ui.com/)
 - [SCSS](https://sass-lang.com/)
+- [i18next](https://www.i18next.com/)
+- [Yup](https://github.com/jquense/yup)
 
 Backend:
 - [Node](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
+- [Google APIs](https://www.npmjs.com/package/googleapis)
 
 DevOps:
 - [Docker-compose](https://docs.docker.com/compose/)
