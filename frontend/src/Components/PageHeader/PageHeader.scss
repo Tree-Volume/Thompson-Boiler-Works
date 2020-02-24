@@ -1,11 +1,15 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 .page-header {
   background-size: cover;
   background-position: center;
   height: 40vh;
   margin-top: $navbar-height;
+  @include mobile {
+    margin-top: $navbar-height - 50;
+  }
 
   display: flex;
   justify-content: center;
@@ -14,6 +18,9 @@
   .page-header-text {
     font-family: "Roboto";
     font-size: $font-size-header;
+    @include mobile {
+      font-size: $font-size-header-mobile;
+    }
     color: $color-white;
   }
 }

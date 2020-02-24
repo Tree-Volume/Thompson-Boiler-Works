@@ -1,4 +1,5 @@
 @import "Styles/Colours.scss";
+@import "Styles/MediaQueries.scss";
 
 .toolbar {
   box-shadow: none !important;
@@ -7,11 +8,17 @@
 .toolbar-logo {
   margin-right: auto;
   margin: 5px auto 5px 0;
+  img {
+    width: 200px;
+    height: 100%;
+    @include mobile {
+      width: 150px;
+    }
+  }
 }
 
 .toolbar-logo-image {
   display: flex;
-  max-width: 200px;
 }
 
 .MuiButton-label {

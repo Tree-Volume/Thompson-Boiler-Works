@@ -7,6 +7,10 @@
   flex-wrap: wrap;
   padding-bottom: $default-spacing * 2;
 
+  @include mobile {
+    display: inline;
+    width: 80%;
+  }
   .contact-info {
     display: flex;
     align-items: center;
@@ -22,8 +26,14 @@
 
     iframe {
       margin: $font-size-subtitle * 1.2 0 $default-spacing 0;
+
+      @include mobile {
+        width: 90%;
+      }
     }
     .contact-info-div {
+      width: 90%;
+
       .contact-info-title {
         font: bold $font-size-subtitle Roboto;
         margin-top: 0px;

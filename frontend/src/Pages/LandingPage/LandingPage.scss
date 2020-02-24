@@ -1,12 +1,17 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 .landing-title {
+  display: flex;
   background-image: url("../../Assets/images/landing.png");
-  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  background-position: bottom;
+  @include tablet {
+    background-position: left !important;
+  }
 
   &:after {
     content: "";
@@ -20,16 +25,32 @@
   }
 
   .landing-title-text {
-    margin-left: $default-spacing * 4 !important;
-    padding-top: 40vh;
-    max-width: 450px;
+    margin-left: $default-spacing * 2 !important;
+    max-width: 90%;
+    padding-bottom: $default-spacing * 2;
+    z-index: 4;
     color: $color-white;
+    align-self: flex-end;
+    justify-self: flex-start;
+    @include mobile {
+      margin-left: $default-spacing !important;
+    }
+    @include tablet {
+      padding-bottom: $default-spacing * 6;
+      max-width: 40%;
+    }
+    @include desktop {
+      margin-left: $default-spacing * 4 !important;
+      padding-bottom: $default-spacing * 6;
+      max-width: 450px;
+    }
+
     h1 {
-      font-size: 76px;
-      line-height: $default-spacing * 5;
+      @include dynamic-fonts(76px);
     }
     h3 {
-      font-size: $font-size-subtitle;
+      @include dynamic-fonts($font-size-subtitle);
+      padding-left: 4px;
     }
   }
 }
@@ -39,33 +60,53 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 25vh 0 25vh 0;
+  margin: $default-spacing * 3 0 $default-spacing * 3 0;
+  @include desktop {
+    margin: 10vh 0 10vh 0;
+  }
   h2 {
+    @include dynamic-fonts(60px);
     font-weight: 500;
   }
+  h6 {
+    @include dynamic-fonts($font-size-links);
+  }
+  .services-button {
+    width: 100%;
+    display: inline-block;
+  }
   button {
-    margin: $default-spacing 25% $default-spacing 25%;
-    padding: $default-spacing $default-spacing $default-spacing $default-spacing;
+    padding: $default-spacing/2 $default-spacing;
+    margin: auto;
     background: $color-secondary !important;
   }
   .landing-section-body {
     margin: 0 $default-spacing * 4 $default-spacing * 4 $default-spacing * 4;
-    padding-top: $default-spacing * 4;
+    padding-top: $default-spacing * 2;
     font-weight: 400;
   }
   .landing-services-body {
     .landing-section-body {
       @extend .landing-section-body;
-      float: left;
-      width: 45%;
+      @include desktop {
+        float: left;
+        width: 40%;
+      }
     }
     .landing-services-image {
-      float: right;
       text-align: center;
+      margin-bottom: $default-spacing * 2;
+      @include desktop {
+        float: right;
+        width: 40%;
+      }
       img {
-        margin-top: $default-spacing * 4;
-        width: 480px;
-        height: 300px;
+        width: 75%;
+        height: auto;
+        @include desktop {
+          margin-top: $default-spacing * 4;
+          width: 100%;
+        }
       }
       h6 {
         margin: $default-spacing 0 0 0;

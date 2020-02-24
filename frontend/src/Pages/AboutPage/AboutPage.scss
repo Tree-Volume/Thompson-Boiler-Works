@@ -1,23 +1,38 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 .about-page {
   display: flex;
   flex-direction: column;
   padding-bottom: $default-spacing * 5;
   .about-section {
-    margin: $default-spacing * 5 0 0 0;
+    margin-top: $default-spacing * 2;
+    @include desktop {
+      margin-top: $default-spacing * 5;
+    }
     .about-section-text {
       float: left;
       text-align: center;
       font-weight: 300;
-      width: 50%;
+      @include desktop {
+        width: 50%;
+      }
     }
     .about-section-image {
-      float: right;
+      text-align: center;
+      @include desktop {
+        float: right;
+        width: 40%;
+      }
       img {
-        width: 480px;
-        height: 300px;
+        margin-top: $default-spacing * 2;
+        width: 75%;
+        height: auto;
+        @include desktop {
+          margin-top: 0;
+          width: 100%;
+        }
       }
     }
   }

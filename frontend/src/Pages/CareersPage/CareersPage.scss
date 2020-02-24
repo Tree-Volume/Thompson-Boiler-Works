@@ -1,5 +1,6 @@
 @import "Styles/Variables.scss";
 @import "Styles/Colours.scss";
+@import "Styles/MediaQueries.scss";
 
 .careers-page {
   padding-bottom: $default-spacing * 3;
@@ -8,6 +9,10 @@
 
     .flavor-text {
       font-weight: 300;
+      font-size: $font-size-subtitle * 0.8;
+      @include desktop {
+        font-size: $font-size-subtitle;
+      }
     }
   }
 }

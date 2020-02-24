@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Typography } from "@material-ui/core/";
+import MediaQuery from "react-responsive";
 import "./CustomServicesNav.scss";
 
 const CustomServicesNav = props => {
@@ -32,25 +33,12 @@ const CustomServicesNav = props => {
     } while (servicesKeys.length > 0);
     return nav;
   };
-  //sets up event handlers
-  useEffect(() => {
-    //handles scroll on page
-    const handleScroll = () => {
-      var className = navRef.current.className;
-      if (window.scrollY >= 280) {
-        if (!navRef.current.className.includes(" fixed")) {
-          navRef.current.className += " fixed";
-        }
-      } else {
-        navRef.current.className = className.replace(" fixed", "");
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-  });
 
   return (
     <div ref={navRef} className="services-nav">
-      <Typography variant="h2">Our Services</Typography>
+      <MediaQuery query="(min-width: 1024px)">
+        <Typography variant="h2">Our Services</Typography>
+      </MediaQuery>
       {buildNav()}
     </div>
   );

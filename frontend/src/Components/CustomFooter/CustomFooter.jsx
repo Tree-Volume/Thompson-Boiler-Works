@@ -70,7 +70,7 @@ const CustomFooter = () => {
         </div>
         <div className="footer-column">
           <h3 className="footer-subtitle">{hourTitle}</h3>
-          <FooterList listItems={hoursList} />
+          <FooterList listItems={hoursList} classname="hour-items" />
         </div>
         <div className="footer-column">
           <img className="footer-logo" src={logo} alt={t("footer.imageAlt")} />

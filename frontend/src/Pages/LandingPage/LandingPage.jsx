@@ -27,7 +27,7 @@ const LandingPage = props => {
         </div>
       </div>
       <CustomDivider />
-      <div className="landing-section">
+      <div id="top-section" className="landing-section">
         <Container>
           <Typography variant="h2" align="center">
             {t("landing.about.title")}
@@ -54,7 +54,7 @@ const LandingPage = props => {
               <Typography variant="h6">{t("landing.services.imageCaption")}</Typography>
             </div>
           </div>
-          <Link to={routerPaths.SERVICES}>
+          <Link className="services-button" to={routerPaths.SERVICES}>
             <Button variant="contained">{t("landing.services.button")}</Button>
           </Link>
         </Container>
