@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Menu, MenuItem, Toolbar, Button } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import MediaQuery from "react-responsive";
 import { useTranslation } from "react-i18next";
 import { returnFlagByLanguage, RouterPaths } from "Utils/";
 import "./CustomToolbar.scss";
@@ -8,7 +10,8 @@ import logo from "Assets/images/tbw-logo.png";
 
 const CustomToolbar = props => {
   const [toolbarColor, setToolbarColor] = useState("#0b121000");
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorLng, setAnchorLng] = React.useState(null);
+  const [anchorMn, setAnchorMn] = React.useState(null);
   const { notLanding } = props;
   const { t, i18n } = useTranslation();
   const title = t("title");
@@ -25,13 +28,21 @@ const CustomToolbar = props => {
     else setToolbarColor("transparent");
   }, [notLanding]);
 
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
+  const handleLngClick = event => {
+    setAnchorLng(event.currentTarget);
   };
 
-  const handleClose = lang => {
+  const handleLngClose = lang => {
     i18n.changeLanguage(lang);
-    setAnchorEl(null);
+    setAnchorLng(null);
+  };
+
+  const handleMnClick = event => {
+    setAnchorMn(event.currentTarget);
+  };
+
+  const handleMnClose = lang => {
+    setAnchorMn(null);
   };
 
   // update toolbar color on scroll
@@ -55,38 +66,71 @@ const CustomToolbar = props => {
             <img src={logo} alt={title} />
           </div>
         </Link>
-        {options.map(value => {
-          return (
-            <Link key={value} to={`/${value.toLowerCase()}`}>
-              <Button>{value}</Button>
-            </Link>
-          );
-        })}
+        <MediaQuery query="(min-width: 1024px)">
+          {options.map(value => {
+            return (
+              <Link key={value} to={`/${value.toLowerCase()}`}>
+                <Button>{value}</Button>
+              </Link>
+            );
+          })}
+        </MediaQuery>
         <Button
           className="language-button"
-          aria-controls="simple-menu"
+          aria-controls="lng-menu"
           aria-haspopup="true"
-          onClick={handleClick}
+          onClick={handleLngClick}
         >
           {returnFlagByLanguage(i18n.language)}
           {i18n.language}
         </Button>
         <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
+          id="lng-menu"
+          anchorEl={anchorLng}
           keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
+          open={Boolean(anchorLng)}
+          onClose={handleLngClose}
         >
-          <MenuItem onClick={() => handleClose("en")}>
+          <MenuItem onClick={() => handleLngClose("en")}>
             {returnFlagByLanguage("en")}
-            en
+            EN
           </MenuItem>
-          <MenuItem onClick={() => handleClose("fr")}>
+          <MenuItem onClick={() => handleLngClose("fr")}>
             {returnFlagByLanguage("fr")}
-            fr
+            FR
           </MenuItem>
         </Menu>
+
+        <MediaQuery query="(max-width: 1023px)">
+          <Button
+            className="menu-button"
+            aria-controls="nav-menu"
+            aria-haspopup="true"
+            onClick={handleMnClick}
+          >
+            <MenuIcon />
+          </Button>
+          <Menu
+            id="nav-menu"
+            anchorEl={anchorMn}
+            keepMounted
+            open={Boolean(anchorMn)}
+            onClose={handleMnClose}
+          >
+            {options.map(value => {
+              return (
+                <MenuItem
+                  key={value}
+                  component={Link}
+                  to={`/${value.toLowerCase()}`}
+                  onClick={handleMnClose}
+                >
+                  {value}
+                </MenuItem>
+              );
+            })}
+          </Menu>
+        </MediaQuery>
       </Toolbar>
     </AppBar>
   );
