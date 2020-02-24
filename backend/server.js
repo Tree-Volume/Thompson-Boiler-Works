@@ -1,6 +1,18 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
+const uuidv4 = require('uuid/v4');
+var multer  = require('multer')
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './uploads');
+  },
+  filename: (req, file, cb) => {
+    const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
+    cb(null, newFilename);
+  },
+});
+var upload = multer({ dest: storage })
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
   "",
@@ -36,15 +48,16 @@ router.post("/email", (req, res) => {
   let subject = `TBW-WEBSITE - ${emailObject.origin} - FROM: ${emailObject.name} ${
     emailObject.origin === "CONTACT" ? `REGARDING:${emailObject.subject}` : ""
   }`;
-
-  const body = emailObject.body;
   const options = {
     from: email,
     to: "erosdipede@gmail.com",
     subject: subject,
-    html:`<h1>${emailObject.subject}</h1>
+    html: `<h1>${
+      emailObject.origin === "CONTACT" ? emailObject.subject : "Careers Application"
+    }</h1>
           <p>From: ${emailObject.name} (${emailObject.from})</p>
-          <p>${body}</p>`
+          <p>${emailObject.body}</p>
+          <p>${emailObject.resumeText}</p>`
   };
 
   transporter.sendMail(options, (error, info) => {
@@ -52,6 +65,11 @@ router.post("/email", (req, res) => {
     transporter.close();
     res.send(info);
   });
+});
+
+router.post("/file", upload.single('resume'), (req, res) => {
+  console.log(req);
+  res.send();
 });
 
 app.use("/api", router);

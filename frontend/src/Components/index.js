@@ -6,3 +6,4 @@ export { default as Service } from "./Service";
 export { default as CustomServicesNav } from "./CustomServicesNav";
 export { default as Project } from "./Project";
 export { default as ContactForm } from "./ContactForm";
+export { default as CareersForm } from "./CareersForm";
