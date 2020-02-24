@@ -1,5 +1,6 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 form {
   flex: 1;
@@ -45,6 +46,12 @@ form {
 
       div {
         align-self: center;
+      }
+      p {
+        padding: $default-spacing;
+        @include mobile {
+          font-size: $font-size-links;
+        }
       }
     }
   }
