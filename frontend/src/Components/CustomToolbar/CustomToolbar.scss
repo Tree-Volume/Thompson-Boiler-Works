@@ -3,6 +3,12 @@
 
 .toolbar {
   box-shadow: none !important;
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
+  .MuiButton-root {
+    border-radius: 0px;
+  }
 }
 
 .toolbar-logo {

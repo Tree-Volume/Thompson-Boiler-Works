@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Menu, MenuItem, Toolbar, Button } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import MediaQuery from "react-responsive";
 import { useTranslation } from "react-i18next";
@@ -9,11 +10,14 @@ import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
 const CustomToolbar = props => {
+  const location = useLocation();
+  const { t, i18n } = useTranslation();
   const [toolbarColor, setToolbarColor] = useState("#0b121000");
   const [anchorLng, setAnchorLng] = React.useState(null);
   const [anchorMn, setAnchorMn] = React.useState(null);
+  console.log(location.pathname.replace("/", ""));
+  const [currentPage, setCurrentPage] = React.useState(location.pathname.replace("/", ""));
   const { notLanding } = props;
-  const { t, i18n } = useTranslation();
   const title = t("title");
   const options = [
     t("nav.about"),
@@ -61,7 +65,7 @@ const CustomToolbar = props => {
       style={{ backgroundColor: toolbarColor, transition: "background-color 0.5s" }}
     >
       <Toolbar>
-        <Link className="toolbar-logo" to={RouterPaths.LANDING}>
+        <Link className="toolbar-logo" to={RouterPaths.LANDING} onClick={() => setCurrentPage("")}>
           <div className="toolbar-logo-image">
             <img src={logo} alt={title} />
           </div>
@@ -70,7 +74,16 @@ const CustomToolbar = props => {
           {options.map(value => {
             return (
               <Link key={value} to={`/${value.toLowerCase()}`}>
-                <Button>{value}</Button>
+                <Button
+                  style={
+                    currentPage === value.toLowerCase()
+                      ? { borderBottom: "1px solid white" }
+                      : { borderBottom: "none" }
+                  }
+                  onClick={() => setCurrentPage(value.toLowerCase())}
+                >
+                  {value}
+                </Button>
               </Link>
             );
           })}
