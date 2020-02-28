@@ -1,3 +1,9 @@
+@import "Styles/Colours.scss";
+
 .App {
   min-width: 320px;
+}
+
+.MuiButton-label {
+  color: $color-white;
 }

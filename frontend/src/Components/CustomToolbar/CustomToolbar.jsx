@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Menu, MenuItem, Toolbar, Button } from "@material-ui/core";
+import { AppBar, Menu, MenuItem, Toolbar, Button, Tabs, Tab } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
-import MenuIcon from "@material-ui/icons/Menu";
-import MediaQuery from "react-responsive";
 import { useTranslation } from "react-i18next";
 import { returnFlagByLanguage, RouterPaths } from "Utils/";
+import MenuIcon from "@material-ui/icons/Menu";
+import MediaQuery from "react-responsive";
 import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
+
 
 const CustomToolbar = props => {
   const location = useLocation();
@@ -15,7 +16,6 @@ const CustomToolbar = props => {
   const [toolbarColor, setToolbarColor] = useState("#0b121000");
   const [anchorLng, setAnchorLng] = React.useState(null);
   const [anchorMn, setAnchorMn] = React.useState(null);
-  console.log(location.pathname.replace("/", ""));
   const [currentPage, setCurrentPage] = React.useState(location.pathname.replace("/", ""));
   const { notLanding } = props;
   const title = t("title");
@@ -31,6 +31,10 @@ const CustomToolbar = props => {
     if (notLanding) setToolbarColor("#0b1210");
     else setToolbarColor("transparent");
   }, [notLanding]);
+
+  const handleChange = (event, newValue) => {
+    setCurrentPage(newValue);
+  };
 
   const handleLngClick = event => {
     setAnchorLng(event.currentTarget);
@@ -71,22 +75,18 @@ const CustomToolbar = props => {
           </div>
         </Link>
         <MediaQuery query="(min-width: 1024px)">
-          {options.map(value => {
-            return (
-              <Link key={value} to={`/${value.toLowerCase()}`}>
-                <Button
-                  style={
-                    currentPage === value.toLowerCase()
-                      ? { borderBottom: "1px solid white" }
-                      : { borderBottom: "none" }
-                  }
-                  onClick={() => setCurrentPage(value.toLowerCase())}
-                >
-                  {value}
-                </Button>
-              </Link>
-            );
-          })}
+          <Tabs value={currentPage} onChange={handleChange} >
+            {options.map(value => {
+              return (
+                <Tab
+                  value={value.toLowerCase()}
+                  label={value}
+                  to={`/${value.toLowerCase()}`}
+                  component={Link}
+                ></Tab>
+              );
+            })}
+          </Tabs>
         </MediaQuery>
         <Button
           className="language-button"
