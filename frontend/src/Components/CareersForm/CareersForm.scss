@@ -35,15 +35,6 @@ form {
       width: 100%;
       .MuiFilledInput-underline {
         border-radius: 0;
-
-        &::after {
-          border-color: black;
-        }
-      }
-      .MuiInputLabel-filled {
-        &.Mui-focused {
-          color: black;
-        }
       }
     }
     .resume-upload {
