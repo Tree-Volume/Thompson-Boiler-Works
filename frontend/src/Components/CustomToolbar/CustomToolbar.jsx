@@ -40,7 +40,8 @@ const CustomToolbar = props => {
     setAnchorMn(event.currentTarget);
   };
 
-  const handleMnClose = lang => {
+  const handleMnClose = event => {
+    setCurrentPage(event.currentTarget.childNodes[0].data.toLowerCase());
     setAnchorMn(null);
   };
 
