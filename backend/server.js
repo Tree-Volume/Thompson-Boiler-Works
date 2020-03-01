@@ -57,7 +57,7 @@ router.post("/email", (req, res) => {
     }</h1>
           <p>From: ${emailObject.name} (${emailObject.from})</p>
           <p>${emailObject.body}</p>
-          <p>${emailObject.resumeText}</p>`
+          <p>${emailObject.origin == "CAREERS" ? emailObject.resumeText : ""}</p>`
   };
 
   transporter.sendMail(options, (error, info) => {
