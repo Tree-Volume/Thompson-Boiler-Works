@@ -1,0 +1,77 @@
+{
+  "AWSEBDockerrunVersion": 2,
+    "volumes": [
+    {
+      "name": "letsencrypt-conf",
+      "host": {
+        "sourcePath": "/etc/letsencrypt"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "frontend",
+      "image": "liannus/tbwsite:frontend",
+      "essential": true,
+      "cpu": 250,
+      "memory": 825,
+      "memoryReservation": 500,
+      "dependsOn": [
+        {
+          "containerName": "backend",
+          "condition": "START"
+        }
+      ]
+    },
+    {
+      "name": "backend",
+      "image": "liannus/tbwsite:backend",
+      "essential": true,
+      "cpu": 250,
+      "memory": 128,
+      "memoryReservation": 128
+    },
+    {
+      "name": "reverseproxy",
+      "image": "liannus/tbwsite:reverseproxy",
+      "cpu": 250,
+      "essential": true,
+      "memory": 128,
+      "memoryReservation": 128,
+      "mountPoints": [
+        {
+          "sourceVolume": "letsencrypt-conf",
+          "containerPath": "/etc/letsencrypt"
+        }
+      ],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443,
+          "protocol": "tcp"
+        }
+      ],
+      "links": [
+        "frontend", 
+        "backend"
+      ],
+      "dependsOn": [
+        {
+          "containerName": "frontend",
+           "condition": "START"
+        },
+        {
+          "containerName": "backend",
+           "condition": "START"
+        }
+      ]
+    }
+  ],
+  "networkMode": "bridge",
+  "family": ""
+}
