@@ -67,7 +67,7 @@ const CustomToolbar = props => {
   return (
     <AppBar
       className="toolbar"
-      style={{ backgroundColor: toolbarColor, transition: "background-color 0.5s" }}
+      style={{ backgroundColor: toolbarColor, transition: (!notLanding) ? "background-color 0.5s" : ""}}
     >
       <Toolbar>
         <Link className="toolbar-logo" to={RouterPaths.LANDING} onClick={() => setCurrentPage("")}>
