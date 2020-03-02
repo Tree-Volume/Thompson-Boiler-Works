@@ -6,6 +6,7 @@ import routerPaths from "Utils/RouterPaths";
 import { useTranslation } from "react-i18next";
 import landing from "Assets/images/landing.png";
 import servicesBackground from "Assets/images/divider.png";
+import RenderInBrowser from "react-render-in-browser";
 
 import "./LandingPage.scss";
 
@@ -35,9 +36,11 @@ const LandingPage = props => {
           <Typography className="landing-section-body" variant="h6">
             {t("landing.about.body")}
           </Typography>
-          <Link to={routerPaths.ABOUT}>
-            <Button variant="contained">{t("landing.about.button")}</Button>
-          </Link>
+          <RenderInBrowser except ie>
+            <Link to={routerPaths.ABOUT}>
+              <Button variant="contained">{t("landing.about.button")}</Button>
+            </Link>
+          </RenderInBrowser>
         </Container>
       </div>
       <div style={landingSectionServices} className="landing-section">
@@ -54,9 +57,11 @@ const LandingPage = props => {
               <Typography variant="h6">{t("landing.services.imageCaption")}</Typography>
             </div>
           </div>
-          <Link className="services-button" to={routerPaths.SERVICES}>
-            <Button variant="contained">{t("landing.services.button")}</Button>
-          </Link>
+          <RenderInBrowser except ie>
+            <Link className="services-button" to={routerPaths.SERVICES}>
+              <Button variant="contained">{t("landing.services.button")}</Button>
+            </Link>
+          </RenderInBrowser>
         </Container>
       </div>
       <div className="landing-section">
@@ -73,9 +78,11 @@ const LandingPage = props => {
             <img src={landing} alt={t("landing.projects.imageAlt.three")} />
             <img src={landing} alt={t("landing.projects.imageAlt.four")} />
           </div>
-          <Link to={routerPaths.PROJECTS}>
-            <Button variant="contained">{t("landing.projects.button")}</Button>
-          </Link>
+          <RenderInBrowser except ie>
+            <Link to={routerPaths.PROJECTS}>
+              <Button variant="contained">{t("landing.projects.button")}</Button>
+            </Link>
+          </RenderInBrowser>
         </Container>
       </div>
     </div>

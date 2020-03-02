@@ -4,11 +4,12 @@ import { AppBar, Menu, MenuItem, Toolbar, Button, Tabs, Tab } from "@material-ui
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { returnFlagByLanguage, RouterPaths } from "Utils/";
+import RenderInBrowser from "react-render-in-browser";
 import MenuIcon from "@material-ui/icons/Menu";
 import MediaQuery from "react-responsive";
-import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
+import "./CustomToolbar.scss";
 
 const CustomToolbar = props => {
   const location = useLocation();
@@ -74,20 +75,23 @@ const CustomToolbar = props => {
             <img src={logo} alt={title} />
           </div>
         </Link>
-        <MediaQuery query="(min-width: 1024px)">
-          <Tabs value={currentPage} onChange={handleChange} >
-            {options.map(value => {
-              return (
-                <Tab
-                  value={value.toLowerCase()}
-                  label={value}
-                  to={`/${value.toLowerCase()}`}
-                  component={Link}
-                ></Tab>
-              );
-            })}
-          </Tabs>
-        </MediaQuery>
+        <RenderInBrowser except ie>
+          <MediaQuery query="(min-width: 1024px)">
+            <Tabs value={currentPage} onChange={handleChange}>
+              {options.map(value => {
+                return (
+                  <Tab
+                    key={value}
+                    value={value.toLowerCase()}
+                    label={value}
+                    to={`/${value.toLowerCase()}`}
+                    component={Link}
+                  ></Tab>
+                );
+              })}
+            </Tabs>
+          </MediaQuery>
+        </RenderInBrowser>
         <Button
           className="language-button"
           aria-controls="lng-menu"
@@ -114,36 +118,38 @@ const CustomToolbar = props => {
           </MenuItem>
         </Menu>
 
-        <MediaQuery query="(max-width: 1023px)">
-          <Button
-            className="menu-button"
-            aria-controls="nav-menu"
-            aria-haspopup="true"
-            onClick={handleMnClick}
-          >
-            <MenuIcon />
-          </Button>
-          <Menu
-            id="nav-menu"
-            anchorEl={anchorMn}
-            keepMounted
-            open={Boolean(anchorMn)}
-            onClose={handleMnClose}
-          >
-            {options.map(value => {
-              return (
-                <MenuItem
-                  key={value}
-                  component={Link}
-                  to={`/${value.toLowerCase()}`}
-                  onClick={handleMnClose}
-                >
-                  {value}
-                </MenuItem>
-              );
-            })}
-          </Menu>
-        </MediaQuery>
+        <RenderInBrowser except ie>
+          <MediaQuery query="(max-width: 1023px)">
+            <Button
+              className="menu-button"
+              aria-controls="nav-menu"
+              aria-haspopup="true"
+              onClick={handleMnClick}
+            >
+              <MenuIcon />
+            </Button>
+            <Menu
+              id="nav-menu"
+              anchorEl={anchorMn}
+              keepMounted
+              open={Boolean(anchorMn)}
+              onClose={handleMnClose}
+            >
+              {options.map(value => {
+                return (
+                  <MenuItem
+                    key={value}
+                    component={Link}
+                    to={`/${value.toLowerCase()}`}
+                    onClick={handleMnClose}
+                  >
+                    {value}
+                  </MenuItem>
+                );
+              })}
+            </Menu>
+          </MediaQuery>
+        </RenderInBrowser>
       </Toolbar>
     </AppBar>
   );
