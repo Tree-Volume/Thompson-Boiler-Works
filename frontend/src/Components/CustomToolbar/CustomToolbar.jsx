@@ -30,7 +30,8 @@ const CustomToolbar = props => {
   useEffect(() => {
     if (notLanding) setToolbarColor("#0b1210");
     else setToolbarColor("transparent");
-  }, [notLanding]);
+    setCurrentPage(location.pathname.replace("/", ""));
+  }, [notLanding,location.pathname]);
 
   const handleChange = (event, newValue) => {
     setCurrentPage(newValue);
