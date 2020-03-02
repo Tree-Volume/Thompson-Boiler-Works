@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Menu, MenuItem, Toolbar, Button } from "@material-ui/core";
+import { AppBar, Menu, MenuItem, Toolbar, Button, Tabs, Tab } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { returnFlagByLanguage, RouterPaths } from "Utils/";
+import MenuIcon from "@material-ui/icons/Menu";
+import MediaQuery from "react-responsive";
 import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
+
 const CustomToolbar = props => {
-  const [toolbarColor, setToolbarColor] = useState("#0b121000");
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const { notLanding } = props;
+  const location = useLocation();
   const { t, i18n } = useTranslation();
+  const [toolbarColor, setToolbarColor] = useState("#0b121000");
+  const [anchorLng, setAnchorLng] = React.useState(null);
+  const [anchorMn, setAnchorMn] = React.useState(null);
+  const [currentPage, setCurrentPage] = React.useState(location.pathname.replace("/", ""));
+  const { notLanding } = props;
   const title = t("title");
   const options = [
     t("nav.about"),
@@ -25,13 +32,25 @@ const CustomToolbar = props => {
     else setToolbarColor("transparent");
   }, [notLanding]);
 
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
+  const handleChange = (event, newValue) => {
+    setCurrentPage(newValue);
   };
 
-  const handleClose = lang => {
+  const handleLngClick = event => {
+    setAnchorLng(event.currentTarget);
+  };
+
+  const handleLngClose = lang => {
     i18n.changeLanguage(lang);
-    setAnchorEl(null);
+    setAnchorLng(null);
+  };
+
+  const handleMnClick = event => {
+    setAnchorMn(event.currentTarget);
+  };
+
+  const handleMnClose = lang => {
+    setAnchorMn(null);
   };
 
   // update toolbar color on scroll
@@ -50,43 +69,81 @@ const CustomToolbar = props => {
       style={{ backgroundColor: toolbarColor, transition: "background-color 0.5s" }}
     >
       <Toolbar>
-        <Link className="toolbar-logo" to={RouterPaths.LANDING}>
+        <Link className="toolbar-logo" to={RouterPaths.LANDING} onClick={() => setCurrentPage("")}>
           <div className="toolbar-logo-image">
             <img src={logo} alt={title} />
           </div>
         </Link>
-        {options.map(value => {
-          return (
-            <Link key={value} to={`/${value.toLowerCase()}`}>
-              <Button>{value}</Button>
-            </Link>
-          );
-        })}
+        <MediaQuery query="(min-width: 1024px)">
+          <Tabs value={currentPage} onChange={handleChange} >
+            {options.map(value => {
+              return (
+                <Tab
+                  value={value.toLowerCase()}
+                  label={value}
+                  to={`/${value.toLowerCase()}`}
+                  component={Link}
+                ></Tab>
+              );
+            })}
+          </Tabs>
+        </MediaQuery>
         <Button
           className="language-button"
-          aria-controls="simple-menu"
+          aria-controls="lng-menu"
           aria-haspopup="true"
-          onClick={handleClick}
+          onClick={handleLngClick}
         >
           {returnFlagByLanguage(i18n.language)}
           {i18n.language}
         </Button>
         <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
+          id="lng-menu"
+          anchorEl={anchorLng}
           keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
+          open={Boolean(anchorLng)}
+          onClose={handleLngClose}
         >
-          <MenuItem onClick={() => handleClose("en")}>
+          <MenuItem onClick={() => handleLngClose("en")}>
             {returnFlagByLanguage("en")}
-            en
+            EN
           </MenuItem>
-          <MenuItem onClick={() => handleClose("fr")}>
+          <MenuItem onClick={() => handleLngClose("fr")}>
             {returnFlagByLanguage("fr")}
-            fr
+            FR
           </MenuItem>
         </Menu>
+
+        <MediaQuery query="(max-width: 1023px)">
+          <Button
+            className="menu-button"
+            aria-controls="nav-menu"
+            aria-haspopup="true"
+            onClick={handleMnClick}
+          >
+            <MenuIcon />
+          </Button>
+          <Menu
+            id="nav-menu"
+            anchorEl={anchorMn}
+            keepMounted
+            open={Boolean(anchorMn)}
+            onClose={handleMnClose}
+          >
+            {options.map(value => {
+              return (
+                <MenuItem
+                  key={value}
+                  component={Link}
+                  to={`/${value.toLowerCase()}`}
+                  onClick={handleMnClose}
+                >
+                  {value}
+                </MenuItem>
+              );
+            })}
+          </Menu>
+        </MediaQuery>
       </Toolbar>
     </AppBar>
   );

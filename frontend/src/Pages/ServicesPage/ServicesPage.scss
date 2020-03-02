@@ -5,6 +5,9 @@
 .services-page {
   padding-bottom: $default-spacing;
   margin-top: $default-spacing * 2 !important;
+  @include desktop {
+    display: flex;
+  }
   .linebreak {
     box-sizing: border-box;
     position: absolute;
@@ -13,8 +16,10 @@
   }
 
   .flavor {
-    margin: $default-spacing * 4 0 $default-spacing * 2 0;
-
+    margin: $default-spacing 0 $default-spacing * 2 0;
+    @include desktop {
+      margin-top: $default-spacing * 4;
+    }
     .flavor-text {
       font-weight: 300;
     }

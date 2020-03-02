@@ -1,28 +1,43 @@
 @import "Styles/Colours.scss";
+@import "Styles/MediaQueries.scss";
 
 .toolbar {
   box-shadow: none !important;
-}
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
+  .MuiTab-root {
+    padding-left: 0px;
+    padding-right: 0px;
+    min-width: 100px;
+  }
+  .toolbar-logo {
+    margin-right: auto;
+    margin: 5px auto 5px 0;
+    img {
+      width: 200px;
+      height: 100%;
+      @include mobile {
+        width: 150px;
+      }
+    }
+  }
 
-.toolbar-logo {
-  margin-right: auto;
-  margin: 5px auto 5px 0;
-}
+  .toolbar-logo-image {
+    display: flex;
+  }
 
-.toolbar-logo-image {
-  display: flex;
-  max-width: 200px;
-}
+  .MuiTab-wrapper,
+  .MuiButton-label {
+    color: $color-white;
+  }
 
-.MuiButton-label {
-  color: $color-white;
-}
+  .language-button {
+    font-weight: 300 !important;
+  }
 
-.language-button {
-  font-weight: 300 !important;
-}
-
-.flagIcon {
-  margin-right: 2px;
-  height: 12px;
+  .flagIcon {
+    margin-right: 2px;
+    height: 12px;
+  }
 }
