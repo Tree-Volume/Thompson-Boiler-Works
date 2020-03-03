@@ -17,7 +17,7 @@ const AboutPage = props => {
       <Container className="about-page">
         {aboutObject != null &&
           Object.keys(aboutObject).map(key => (
-            <div className="about-section">
+            <div className="about-section" key={key}>
               <Typography className="about-section-text" variant="h6">
                 {t(`about.section.${key}.body`)}
               </Typography>
