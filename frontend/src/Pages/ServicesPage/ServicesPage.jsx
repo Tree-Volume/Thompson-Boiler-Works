@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { PageHeader, Service } from "Components/";
 import { Container } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import "./ServicesPage.scss";
 
 const ServicesPage = props => {
   const { t } = useTranslation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.setNotLanding(true);
   });
   const servicesObject = t("services.service", { returnObjects: true });
@@ -20,7 +20,11 @@ const ServicesPage = props => {
       <PageHeader imagePath={servicesImage} pageTitle={t("services.title")} />
       <Container className="services-page">
         <div>
-        <CustomServicesNav className="services-nav" servicesObject={servicesObject} serviceRefs={serviceRefs} />
+          <CustomServicesNav
+            className="services-nav"
+            servicesObject={servicesObject}
+            serviceRefs={serviceRefs}
+          />
         </div>
         <div className="services-content">
           {servicesObject != null &&

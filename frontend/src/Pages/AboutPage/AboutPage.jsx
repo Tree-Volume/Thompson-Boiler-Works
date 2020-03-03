@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { PageHeader } from "Components/";
 import { Container, Typography } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import "./AboutPage.scss";
 const AboutPage = props => {
   const { t } = useTranslation();
   const aboutObject = t("about.section", { returnObjects: true });
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.setNotLanding(true);
   });
   return (

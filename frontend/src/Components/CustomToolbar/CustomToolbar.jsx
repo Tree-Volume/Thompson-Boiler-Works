@@ -9,7 +9,6 @@ import MediaQuery from "react-responsive";
 import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
-
 const CustomToolbar = props => {
   const location = useLocation();
   const { t, i18n } = useTranslation();
@@ -31,7 +30,7 @@ const CustomToolbar = props => {
     if (notLanding) setToolbarColor("#0b1210");
     else setToolbarColor("transparent");
     setCurrentPage(location.pathname.replace("/", ""));
-  }, [notLanding,location.pathname]);
+  }, [notLanding, location.pathname]);
 
   const handleChange = (event, newValue) => {
     setCurrentPage(newValue);
@@ -67,7 +66,10 @@ const CustomToolbar = props => {
   return (
     <AppBar
       className="toolbar"
-      style={{ backgroundColor: toolbarColor, transition: (!notLanding) ? "background-color 0.5s" : ""}}
+      style={{
+        backgroundColor: toolbarColor,
+        transition: !notLanding ? "background-color 0.5s" : ""
+      }}
     >
       <Toolbar>
         <Link className="toolbar-logo" to={RouterPaths.LANDING} onClick={() => setCurrentPage("")}>
@@ -76,7 +78,7 @@ const CustomToolbar = props => {
           </div>
         </Link>
         <MediaQuery query="(min-width: 1024px)">
-          <Tabs value={currentPage} onChange={handleChange} >
+          <Tabs value={currentPage} onChange={handleChange}>
             {options.map(value => {
               return (
                 <Tab
