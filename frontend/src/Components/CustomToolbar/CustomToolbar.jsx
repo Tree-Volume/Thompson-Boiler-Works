@@ -41,7 +41,8 @@ const CustomToolbar = props => {
   };
 
   const handleMnClose = event => {
-    setCurrentPage(event.currentTarget.childNodes[0].data.toLowerCase());
+    var currPage = event.currentTarget.childNodes[0]
+    setCurrentPage(currPage === undefined ? "" : currPage.data.toLowerCase());
     setAnchorMn(null);
   };
 
