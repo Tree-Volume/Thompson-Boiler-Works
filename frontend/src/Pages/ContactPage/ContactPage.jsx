@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { PageHeader, ContactForm } from "Components/";
 import { Container } from "@material-ui/core";
@@ -7,7 +7,7 @@ import "./ContactPage.scss";
 
 const ContactPage = props => {
   const { t } = useTranslation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.setNotLanding(true);
   });
   return (
