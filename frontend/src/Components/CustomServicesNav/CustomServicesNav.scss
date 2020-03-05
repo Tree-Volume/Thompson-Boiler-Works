@@ -43,4 +43,10 @@
       font-weight: 300;
     }
   }
+  @include desktop {
+    .active {
+      color: black;
+      text-decoration: underline;
+    }
+  }
 }
