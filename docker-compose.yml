@@ -32,6 +32,7 @@ services:
       - 3000:3000
     volumes:
       - ./frontend/:/frontend
+      - ./secret:/frontend/src/secret
       - frontend-modules:/frontend/node_modules
 
 volumes:
