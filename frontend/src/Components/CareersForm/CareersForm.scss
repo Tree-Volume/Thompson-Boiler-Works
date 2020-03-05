@@ -16,7 +16,7 @@ form {
       margin: $default-spacing 25%;
     }
     background: $color-secondary !important;
-    padding: $default-spacing $default-spacing * 6;
+    padding: $default-spacing/2 100px $default-spacing/2 100px;
   }
   .careers-form {
     .dropzone {
