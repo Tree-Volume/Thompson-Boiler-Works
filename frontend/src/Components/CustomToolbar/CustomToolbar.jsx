@@ -40,7 +40,9 @@ const CustomToolbar = props => {
     setAnchorMn(event.currentTarget);
   };
 
-  const handleMnClose = lang => {
+  const handleMnClose = event => {
+    var currPage = event.currentTarget.childNodes[0]
+    setCurrentPage(currPage === undefined ? "" : currPage.data.toLowerCase());
     setAnchorMn(null);
   };
 

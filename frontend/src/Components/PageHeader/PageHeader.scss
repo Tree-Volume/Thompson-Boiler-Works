@@ -17,10 +17,7 @@
 
   .page-header-text {
     font-family: "Roboto";
-    font-size: $font-size-header;
-    @include mobile {
-      font-size: $font-size-header-mobile;
-    }
     color: $color-white;
+    @include dynamic-fonts($font-size-header);
   }
 }

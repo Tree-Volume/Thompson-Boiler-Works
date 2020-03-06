@@ -1,17 +1,24 @@
 @import "Styles/Colours.scss";
 @import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
 
 form {
   flex: 1;
   display: flex;
   flex-direction: column;
   .submit {
+    margin: $default-spacing auto;
+    @include tablet {
+      margin: $default-spacing 25%;
+      padding: $default-spacing $default-spacing * 4;
+    }
+    @include desktop {
+      margin: $default-spacing 25%;
+    }
     background: $color-secondary !important;
-    margin: $default-spacing 25% $default-spacing 25%;
-    padding: $default-spacing $default-spacing * 6 $default-spacing $default-spacing * 6;
+    padding: $default-spacing/2 100px $default-spacing/2 100px;
   }
   .careers-form {
-    min-width: 300px;
     .dropzone {
       display: flex;
       justify-content: center;
@@ -28,15 +35,6 @@ form {
       width: 100%;
       .MuiFilledInput-underline {
         border-radius: 0;
-
-        &::after {
-          border-color: black;
-        }
-      }
-      .MuiInputLabel-filled {
-        &.Mui-focused {
-          color: black;
-        }
       }
     }
     .resume-upload {
@@ -46,6 +44,12 @@ form {
 
       div {
         align-self: center;
+      }
+      p {
+        padding: $default-spacing;
+        @include mobile {
+          font-size: $font-size-links;
+        }
       }
     }
   }
