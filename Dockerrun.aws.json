@@ -6,6 +6,12 @@
       "host": {
         "sourcePath": "/etc/letsencrypt"
       }
+    },
+    {
+      "name": "tbw-secrets",
+      "host": {
+        "sourcePath": "/tmp/secret"
+      }
     }
   ],
   "containerDefinitions": [
@@ -16,6 +22,12 @@
       "cpu": 250,
       "memory": 825,
       "memoryReservation": 500,
+      "mountPoints": [
+        {
+          "sourceVolume": "tbw-secrets",
+          "containerPath": "/frontend/src/secret"
+        }
+      ],
       "dependsOn": [
         {
           "containerName": "backend",
