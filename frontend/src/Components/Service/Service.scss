@@ -31,8 +31,16 @@
       }
       margin-bottom: $default-spacing * 2;
 
-      .service-body-text {
-        font-weight: 300;
+      .service-body {
+        flex: 1;
+        padding-right: $default-spacing * 2;
+        margin-bottom: $default-spacing * 2;
+        .service-body-text {
+          font-weight: 300;
+        }
+        @include mobile {
+          padding-right: 0px;
+        }
       }
     }
 

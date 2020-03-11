@@ -3,6 +3,7 @@
 @import "Styles/MediaQueries.scss";
 
 .services-nav {
+  min-width: 100px;
   text-align: center;
   position: sticky;
   padding: $default-spacing 0;
@@ -32,21 +33,44 @@
       margin-bottom: $default-spacing / 2;
     }
     padding: 0 $default-spacing / 2 0 $default-spacing / 2;
+    color: $color-gray;
 
     @include desktop {
       display: block;
-      padding: 0;
-    }
-    color: $color-gray;
-    h3 {
-      font-size: $font-size-links;
-      font-weight: 300;
     }
   }
-  @include desktop {
-    .active {
-      color: #373737;
-      text-decoration: underline;
-    }
+
+  h6 {
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  button:before,
+  button:hover:before,
+  button:focus:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .active h6,
+  button:hover,
+  button:focus {
+    color: black !important;
+  }
+
+  .active:before,
+  button:hover:before,
+  button:focus:before {
+    visibility: visible;
+    text-decoration: none;
+    width: 100%;
   }
 }

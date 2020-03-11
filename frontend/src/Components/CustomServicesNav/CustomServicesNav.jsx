@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Typography } from "@material-ui/core/";
-import Scrollspy from "react-scrollspy";
-import MediaQuery from "react-responsive";
+import Scrollspy from "react-scrollspy"; 
 import "./CustomServicesNav.scss";
 
 const CustomServicesNav = props => {
@@ -32,10 +31,10 @@ const CustomServicesNav = props => {
       const keySplice = servicesKeys.splice(0, 4);
       nav.push(
         <div className="row">
-          <Scrollspy items={navIds()} componentTag="div" currentClassName="active" offset={ -100 }>
+          <Scrollspy items={navIds()} componentTag="div" currentClassName="active" offset={ -125 }>
             {keySplice.map((key, index) => (
-              <Link component="button" key={key} onClick={() => handleClick(index)}>
-                <Typography variant="h3">{t(`services.service.${key}.title`)}</Typography>
+              <Link underline="none" component="button" key={key} onClick={() => handleClick(index)}>
+                <Typography variant="h6">{t(`services.service.${key}.title`)}</Typography>
               </Link>
             ))}
           </Scrollspy>
@@ -47,9 +46,6 @@ const CustomServicesNav = props => {
 
   return (
     <div ref={navRef} className="services-nav">
-      <MediaQuery query="(min-width: 1024px)">
-        <Typography variant="h2">Our Services</Typography>
-      </MediaQuery>
       {buildNav()}
     </div>
   );
