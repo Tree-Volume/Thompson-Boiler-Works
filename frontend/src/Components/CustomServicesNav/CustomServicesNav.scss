@@ -37,6 +37,7 @@
 
     @include desktop {
       display: block;
+      padding: 0;
     }
   }
 
@@ -46,29 +47,26 @@
   }
 
   button:before,
-  button:hover:before,
-  button:focus:before {
+  button:hover:before {
     content: "";
     position: absolute;
     width: 0;
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #000;
+    background-color: $color-dark-gray;
     visibility: hidden;
     -webkit-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
   }
 
   .active h6,
-  button:hover,
-  button:focus {
-    color: black !important;
+  button:hover {
+    color: $color-dark-gray !important;
   }
 
   .active:before,
-  button:hover:before,
-  button:focus:before {
+  button:hover:before {
     visibility: visible;
     text-decoration: none;
     width: 100%;
