@@ -42,6 +42,7 @@
         margin: auto;
         display: flex;
         justify-content: center;
+        max-height: 300px;
 
         @include tablet {
           justify-content: flex-end;
