@@ -15,7 +15,7 @@
     position: sticky;
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
-    background-color: white;
+    background-color: $color-white;
     top: 90px;
     @include mobile {
       top: 70px;
