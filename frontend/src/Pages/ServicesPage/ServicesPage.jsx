@@ -19,7 +19,7 @@ const ServicesPage = props => {
     <>
       <PageHeader imagePath={servicesImage} pageTitle={t("services.title")} />
       <Container className="services-page">
-        <div>
+        <div className="sticky-nav">
           <CustomServicesNav
             className="services-nav"
             servicesObject={servicesObject}
