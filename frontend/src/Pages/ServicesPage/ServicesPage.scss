@@ -6,7 +6,7 @@
   padding-bottom: $default-spacing;
   margin-top: 0 !important;
   @include desktop {
-    margin-top: $default-spacing !important;
+    margin-top: $default-spacing * 2 !important;
     display: flex;
   }
 
@@ -15,7 +15,7 @@
     position: sticky;
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
-    background-color: $color-white;
+    background-color: $color-background-white;
     top: 90px;
     @include mobile {
       top: 70px;
