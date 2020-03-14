@@ -29,8 +29,9 @@
     color: $color-primary;
   }
   .MuiLink-root {
+    margin: 0 $default-spacing / 2 0 $default-spacing / 2;
     @include desktop {
-      margin-bottom: $default-spacing / 2;
+      margin: 0 0 $default-spacing / 2 0;
     }
     padding: 0 $default-spacing / 2 0 $default-spacing / 2;
     color: $color-gray;
