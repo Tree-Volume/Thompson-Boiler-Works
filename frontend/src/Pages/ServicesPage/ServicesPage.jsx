@@ -30,6 +30,7 @@ const ServicesPage = props => {
           {servicesObject != null &&
             Object.keys(servicesObject).map((key, index) => (
               <Service
+                id={`service-${index}`}
                 reference={serviceRefs.current[index]}
                 key={key}
                 title={t(`services.service.${key}.title`)}
