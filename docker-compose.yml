@@ -1,7 +1,10 @@
 version: "3.7"
 services:
   reverseproxy:
-    build: ./reverseproxy
+    build:
+      context: ./reverseproxy
+      args:
+        - ENV=development
     container_name: reverseproxy
     depends_on:
       - frontend
