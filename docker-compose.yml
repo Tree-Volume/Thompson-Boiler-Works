@@ -19,6 +19,7 @@ services:
     command: npm start
     volumes:
       - ./backend/:/backend
+      - ./secret/backend:/backend/secret
       - backend-modules:/backend/node_modules
 
   frontend:
@@ -32,7 +33,7 @@ services:
       - 3000:3000
     volumes:
       - ./frontend/:/frontend
-      - ./secret:/frontend/src/secret
+      - ./secret/frontend:/frontend/src/secret
       - frontend-modules:/frontend/node_modules
 
 volumes:
