@@ -53,7 +53,7 @@
           "sourceVolume": "tbw-secrets-backend",
           "containerPath": "/backend/secret"
         }
-      ],
+      ]
     },
     {
       "name": "reverseproxy",
