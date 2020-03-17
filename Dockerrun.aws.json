@@ -8,9 +8,15 @@
       }
     },
     {
-      "name": "tbw-secrets",
+      "name": "tbw-secrets-frontend",
       "host": {
-        "sourcePath": "/tmp/secret"
+        "sourcePath": "/tmp/secret/frontend"
+      }
+    },
+    {
+      "name": "tbw-secrets-backend",
+      "host": {
+        "sourcePath": "/tmp/secret/backend"
       }
     }
   ],
@@ -24,7 +30,7 @@
       "memoryReservation": 500,
       "mountPoints": [
         {
-          "sourceVolume": "tbw-secrets",
+          "sourceVolume": "tbw-secrets-frontend",
           "containerPath": "/frontend/src/secret"
         }
       ],
@@ -41,7 +47,13 @@
       "essential": true,
       "cpu": 250,
       "memory": 128,
-      "memoryReservation": 128
+      "memoryReservation": 128,
+      "mountPoints": [
+        {
+          "sourceVolume": "tbw-secrets-backend",
+          "containerPath": "/backend/secret"
+        }
+      ],
     },
     {
       "name": "reverseproxy",
