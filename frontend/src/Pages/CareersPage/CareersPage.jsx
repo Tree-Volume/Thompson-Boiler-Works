@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { PageHeader, CareersForm } from "Components/";
 import { Container, Typography } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ import "./CareersPage.scss";
 
 const CareersPage = props => {
   const { t } = useTranslation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.setNotLanding(true);
   });
   return (

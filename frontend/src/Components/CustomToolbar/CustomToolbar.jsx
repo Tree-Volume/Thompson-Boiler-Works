@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import { AppBar, Menu, MenuItem, Toolbar, Button, Tabs, Tab } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { returnFlagByLanguage, RouterPaths } from "Utils/";
+import { RouterPaths } from "Utils/";
+import { LanguageMenu } from "Components/";
 import MenuIcon from "@material-ui/icons/Menu";
 import MediaQuery from "react-responsive";
 import "./CustomToolbar.scss";
 import logo from "Assets/images/tbw-logo.png";
 
-
 const CustomToolbar = props => {
   const location = useLocation();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [toolbarColor, setToolbarColor] = useState("#0b121000");
-  const [anchorLng, setAnchorLng] = React.useState(null);
   const [anchorMn, setAnchorMn] = React.useState(null);
   const [currentPage, setCurrentPage] = React.useState(location.pathname.replace("/", ""));
   const { notLanding } = props;
@@ -30,26 +29,20 @@ const CustomToolbar = props => {
   useEffect(() => {
     if (notLanding) setToolbarColor("#0b1210");
     else setToolbarColor("transparent");
-  }, [notLanding]);
+    setCurrentPage(location.pathname.replace("/", ""));
+  }, [notLanding, location.pathname]);
 
   const handleChange = (event, newValue) => {
     setCurrentPage(newValue);
-  };
-
-  const handleLngClick = event => {
-    setAnchorLng(event.currentTarget);
-  };
-
-  const handleLngClose = lang => {
-    i18n.changeLanguage(lang);
-    setAnchorLng(null);
   };
 
   const handleMnClick = event => {
     setAnchorMn(event.currentTarget);
   };
 
-  const handleMnClose = lang => {
+  const handleMnClose = event => {
+    var currPage = event.currentTarget.childNodes[0]
+    setCurrentPage(currPage === undefined ? "" : currPage.data.toLowerCase());
     setAnchorMn(null);
   };
 
@@ -66,7 +59,10 @@ const CustomToolbar = props => {
   return (
     <AppBar
       className="toolbar"
-      style={{ backgroundColor: toolbarColor, transition: "background-color 0.5s" }}
+      style={{
+        backgroundColor: toolbarColor,
+        transition: !notLanding ? "background-color 0.5s" : ""
+      }}
     >
       <Toolbar>
         <Link className="toolbar-logo" to={RouterPaths.LANDING} onClick={() => setCurrentPage("")}>
@@ -75,10 +71,11 @@ const CustomToolbar = props => {
           </div>
         </Link>
         <MediaQuery query="(min-width: 1024px)">
-          <Tabs value={currentPage} onChange={handleChange} >
+          <Tabs value={currentPage} onChange={handleChange}>
             {options.map(value => {
               return (
                 <Tab
+                  key={value}
                   value={value.toLowerCase()}
                   label={value}
                   to={`/${value.toLowerCase()}`}
@@ -88,31 +85,7 @@ const CustomToolbar = props => {
             })}
           </Tabs>
         </MediaQuery>
-        <Button
-          className="language-button"
-          aria-controls="lng-menu"
-          aria-haspopup="true"
-          onClick={handleLngClick}
-        >
-          {returnFlagByLanguage(i18n.language)}
-          {i18n.language}
-        </Button>
-        <Menu
-          id="lng-menu"
-          anchorEl={anchorLng}
-          keepMounted
-          open={Boolean(anchorLng)}
-          onClose={handleLngClose}
-        >
-          <MenuItem onClick={() => handleLngClose("en")}>
-            {returnFlagByLanguage("en")}
-            EN
-          </MenuItem>
-          <MenuItem onClick={() => handleLngClose("fr")}>
-            {returnFlagByLanguage("fr")}
-            FR
-          </MenuItem>
-        </Menu>
+        <LanguageMenu />
 
         <MediaQuery query="(max-width: 1023px)">
           <Button

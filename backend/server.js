@@ -2,7 +2,9 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const uuidv4 = require('uuid/v4');
-var multer  = require('multer')
+const multer  = require('multer');
+const secrets = require('./secret/secret.json');
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, './uploads');
@@ -15,13 +17,13 @@ const storage = multer.diskStorage({
 var upload = multer({ dest: storage })
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
-  "",
-  "",
+  `${secrets.GMAIL_CLIENT_ID}`,
+  `${secrets.GMAIL_CLIENT_SECRET}`,
   "https://developers.google.com/oauthplayground"
 );
 oauth2Client.setCredentials({
   refresh_token:
-    ""
+    `${secrets.GMAIL_REFRESH_TOKEN}`
 });
 const accessToken = oauth2Client.getAccessToken();
 const port = 5000;
@@ -30,11 +32,11 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     type: "OAuth2",
-    user: "",
-    clientId: "",
-    clientSecret: "",
+    user: "contact.thompsonboilerworks@gmail.com",
+    clientId: `${secrets.GMAIL_CLIENT_ID}`,
+    clientSecret: `${secrets.GMAIL_CLIENT_SECRET}`,
     refreshToken:
-      "",
+      `${secrets.GMAIL_REFRESH_TOKEN}`,
     accessToken: accessToken
   }
 });

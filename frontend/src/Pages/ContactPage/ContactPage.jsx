@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { PageHeader, ContactForm } from "Components/";
 import { Container } from "@material-ui/core";
+import secrets from "secret/secret.json";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
 const ContactPage = props => {
   const { t } = useTranslation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.setNotLanding(true);
   });
   return (
@@ -22,7 +23,7 @@ const ContactPage = props => {
             height="50%"
             frameBorder="0"
             style={{ border: 0 }}
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZy1pVWMKzkwRzSNkeLZIx5s&key="
+            src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZy1pVWMKzkwRzSNkeLZIx5s&key=${secrets.GMAPS_API_KEY}`}
             allowFullScreen
           />
           <div className="contact-info-div">

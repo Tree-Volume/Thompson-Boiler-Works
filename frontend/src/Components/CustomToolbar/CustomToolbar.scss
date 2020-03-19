@@ -11,6 +11,10 @@
     padding-right: 0px;
     min-width: 100px;
   }
+  .MuiButtonBase-root:hover,
+  .MuiButtonBase-root:focus {
+    opacity: 1;
+  }
   .toolbar-logo {
     margin-right: auto;
     margin: 5px auto 5px 0;
@@ -30,14 +34,5 @@
   .MuiTab-wrapper,
   .MuiButton-label {
     color: $color-white;
-  }
-
-  .language-button {
-    font-weight: 300 !important;
-  }
-
-  .flagIcon {
-    margin-right: 2px;
-    height: 12px;
   }
 }

@@ -4,7 +4,7 @@ const returnFlagByLanguage = lang => {
   if (lang === "en") {
     return (
       <svg
-        className="flagIcon"
+        className="flag-icon"
         xmlns="http://www.w3.org/2000/svg"
         id="flag-icon-css-gb"
         viewBox="0 0 640 480"
@@ -26,7 +26,7 @@ const returnFlagByLanguage = lang => {
   if (lang === "fr") {
     return (
       <svg
-        className="flagIcon"
+        className="flag-icon"
         xmlns="http://www.w3.org/2000/svg"
         id="flag-icon-css-fr"
         viewBox="0 0 640 480"
