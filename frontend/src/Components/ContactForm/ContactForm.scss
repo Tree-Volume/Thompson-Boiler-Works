@@ -18,8 +18,8 @@
 
   button {
     background: $color-secondary !important;
-    margin: $default-spacing 25% $default-spacing 25%;
-    padding: $default-spacing 100px $default-spacing 100px;
+    margin: auto;
+    padding: $default-spacing/2 100px $default-spacing/2 100px;
   }
 
   .MuiTextField-root {
@@ -27,20 +27,6 @@
     width: 80%;
     @include mobile {
       width: 90%;
-    }
-
-    .MuiFilledInput-underline {
-      border-radius: 0;
-
-      &::after {
-        border-color: black;
-      }
-    }
-
-    .MuiInputLabel-filled {
-      &.Mui-focused {
-        color: black;
-      }
     }
   }
 }

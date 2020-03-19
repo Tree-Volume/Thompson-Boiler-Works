@@ -2,7 +2,9 @@
 $color-primary: #0b1210;
 $color-secondary: #a31621;
 $color-gray: #a9a9a9;
+$color-dark-gray: #373737;
 $color-white: #fffafa;
+$color-background-white: white;
 
 //dm = dark mode
 $color-dm-link-visited: #7a2dd8;
@@ -15,5 +17,6 @@ $color-footer-subtitle: #c91331;
     color-primary: $color-primary;
     color-secondary: $color-secondary;
     color-gray: $color-gray;
+    color-dark-gray: $color-dark-gray;
     color-white: $color-white;
 }

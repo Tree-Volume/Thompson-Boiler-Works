@@ -1,6 +1,7 @@
 @import "Styles/MediaQueries.scss";
 
 $font-size-header: 90px;
+$font-size-landing-header: 76px;
 $font-size-header-mobile: 65px;
 $font-size-title: 36px;
 $font-size-subtitle: 24px;
@@ -11,9 +12,9 @@ $navbar-height: 90px;
 $default-spacing: 16px;
 
 @mixin dynamic-fonts($baseSize) {
-  font-size: $baseSize * 0.8;
+  font-size: $baseSize * 0.7;
   @include tablet {
-    font-size: $baseSize * 0.9;
+    font-size: $baseSize * 0.8;
   }
   @include desktop {
     font-size: $baseSize;
