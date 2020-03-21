@@ -3,7 +3,7 @@
 @import "Styles/MediaQueries.scss";
 
 .about-page {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   padding-bottom: $default-spacing * 5;
   .about-section {
