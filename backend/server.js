@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const uuidv4 = require('uuid/v4');
 const multer  = require('multer');
-const secrets = require('./secret/secret.json');
+const secrets = require('./secret/back-secret.json');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
