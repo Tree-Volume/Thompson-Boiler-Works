@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { PageHeader, ContactForm } from "Components/";
 import { Container } from "@material-ui/core";
-import secrets from "secret/front-secret.json";
+import secrets from "secret/front-secret.json"
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
