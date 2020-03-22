@@ -1,20 +1,18 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
-const uuidv4 = require('uuid/v4');
 const multer  = require('multer');
+const mime = require('mime');
 const secrets = require('./secret/back-secret.json');
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/')
   },
-  filename: (req, file, cb) => {
-    const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
-    cb(null, newFilename);
-  },
-});
-var upload = multer({ dest: storage })
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.' + mime.getExtension(file.mimetype))
+  }
+})
+var upload = multer({ storage: storage })
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
   `${secrets.GMAIL_CLIENT_ID}`,
@@ -70,8 +68,8 @@ router.post("/email", (req, res) => {
 });
 
 router.post("/file", upload.single('resume'), (req, res) => {
-  console.log(req);
-  res.send();
+  console.log(req.file.filename)
+  res.send(req.file);
 });
 
 app.use("/api", router);
