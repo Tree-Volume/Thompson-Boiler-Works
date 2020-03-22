@@ -3,12 +3,16 @@
 @import "Styles/MediaQueries.scss";
 
 .contact-page {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   padding-bottom: $default-spacing * 2;
 
   @include mobile {
-    display: inline;
+    display: inline !important;
+    width: 80%;
+  }
+  @include tablet {
+    display: inline !important;
     width: 80%;
   }
   .contact-info {

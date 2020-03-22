@@ -7,7 +7,7 @@
   margin-top: 0 !important;
   @include desktop {
     margin-top: $default-spacing * 2 !important;
-    display: flex;
+    display: flex !important;
   }
 
   .sticky-nav {

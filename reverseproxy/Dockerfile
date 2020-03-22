@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:stable
 
 COPY dummy.sh .
 ARG ENV

@@ -26,7 +26,7 @@
       "image": "liannus/tbwsite:frontend",
       "essential": true,
       "cpu": 250,
-      "memory": 825,
+      "memory": 850,
       "memoryReservation": 500,
       "mountPoints": [
         {
