@@ -46,7 +46,7 @@
     }
 
     h1 {
-      @include dynamic-fonts(76px);
+      @include dynamic-fonts($font-size-landing-header);
     }
     h3 {
       @include dynamic-fonts($font-size-subtitle);

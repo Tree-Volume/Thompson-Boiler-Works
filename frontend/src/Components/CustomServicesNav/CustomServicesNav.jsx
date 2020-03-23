@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Typography } from "@material-ui/core/";
-import MediaQuery from "react-responsive";
+import Scrollspy from "react-scrollspy"; 
 import "./CustomServicesNav.scss";
 
 const CustomServicesNav = props => {
@@ -15,6 +15,14 @@ const CustomServicesNav = props => {
       behavior: "smooth"
     });
   };
+  const navIds = () => {
+    const servicesKeys = Object.keys(props.servicesObject);
+    var ids = [];
+    for (var i = 0; i < servicesKeys.length; i++) {
+      ids.push(`service-${i}`);
+    }
+    return ids;
+  };
   //builds the navigation
   const buildNav = () => {
     const servicesKeys = Object.keys(props.servicesObject);
@@ -23,11 +31,13 @@ const CustomServicesNav = props => {
       const keySplice = servicesKeys.splice(0, 4);
       nav.push(
         <div className="row">
-          {keySplice.map((key, index) => (
-            <Link component="button" key={key} onClick={() => handleClick(index)}>
-              <Typography variant="h3">{t(`services.service.${key}.title`)}</Typography>
-            </Link>
-          ))}
+          <Scrollspy items={navIds()} componentTag="div" currentClassName="active" offset={ -125 }>
+            {keySplice.map((key, index) => (
+              <Link underline="none" component="button" key={key} onClick={() => handleClick(index)}>
+                <Typography variant="h6">{t(`services.service.${key}.title`)}</Typography>
+              </Link>
+            ))}
+          </Scrollspy>
         </div>
       );
     } while (servicesKeys.length > 0);
@@ -36,9 +46,6 @@ const CustomServicesNav = props => {
 
   return (
     <div ref={navRef} className="services-nav">
-      <MediaQuery query="(min-width: 1024px)">
-        <Typography variant="h2">Our Services</Typography>
-      </MediaQuery>
       {buildNav()}
     </div>
   );

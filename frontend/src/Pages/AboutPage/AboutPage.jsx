@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { PageHeader } from "Components/";
 import { Container, Typography } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import "./AboutPage.scss";
 const AboutPage = props => {
   const { t } = useTranslation();
   const aboutObject = t("about.section", { returnObjects: true });
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.setNotLanding(true);
   });
   return (
@@ -17,7 +17,7 @@ const AboutPage = props => {
       <Container className="about-page">
         {aboutObject != null &&
           Object.keys(aboutObject).map(key => (
-            <div className="about-section">
+            <div className="about-section" key={key}>
               <Typography className="about-section-text" variant="h6">
                 {t(`about.section.${key}.body`)}
               </Typography>

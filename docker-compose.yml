@@ -1,13 +1,17 @@
 version: "3.7"
 services:
   reverseproxy:
-    build: ./reverseproxy
+    build:
+      context: ./reverseproxy
+      args:
+        - ENV=development
     container_name: reverseproxy
     depends_on:
       - frontend
       - backend
     ports:
       - "80:80"
+      - "443:443"
 
   backend:
     build:
@@ -18,6 +22,7 @@ services:
     command: npm start
     volumes:
       - ./backend/:/backend
+      - ./secret/backend:/backend/secret
       - backend-modules:/backend/node_modules
 
   frontend:
@@ -26,11 +31,12 @@ services:
       args:
         - ENV=development
     container_name: frontend
-    command: npm start
+    command: npm run start
     ports:
       - 3000:3000
     volumes:
       - ./frontend/:/frontend
+      - ./secret/frontend:/frontend/src/secret
       - frontend-modules:/frontend/node_modules
 
 volumes:

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/core/styles";
 import { string as yupstring, object as yupobject } from "yup";
 import { useForm } from "react-hook-form";
 import { sendEmail, sendFile } from "Utils/Requests";
@@ -8,8 +9,20 @@ import { DropzoneArea } from "material-ui-dropzone";
 
 import "./CareersForm.scss";
 
+const useInputStyles = makeStyles(theme => ({
+  root: {
+    "& label.Mui-focused": {
+      color: "black"
+    },
+    "& .MuiFilledInput-underline:after": {
+      borderBottomColor: "black"
+    }
+  }
+}));
+
 const CareersForm = () => {
   const { t } = useTranslation();
+  const classes = useInputStyles();
   const { handleSubmit, reset, register, errors } = useForm({
     validationSchema: yupobject().shape({
       format: yupstring(),
@@ -34,6 +47,7 @@ const CareersForm = () => {
   const updateRadio = e => {
     setRadioValue(e.target.value);
   };
+
   const onFile = fileArr => {
     sendFile(fileArr[0]);
   };
@@ -48,10 +62,10 @@ const CareersForm = () => {
       body: data.body,
       resumeText: data.resumeText
     };
-    console.log(data.format);
     sendEmail(emailParameters);
     reset({ name: "", email: "", subject: "", body: "" });
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="careers-form">
@@ -60,8 +74,9 @@ const CareersForm = () => {
           label={t("careers.form.name")}
           name="name"
           inputRef={register}
+          classes={errors.name ? {} : classes}
           variant="filled"
-          error={errors.name ? true : false}
+          error={errors.name}
           helperText={errors.name ? errors.name.message : ""}
         />
         <TextField
@@ -69,7 +84,9 @@ const CareersForm = () => {
           label={t("careers.form.email")}
           name="email"
           inputRef={register}
+          classes={errors.email ? {} : classes}
           variant="filled"
+          color="primary"
           error={errors.email ? true : false}
           helperText={errors.email ? errors.email.message : ""}
         />
@@ -78,7 +95,9 @@ const CareersForm = () => {
           label={t("careers.form.body")}
           name="body"
           inputRef={register}
+          classes={errors.body ? {} : classes}
           variant="filled"
+          color="primary"
           multiline
           rows="5"
           error={errors.body ? true : false}
@@ -115,7 +134,9 @@ const CareersForm = () => {
               name="resumeText"
               inputRef={register}
               variant="filled"
+              classes={errors.resumeText ? {} : classes}
               multiline
+              color="primary"
               rows="5"
               error={errors.resumeText ? true : false}
               helperText={errors.resumeText ? errors.resumeText.message : ""}
@@ -125,6 +146,7 @@ const CareersForm = () => {
               dropzoneClass="resume-upload"
               onChange={onFile}
               showPreviewsInDropzone={false}
+              acceptedFiles={['application/pdf']}
               filesLimit={1}
               showPreviews={true}
               useChipsForPreview={true}

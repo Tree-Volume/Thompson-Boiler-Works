@@ -30,14 +30,17 @@ const sendEmail = emailParameters => {
 const sendFile = file => {
   console.log(file);
   let formData = new FormData();
-  formData.append("resume", file);
+  formData.append("resume", file, file.name);
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ' - ' + pair[1].name); 
+  }
   axios
     .post(
       "/api/file",
-      { formData },
+      formData,
       {
         headers: {
-          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+          "Content-Type": `multipart/form-data;`,
         }
       }
     )

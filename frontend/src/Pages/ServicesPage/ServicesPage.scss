@@ -4,10 +4,27 @@
 
 .services-page {
   padding-bottom: $default-spacing;
-  margin-top: $default-spacing * 2 !important;
+  margin-top: 0 !important;
   @include desktop {
-    display: flex;
+    margin-top: $default-spacing * 2 !important;
+    display: flex !important;
   }
+
+  .sticky-nav {
+    position: -webkit-sticky;
+    position: sticky;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    background-color: $color-background-white;
+    top: 90px;
+    @include mobile {
+      top: 70px;
+    }
+    @include desktop {
+      margin: 0 !important;
+    }
+  }
+
   .linebreak {
     box-sizing: border-box;
     position: absolute;
