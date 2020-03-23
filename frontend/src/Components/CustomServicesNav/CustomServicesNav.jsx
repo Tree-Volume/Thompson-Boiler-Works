@@ -34,7 +34,7 @@ const CustomServicesNav = props => {
           <Scrollspy items={navIds()} componentTag="div" currentClassName="active" offset={ -125 }>
             {keySplice.map((key, index) => (
               <Link underline="none" component="button" key={key} onClick={() => handleClick(index)}>
-                <Typography variant="h6">{t(`services.service.${key}.title`)}</Typography>
+                <Typography variant="h3">{t(`services.service.${key}.title`)}</Typography>
               </Link>
             ))}
           </Scrollspy>

@@ -30,9 +30,12 @@
         padding-right: 0px;
       }
       margin-bottom: $default-spacing * 2;
-
+      h2 {
+        margin-bottom: $default-spacing;
+      }
       .service-body-text {
         font-weight: 300;
+        @include dynamic-fonts($font-size-links);
       }
       .service-body {
         flex: 1;

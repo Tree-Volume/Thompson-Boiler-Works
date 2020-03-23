@@ -68,7 +68,7 @@
     @include dynamic-fonts(60px);
     font-weight: 500;
   }
-  h6 {
+  p {
     @include dynamic-fonts($font-size-links);
   }
   .services-button {
@@ -104,7 +104,7 @@
         width: 75%;
         height: auto;
         @include desktop {
-          margin-top: $default-spacing * 4;
+          margin-top: $default-spacing * 2.1;
           width: 100%;
         }
       }

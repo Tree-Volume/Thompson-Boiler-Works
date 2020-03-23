@@ -42,9 +42,10 @@
     }
   }
 
-  h6 {
+  h3 {
     text-decoration: none;
     font-weight: 400;
+    font-size: $font-size-links;
   }
 
   button:before,
@@ -61,7 +62,7 @@
     transition: all 0.3s ease-in-out 0s;
   }
 
-  .active h6,
+  .active h3,
   button:hover {
     color: $color-dark-gray !important;
   }
