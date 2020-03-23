@@ -45,7 +45,7 @@ router.post("/email", (req, res) => {
   }`;
   const options = {
     from: email,
-    to: "erosdipede@gmail.com",
+    to: "contact.thompsonboilerworks@gmail.com",
     subject: subject,
     attachments:
       emailObject.origin === "CAREERS" && emailObject.resumeText === undefined
