@@ -58,7 +58,6 @@
 .landing-section {
   width: 100%;
   display: flex;
-  flex-direction: column;
   text-align: center;
   margin: $default-spacing * 3 0 $default-spacing * 3 0;
   @include desktop {

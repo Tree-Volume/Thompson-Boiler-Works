@@ -44,7 +44,7 @@ const CustomToolbar = props => {
   };
 
   const handleMnClose = event => {
-    var currPage = event.currentTarget.childNodes[0]
+    var currPage = event.currentTarget.childNodes[0];
     setCurrentPage(currPage === undefined ? "" : currPage.data.toLowerCase());
     setAnchorMn(null);
   };
@@ -60,37 +60,40 @@ const CustomToolbar = props => {
     } else setToolbarColor("#0b1210");
   });
   return (
-    <AppBar
-      className="toolbar"
-      style={{
-        backgroundColor: toolbarColor,
-        transition: !notLanding ? "background-color 0.5s" : ""
-      }}
-    >
-      <Toolbar>
-        <Link className="toolbar-logo" to={RouterPaths.LANDING} onClick={() => setCurrentPage("")}>
-          <div className="toolbar-logo-image">
-            <img src={logo} alt={title} />
-          </div>
-        </Link>
-        <MediaQuery query="(min-width: 1024px)">
-          <Tabs value={currentPage} onChange={handleChange}>
-            {options.map(value => {
-              return (
-                <Tab
-                  key={value}
-                  value={value.toLowerCase()}
-                  label={value}
-                  to={`/${value.toLowerCase()}`}
-                  component={Link}
-                ></Tab>
-              );
-            })}
-          </Tabs>
-        </MediaQuery>
-        <LanguageMenu />
-
-        <RenderInBrowser except ie>
+    <RenderInBrowser except ie>
+      <AppBar
+        className="toolbar"
+        style={{
+          backgroundColor: toolbarColor,
+          transition: !notLanding ? "background-color 0.5s" : ""
+        }}
+      >
+        <Toolbar>
+          <Link
+            className="toolbar-logo"
+            to={RouterPaths.LANDING}
+            onClick={() => setCurrentPage("")}
+          >
+            <div className="toolbar-logo-image">
+              <img src={logo} alt={title} />
+            </div>
+          </Link>
+          <MediaQuery query="(min-width: 1024px)">
+            <Tabs value={currentPage} onChange={handleChange}>
+              {options.map(value => {
+                return (
+                  <Tab
+                    key={value}
+                    value={value.toLowerCase()}
+                    label={value}
+                    to={`/${value.toLowerCase()}`}
+                    component={Link}
+                  ></Tab>
+                );
+              })}
+            </Tabs>
+          </MediaQuery>
+          <LanguageMenu />
           <MediaQuery query="(max-width: 1023px)">
             <Button
               className="menu-button"
@@ -121,9 +124,9 @@ const CustomToolbar = props => {
               })}
             </Menu>
           </MediaQuery>
-        </RenderInBrowser>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+    </RenderInBrowser>
   );
 };
 
