@@ -146,6 +146,7 @@ const CareersForm = () => {
               dropzoneClass="resume-upload"
               onChange={onFile}
               showPreviewsInDropzone={false}
+              acceptedFiles={['application/pdf']}
               filesLimit={1}
               showPreviews={true}
               useChipsForPreview={true}
