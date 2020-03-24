@@ -25,9 +25,8 @@
 
     .service-body {
       flex: 1;
-      padding-right: $default-spacing * 2;
-      @include mobile {
-        padding-right: 0px;
+      @include desktop {
+        padding-right: $default-spacing * 2;
       }
       margin-bottom: $default-spacing * 2;
       h2 {
@@ -58,10 +57,12 @@
 
       @include tablet {
         justify-content: flex-end;
+        padding-left: $default-spacing;
       }
 
       @include desktop {
         justify-content: flex-end;
+        padding-left: $default-spacing;
       }
 
       img {
