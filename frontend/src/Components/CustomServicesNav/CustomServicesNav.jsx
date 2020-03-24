@@ -26,22 +26,15 @@ const CustomServicesNav = props => {
   //builds the navigation
   const buildNav = () => {
     const servicesKeys = Object.keys(props.servicesObject);
-    const nav = [];
-    do {
-      const keySplice = servicesKeys.splice(0, 4);
-      nav.push(
-        <div className="row">
-          <Scrollspy items={navIds()} componentTag="div" currentClassName="active" offset={ -125 }>
-            {keySplice.map((key, index) => (
-              <Link underline="none" component="button" key={key} onClick={() => handleClick(index)}>
-                <Typography variant="h3">{t(`services.service.${key}.title`)}</Typography>
-              </Link>
-            ))}
-          </Scrollspy>
-        </div>
-      );
-    } while (servicesKeys.length > 0);
-    return nav;
+    return (
+      <Scrollspy items={navIds()} componentTag="div" currentClassName="active" offset={ -125 }>
+        {servicesKeys.map((key, index) => (
+          <Link underline="none" component="button" key={key} onClick={() => handleClick(index)}>
+            <Typography variant="h3">{t(`services.service.${key}.title`)}</Typography>
+          </Link>
+        ))}
+      </Scrollspy>
+    );
   };
 
   return (
