@@ -44,6 +44,7 @@ const CareersForm = () => {
     })
   });
   const [radioValue, setRadioValue] = useState("upload");
+  const [refreshValue, setRefreshValue] = useState(0);
   const updateRadio = e => {
     setRadioValue(e.target.value);
   };
@@ -64,6 +65,7 @@ const CareersForm = () => {
     };
     sendEmail(emailParameters);
     reset({ name: "", email: "", subject: "", body: "" });
+    setRefreshValue(refreshValue + 1);
   };
 
   return (
@@ -143,6 +145,7 @@ const CareersForm = () => {
             />
           ) : (
             <DropzoneArea
+              key={refreshValue}
               dropzoneClass="resume-upload"
               onChange={onFile}
               showPreviewsInDropzone={false}
