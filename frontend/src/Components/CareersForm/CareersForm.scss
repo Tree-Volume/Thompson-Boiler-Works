@@ -19,11 +19,6 @@ form {
     padding: $default-spacing/2 100px $default-spacing/2 100px;
   }
   .careers-form {
-    .dropzone {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
     .careers-form-radios {
       margin-bottom: $default-spacing;
     }
@@ -50,6 +45,11 @@ form {
         @include mobile {
           font-size: $font-size-links;
         }
+      }
+    }
+    .careers-form-resume {
+      .MuiGrid-root.MuiGrid-container {
+        margin-bottom: $default-spacing / 2;
       }
     }
   }
