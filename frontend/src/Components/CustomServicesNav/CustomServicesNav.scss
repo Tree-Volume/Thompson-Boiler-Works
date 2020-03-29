@@ -29,22 +29,21 @@
     color: $color-primary;
   }
   .MuiLink-root {
-    margin: 0 $default-spacing / 2 0 $default-spacing / 2;
-    @include desktop {
-      margin: 0 0 $default-spacing / 2 0;
-    }
-    padding: 0 $default-spacing / 2 0 $default-spacing / 2;
     color: $color-gray;
+    margin: $default-spacing / 2 $default-spacing / 2 $default-spacing / 2;
 
     @include desktop {
+      margin: 0 0 $default-spacing / 2 0;
+      padding: 0 $default-spacing / 2 0 $default-spacing / 2;
       display: block;
       padding: 0;
     }
   }
 
-  h6 {
+  h3 {
     text-decoration: none;
     font-weight: 400;
+    font-size: $font-size-links;
   }
 
   button:before,
@@ -61,7 +60,7 @@
     transition: all 0.3s ease-in-out 0s;
   }
 
-  .active h6,
+  .active h3,
   button:hover {
     color: $color-dark-gray !important;
   }

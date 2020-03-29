@@ -9,7 +9,7 @@ const Service = props => {
       <Container className="service-container">
         <div className="service-body">
           <Typography variant="h2">{title}</Typography>
-          <Typography variant="h6" className="service-body-text">
+          <Typography variant="body1" className="service-body-text">
             {content}
           </Typography>
         </div>

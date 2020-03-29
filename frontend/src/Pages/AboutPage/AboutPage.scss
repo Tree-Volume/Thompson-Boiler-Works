@@ -15,6 +15,7 @@
       float: left;
       text-align: center;
       font-weight: 300;
+      @include dynamic-fonts($font-size-content);
       @include desktop {
         width: 50%;
       }

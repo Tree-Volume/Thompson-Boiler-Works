@@ -33,7 +33,7 @@ const LandingPage = props => {
           <Typography variant="h2" align="center">
             {t("landing.about.title")}
           </Typography>
-          <Typography className="landing-section-body" variant="h6">
+          <Typography className="landing-section-body" variant="body1">
             {t("landing.about.body")}
           </Typography>
           <RenderInBrowser except ie>
@@ -49,7 +49,7 @@ const LandingPage = props => {
             {t("landing.services.title")}
           </Typography>
           <div className="landing-services-body">
-            <Typography className="landing-section-body" variant="h6">
+            <Typography className="landing-section-body" variant="body1">
               {t("landing.services.body")}
             </Typography>
             <div className="landing-services-image">
@@ -69,7 +69,7 @@ const LandingPage = props => {
           <Typography variant="h2" align="center">
             {t("landing.projects.title")}
           </Typography>
-          <Typography className="landing-section-body" variant="h6">
+          <Typography className="landing-section-body" variant="body1">
             {t("landing.projects.body")}
           </Typography>
           <div className="landing-projects-image">
