@@ -5,6 +5,7 @@ import { FooterList } from "Components/";
 import { useTranslation } from "react-i18next";
 import logo from "Assets/images/tbw-logo.png";
 import { RouterPaths } from "Utils";
+import RenderInBrowser from "react-render-in-browser";
 import "./CustomFooter.scss";
 
 const CustomFooter = () => {
@@ -64,10 +65,12 @@ const CustomFooter = () => {
           <h3 className="footer-subtitle">{connectTitle}</h3>
           <FooterList listItems={connectList} />
         </div>
-        <div className="footer-column">
-          <h3 className="footer-subtitle">{linkTitle}</h3>
-          <FooterList listItems={linksList} />
-        </div>
+        <RenderInBrowser except ie>
+          <div className="footer-column">
+            <h3 className="footer-subtitle">{linkTitle}</h3>
+            <FooterList listItems={linksList} />
+          </div>
+        </RenderInBrowser>
         <div className="footer-column">
           <h3 className="footer-subtitle">{hourTitle}</h3>
           <FooterList listItems={hoursList} classname="hour-items" />
