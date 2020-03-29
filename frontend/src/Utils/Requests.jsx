@@ -28,14 +28,10 @@ const sendEmail = emailParameters => {
 };
 
 const sendFile = file => {
-  console.log(file);
   let formData = new FormData();
   formData.append("resume", file, file.name);
-  for (var pair of formData.entries()) {
-    console.log(pair[0]+ ' - ' + pair[1].name); 
-  }
   axios
-    .post(
+    .put(
       "/api/file",
       formData,
       {
