@@ -69,7 +69,7 @@
     font-weight: 500;
   }
   p {
-    @include dynamic-fonts($font-size-links);
+    @include dynamic-fonts($font-size-content);
   }
   .services-button {
     width: 100%;
@@ -111,6 +111,7 @@
       h6 {
         margin: $default-spacing 0 0 0;
         font-weight: 300;
+        @include dynamic-fonts($font-size-subtitle);
       }
     }
   }

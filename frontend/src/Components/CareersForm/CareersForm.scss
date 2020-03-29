@@ -47,7 +47,7 @@ form {
       }
       p {
         padding: $default-spacing;
-        @include dynamic-fonts($font-size-links);
+        @include dynamic-fonts($font-size-content);
       }
     }
   }
