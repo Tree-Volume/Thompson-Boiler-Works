@@ -1,8 +1,9 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PageHeader, ContactForm } from "Components/";
 import { Container } from "@material-ui/core";
-import secrets from "secret/front-secret.json"
+import { Skeleton } from "@material-ui/lab";
+import secrets from "secret/front-secret.json";
 import contactImage from "Assets/images/contact-page-header.jpg";
 import "./ContactPage.scss";
 
@@ -11,17 +12,22 @@ const ContactPage = props => {
   useLayoutEffect(() => {
     props.setNotLanding(true);
   });
+  const [hidden, setHidden] = useState(true);
+
   return (
     <>
       <PageHeader imagePath={contactImage} pageTitle="Contact" />
       <Container className="contact-page">
         <ContactForm />
         <div className="contact-info">
+          <Skeleton variant="rect" className={`skeleton ${!hidden ? "hidden" : ""}`} />
           <iframe
             title="map"
+            className={`${hidden ? "hidden" : ""}`}
             width="100%"
             height="50%"
             frameBorder="0"
+            onLoad={() => setHidden(false)}
             style={{ border: 0 }}
             src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZy1pVWMKzkwRzSNkeLZIx5s&key=${secrets.GMAPS_API_KEY}`}
             allowFullScreen
