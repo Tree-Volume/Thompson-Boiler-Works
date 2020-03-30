@@ -25,7 +25,7 @@ const CareersForm = () => {
   const classes = useInputStyles();
   const { handleSubmit, reset, register, errors } = useForm({
     validationSchema: yupobject().shape({
-      format: yupstring(),
+      resumeFormat: yupstring(),
       name: yupstring()
         .required(t("formValidation.required.name"))
         .max(50, t("formValidation.length.name")),
@@ -35,7 +35,7 @@ const CareersForm = () => {
       body: yupstring()
         .required(t("formValidation.required.body"))
         .max(500, t("formValidation.length.body")),
-      resumeText: yupstring().when("format", {
+      resumeText: yupstring().when("resumeFormat", {
         is: "paste",
         then: yupstring()
           .required(t("formValidation.required.resumeText"))
@@ -61,6 +61,7 @@ const CareersForm = () => {
       from: data.email,
       subject: data.subject,
       body: data.body,
+      resumeFormat: data.resumeFormat,
       resumeText: data.resumeText
     };
     sendEmail(emailParameters);
@@ -107,22 +108,22 @@ const CareersForm = () => {
         />
         <RadioGroup
           aria-label="upload format"
-          id="format"
-          name="format"
+          id="resumeFormat"
+          name="resumeFormat"
           className="careers-form-radios"
           value={radioValue}
           onChange={updateRadio}
         >
           <FormControlLabel
             value="upload"
-            name="format"
+            name="resumeFormat"
             inputRef={register}
             control={<Radio disableRipple />}
             label={t("careers.form.upload")}
           />
           <FormControlLabel
             value="paste"
-            name="format"
+            name="resumeFormat"
             inputRef={register}
             control={<Radio control={<Radio disableRipple />} />}
             label={t("careers.form.paste")}

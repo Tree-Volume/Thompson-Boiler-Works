@@ -52,21 +52,25 @@ app.use(express.json());
 router.post(
   "/email",
   [
-    check("origin").isLength({ min: 2 }),
-    check("name").isLength({ min: 2 }),
-    check("from")
+    check("origin","origin failed").isLength({ min: 2 }),
+    check("name","name failed").isLength({ min: 2 }),
+    check("from","from failed")
       .normalizeEmail()
       .isEmail(),
-    check("subject").isLength({ min: 2 }),
-    check("body").isLength({ min: 2 }),
-    check("resumeText")
-      .if(body("origin").contains("CAREERS"))
+    check("subject","subject failed")
+      .if(body("origin").contains("CONTACT"))
       .isLength({ min: 2 }),
+    check("body", "body failed").isLength({ min: 2 }),
+    check("resumeText","resume text failed")
+      .if(body("origin").contains("CAREERS"))
+      .if(body("resumeFormat").contains("paste"))
+      .isLength({ min: 2 })
   ],
   (req, res) => {
     //calls form validation and returns error if there is one
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log(errors.array())
       return res.status(422).json({ errors: errors.array() });
     }
     //form parameters
@@ -75,10 +79,11 @@ router.post(
     const formFrom = req.body.from;
     const formSubject = req.body.subject;
     const formBody = req.body.body;
+    const formResumeFormat = req.body.resumeFormat;
     const formResumeText = req.body.resumeText;
     //format subject of email
     const subject = `TBW-WEBSITE - ${formOrigin} - FROM: ${formName} ${
-      formOrigin === "CONTACT" ? `REGARDING:${formSubject}` : ""
+      formOrigin === "CONTACT" ? `REGARDING: ${formSubject}` : ""
     }`;
     //format email
     const options = {

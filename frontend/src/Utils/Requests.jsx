@@ -7,12 +7,13 @@ const sendEmail = emailParameters => {
     from: emailParameters.from,
     subject: emailParameters.subject,
     body: emailParameters.body,
+    resumeFormat: emailParameters.resumeFormat,
     resumeText: emailParameters.resumeText
   };
   axios
     .post(
       "/api/email",
-      { emailObject },
+      emailObject,
       {
         headers: {
           "Content-Type": "application/json"
