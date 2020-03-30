@@ -11,6 +11,9 @@ $font-size-content: 21px;
 $navbar-height: 90px;
 $default-spacing: 16px;
 
+$font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+$font-family-condensed: "Roboto condensed", "Helvetica", "Arial", "sans-serif";
+
 @mixin dynamic-fonts($baseSize) {
   font-size: $baseSize * 0.7;
   @include tablet {

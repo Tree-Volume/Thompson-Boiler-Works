@@ -7,8 +7,12 @@
     color: $color-text-gray;
   }
   .landing-section:nth-of-type(2n) {
-    background-color: $color-section-background;
     color: $color-light-gray;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+      url("../../Assets/images/divider.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .landing-title {

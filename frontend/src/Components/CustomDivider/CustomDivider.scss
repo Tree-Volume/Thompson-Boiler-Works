@@ -14,7 +14,7 @@
 
 .filter-gradient {
   .divider-text {
-    font-family: "Roboto condensed", "Helvetica", "Arial", "sans-serif";
+    font-family: $font-family-condensed;
     @include dynamic-fonts($font-size-subtitle * 1.2);
   }
 
