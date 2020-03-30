@@ -10,7 +10,17 @@ var storage = multer.diskStorage({
     cb(null, file.fieldname + "-" + Date.now() + "." + mime.getExtension(file.mimetype));
   }
 });
-var upload = multer({ storage: storage });
+var upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype == "application/pdf") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error("Only .pdf format allowed!"));
+    }
+  }
+});
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
   `${secrets.GMAIL_CLIENT_ID}`,
@@ -98,7 +108,7 @@ router.post(
   }
 );
 
-router.put("/file", upload.single("resume"), (req, res) => {
+router.put("/resume", upload.single("resume"), (req, res) => {
   //store file
   resume = req.file;
   //send response

@@ -32,7 +32,7 @@ const sendFile = file => {
   formData.append("resume", file, file.name);
   axios
     .put(
-      "/api/file",
+      "/api/resume",
       formData,
       {
         headers: {
