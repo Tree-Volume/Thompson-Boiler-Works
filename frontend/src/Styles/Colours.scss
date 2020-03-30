@@ -2,6 +2,7 @@
 $color-primary: #0b1210;
 $color-secondary: #a31621;
 $color-gray: #a9a9a9;
+$color-light-gray: #dfdfdf;
 $color-dark-gray: #373737;
 $color-white: #fffafa;
 $color-background-white: white;
@@ -10,13 +11,14 @@ $color-background-white: white;
 $color-dm-link-visited: #7a2dd8;
 $color-dm-link: #2734dd;
 
+$color-section-background: #181a1b;
 $color-text-gray: #222222;
 $color-footer-subtitle: #c91331;
 
 :export {
-    color-primary: $color-primary;
-    color-secondary: $color-secondary;
-    color-gray: $color-gray;
-    color-dark-gray: $color-dark-gray;
-    color-white: $color-white;
+  color-primary: $color-primary;
+  color-secondary: $color-secondary;
+  color-gray: $color-gray;
+  color-dark-gray: $color-dark-gray;
+  color-white: $color-white;
 }

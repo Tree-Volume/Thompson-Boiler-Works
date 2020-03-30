@@ -2,123 +2,133 @@
 @import "Styles/Variables.scss";
 @import "Styles/MediaQueries.scss";
 
-.landing-title {
-  display: flex;
-  background-image: url("../../Assets/images/landing.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  background-position: bottom;
-  @include tablet {
-    background-position: left !important;
+.landing {
+  .landing-section:nth-of-type(2n + 1) {
+    color: $color-text-gray;
+  }
+  .landing-section:nth-of-type(2n) {
+    background-color: $color-section-background;
+    color: $color-light-gray;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(transparent 75%, black 100%);
-    opacity: 0.9;
-  }
-
-  .landing-title-text {
-    margin-left: $default-spacing * 2 !important;
-    max-width: 90%;
-    padding-bottom: $default-spacing * 2;
-    z-index: 4;
-    color: $color-white;
-    align-self: flex-end;
-    justify-self: flex-start;
-    @include mobile {
-      margin-left: $default-spacing !important;
-    }
+  .landing-title {
+    display: flex;
+    background-image: url("../../Assets/images/landing.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: bottom;
     @include tablet {
-      padding-bottom: $default-spacing * 6;
-      max-width: 40%;
-    }
-    @include desktop {
-      margin-left: $default-spacing * 4 !important;
-      padding-bottom: $default-spacing * 6;
-      max-width: 450px;
+      background-position: left !important;
     }
 
-    h1 {
-      @include dynamic-fonts($font-size-landing-header);
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(transparent 75%, black 100%);
+      opacity: 0.9;
     }
-    h3 {
-      @include dynamic-fonts($font-size-subtitle);
-      padding-left: 4px;
-    }
-  }
-}
 
-.landing-section {
-  width: 100%;
-  display: flex;
-  text-align: center;
-  margin: $default-spacing * 3 0 $default-spacing * 3 0;
-  @include desktop {
-    margin: 10vh 0 10vh 0;
+    .landing-title-text {
+      margin-left: $default-spacing * 2 !important;
+      max-width: 90%;
+      padding-bottom: $default-spacing * 2;
+      z-index: 4;
+      color: $color-white;
+      align-self: flex-end;
+      justify-self: flex-start;
+      @include mobile {
+        margin-left: $default-spacing !important;
+      }
+      @include tablet {
+        padding-bottom: $default-spacing * 6;
+        max-width: 40%;
+      }
+      @include desktop {
+        margin-left: $default-spacing * 4 !important;
+        padding-bottom: $default-spacing * 6;
+        max-width: 450px;
+      }
+
+      h1 {
+        @include dynamic-fonts($font-size-landing-header);
+      }
+      h3 {
+        @include dynamic-fonts($font-size-subtitle);
+        padding-left: 4px;
+      }
+    }
   }
-  h2 {
-    @include dynamic-fonts(60px);
-    font-weight: 500;
-  }
-  p {
-    @include dynamic-fonts($font-size-content);
-  }
-  .services-button {
+  .landing-section {
     width: 100%;
-    display: inline-block;
-  }
-  button {
-    padding: $default-spacing/2 $default-spacing;
-    margin: auto;
-    background: $color-secondary !important;
-  }
-  .landing-section-body {
-    margin: 0 $default-spacing * 4 $default-spacing * 4 $default-spacing * 4;
-    padding-top: $default-spacing * 2;
-    font-weight: 400;
-  }
-  .landing-services-body {
-    .landing-section-body {
-      @extend .landing-section-body;
-      @include desktop {
-        float: left;
-        width: 40%;
-      }
+    display: flex;
+    text-align: center;
+    padding: $default-spacing * 3 0 $default-spacing * 3 0;
+
+    @include desktop {
+      padding: 10vh 0 10vh 0;
     }
-    .landing-services-image {
-      text-align: center;
-      margin-bottom: $default-spacing * 2;
-      @include desktop {
-        float: right;
-        width: 40%;
-      }
-      img {
-        width: 75%;
-        height: auto;
+    h2 {
+      @include dynamic-fonts(60px);
+      font-weight: 500;
+    }
+    p {
+      @include dynamic-fonts($font-size-content);
+    }
+    .services-button {
+      width: 100%;
+      display: inline-block;
+    }
+    button {
+      padding: $default-spacing/2 $default-spacing;
+      margin: auto;
+      background: $color-secondary !important;
+    }
+    .landing-section-body {
+      margin: 0 $default-spacing * 4 $default-spacing * 4 $default-spacing * 4;
+      padding-top: $default-spacing * 2;
+      font-weight: 400;
+    }
+    .landing-services-body {
+      .landing-section-body {
+        @extend .landing-section-body;
         @include desktop {
-          margin-top: $default-spacing * 2.1;
-          width: 100%;
+          float: left;
+          width: 40%;
         }
       }
-      h6 {
-        margin: $default-spacing 0 0 0;
-        font-weight: 300;
-        @include dynamic-fonts($font-size-subtitle);
+      .landing-services-image {
+        text-align: center;
+        margin-bottom: $default-spacing * 2;
+        @include desktop {
+          float: right;
+          width: 40%;
+        }
+        img {
+          width: 75%;
+          height: auto;
+          @include desktop {
+            margin-top: $default-spacing * 2.1;
+            width: 100%;
+          }
+        }
+        h6 {
+          margin: $default-spacing 0 0 0;
+          font-weight: 300;
+          @include dynamic-fonts($font-size-subtitle);
+        }
       }
     }
-  }
-  .landing-projects-image {
-    img {
-      margin: 0px $default-spacing $default-spacing * 4 $default-spacing;
-      width: 160px;
-      height: 100px;
+    .landing-projects-image {
+      img {
+        margin: 0px $default-spacing $default-spacing * 4 $default-spacing;
+        width: 160px;
+        height: 100px;
+      }
     }
   }
 }

@@ -1,21 +1,28 @@
+@import "Styles/Colours.scss";
+@import "Styles/Variables.scss";
+@import "Styles/MediaQueries.scss";
+
 .divider {
   background-image: url("../../Assets/images/divider.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   width: 100%;
   height: 90px !important;
 }
 
 .filter-gradient {
+  .divider-text {
+    font-family: "Roboto condensed", "Helvetica", "Arial", "sans-serif";
+    @include dynamic-fonts($font-size-subtitle * 1.2);
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   background-image: linear-gradient(to top, transparent 0%, black 90%);
   height: 100% !important;
   width: 100% !important;
-}
-
-.filter-black {
-  background-image: black;
-  height: 100% !important;
-  width: 100% !important;
-  opacity: 50%;
 }

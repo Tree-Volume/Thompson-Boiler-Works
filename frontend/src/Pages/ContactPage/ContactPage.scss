@@ -35,6 +35,15 @@
         width: 90%;
       }
     }
+    .skeleton {
+      width: 100%;
+      height: 50%;
+      margin: $font-size-subtitle * 1.2 0 $default-spacing 0;
+    }
+    .hidden {
+      display: none;
+    }
+
     .contact-info-div {
       width: 90%;
 
