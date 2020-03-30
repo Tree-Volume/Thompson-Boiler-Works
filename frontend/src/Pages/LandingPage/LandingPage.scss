@@ -58,7 +58,6 @@
 .landing-section {
   width: 100%;
   display: flex;
-  flex-direction: column;
   text-align: center;
   margin: $default-spacing * 3 0 $default-spacing * 3 0;
   @include desktop {
@@ -68,8 +67,8 @@
     @include dynamic-fonts(60px);
     font-weight: 500;
   }
-  h6 {
-    @include dynamic-fonts($font-size-links);
+  p {
+    @include dynamic-fonts($font-size-content);
   }
   .services-button {
     width: 100%;
@@ -104,13 +103,14 @@
         width: 75%;
         height: auto;
         @include desktop {
-          margin-top: $default-spacing * 4;
+          margin-top: $default-spacing * 2.1;
           width: 100%;
         }
       }
       h6 {
         margin: $default-spacing 0 0 0;
         font-weight: 300;
+        @include dynamic-fonts($font-size-subtitle);
       }
     }
   }

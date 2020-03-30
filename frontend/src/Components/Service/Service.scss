@@ -25,14 +25,16 @@
 
     .service-body {
       flex: 1;
-      padding-right: $default-spacing * 2;
-      @include mobile {
-        padding-right: 0px;
+      @include desktop {
+        padding-right: $default-spacing * 2;
       }
       margin-bottom: $default-spacing * 2;
-
+      h2 {
+        margin-bottom: $default-spacing;
+      }
       .service-body-text {
         font-weight: 300;
+        @include dynamic-fonts($font-size-content);
       }
       .service-body {
         flex: 1;
@@ -55,10 +57,12 @@
 
       @include tablet {
         justify-content: flex-end;
+        padding-left: $default-spacing;
       }
 
       @include desktop {
         justify-content: flex-end;
+        padding-left: $default-spacing;
       }
 
       img {

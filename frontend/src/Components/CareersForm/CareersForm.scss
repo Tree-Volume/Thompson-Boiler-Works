@@ -42,9 +42,7 @@ form {
       }
       p {
         padding: $default-spacing;
-        @include mobile {
-          font-size: $font-size-links;
-        }
+        @include dynamic-fonts($font-size-content);
       }
     }
     .careers-form-resume {
