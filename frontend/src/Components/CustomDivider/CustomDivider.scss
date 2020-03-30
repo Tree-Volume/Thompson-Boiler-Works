@@ -15,6 +15,7 @@
 .filter-gradient {
   .divider-text {
     font-family: $font-family-condensed;
+    padding-top: $default-spacing;
     @include dynamic-fonts($font-size-subtitle * 1.2);
   }
 
