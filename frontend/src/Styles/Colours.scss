@@ -2,6 +2,7 @@
 $color-primary: #0b1210;
 $color-secondary: #a31621;
 $color-gray: #a9a9a9;
+$color-light-gray: #f4f4f4;
 $color-dark-gray: #373737;
 $color-white: #fffafa;
 $color-background-white: white;
@@ -14,9 +15,9 @@ $color-text-gray: #222222;
 $color-footer-subtitle: #c91331;
 
 :export {
-    color-primary: $color-primary;
-    color-secondary: $color-secondary;
-    color-gray: $color-gray;
-    color-dark-gray: $color-dark-gray;
-    color-white: $color-white;
+  color-primary: $color-primary;
+  color-secondary: $color-secondary;
+  color-gray: $color-gray;
+  color-dark-gray: $color-dark-gray;
+  color-white: $color-white;
 }

@@ -18,6 +18,12 @@
       "host": {
         "sourcePath": "/tmp/secret/backend"
       }
+    },
+    {
+      "name": "tbw-secrets-reverseproxy",
+      "host": {
+        "sourcePath": "/tmp/secret/reverseproxy"
+      }
     }
   ],
   "containerDefinitions": [
@@ -66,6 +72,10 @@
         {
           "sourceVolume": "letsencrypt-conf",
           "containerPath": "/etc/letsencrypt"
+        },
+        {
+          "sourceVolume": "tbw-secrets-reverseproxy",
+          "containerPath": "/reverseproxy/secret"
         }
       ],
       "portMappings": [
