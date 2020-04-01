@@ -73,7 +73,6 @@
           "sourceVolume": "letsencrypt-conf",
           "containerPath": "/etc/letsencrypt"
         },
-      "name": "tbw-secrets-reverseproxy",
         {
           "sourceVolume": "tbw-secrets-reverseproxy",
           "containerPath": "/reverseproxy/secret"
