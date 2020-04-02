@@ -10,42 +10,30 @@ const sendEmail = emailParameters => {
     resumeFormat: emailParameters.resumeFormat,
     resumeText: emailParameters.resumeText
   };
-  axios
-    .post(
-      "/api/email",
-      emailObject,
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
+  return axios
+    .post("/api/email", emailObject, {
+      headers: {
+        "Content-Type": "application/json"
       }
-    )
-    .then(response => {
-      console.log(response);
     })
-    .catch(error => {
-      console.log(error);
-    });
 };
 
 const sendFile = file => {
   let formData = new FormData();
   formData.append("resume", file, file.name);
   axios
-    .put(
-      "/api/resume",
-      formData,
-      {
-        headers: {
-          "Content-Type": `multipart/form-data;`,
-        }
+    .put("/api/resume", formData, {
+      headers: {
+        "Content-Type": `multipart/form-data;`
       }
-    )
+    })
     .then(response => {
       console.log(response);
+      return response;
     })
     .catch(error => {
       console.log(error);
+      return error;
     });
 };
 

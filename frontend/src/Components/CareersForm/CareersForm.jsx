@@ -64,9 +64,14 @@ const CareersForm = () => {
       resumeFormat: data.resumeFormat,
       resumeText: data.resumeText
     };
-    sendEmail(emailParameters);
-    reset({ name: "", email: "", subject: "", body: "" });
-    setRefreshValue(refreshValue + 1);
+    sendEmail(emailParameters)
+      .then(response => {
+        reset({ name: "", email: "", subject: "", body: "" });
+        setRefreshValue(refreshValue + 1);
+      })
+      .catch(error => {
+        //console.log(error);
+      });
   };
 
   return (
@@ -150,7 +155,7 @@ const CareersForm = () => {
               dropzoneClass="resume-upload"
               onChange={onFile}
               showPreviewsInDropzone={false}
-              acceptedFiles={['application/pdf']}
+              acceptedFiles={["application/pdf"]}
               filesLimit={1}
               showPreviews={true}
               useChipsForPreview={true}

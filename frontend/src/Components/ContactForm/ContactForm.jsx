@@ -46,8 +46,13 @@ const ContactForm = () => {
       subject: data.subject,
       body: data.body
     };
-    sendEmail(emailParameters);
-    reset({ name: "", email: "", subject: "", body: "" });
+    sendEmail(emailParameters)
+      .then(response => {
+        reset({ name: "", email: "", subject: "", body: "" });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="contact-form">

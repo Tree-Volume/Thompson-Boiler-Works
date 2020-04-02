@@ -52,10 +52,7 @@ app.use(express.json());
 router.post(
   "/email",
   [
-    check("origin", "origin failed")
-      .isAlpha()
-      .isLength({ min: 2 })
-      .escape(),
+    check("origin", "origin failed"),
     check("name", "name failed")
       .isAlpha()
       .isLength({ min: 2 })
@@ -69,13 +66,11 @@ router.post(
       .isLength({ min: 2 })
       .escape(),
     check("body", "invalid body input")
-      .isAlphanumeric()
       .isLength({ min: 2 })
       .escape(),
     check("resumeText", "invalid resume text")
       .if(body("origin").contains("CAREERS"))
       .if(body("resumeFormat").contains("paste"))
-      .isAlphanumeric()
       .isLength({ min: 2 })
       .escape()
   ],
