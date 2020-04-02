@@ -52,25 +52,38 @@ app.use(express.json());
 router.post(
   "/email",
   [
-    check("origin","origin failed").isLength({ min: 2 }),
-    check("name","name failed").isLength({ min: 2 }),
-    check("from","from failed")
-      .normalizeEmail()
-      .isEmail(),
-    check("subject","subject failed")
+    check("origin", "origin failed")
+      .isAlpha()
+      .isLength({ min: 2 })
+      .escape(),
+    check("name", "name failed")
+      .isAlpha()
+      .isLength({ min: 2 })
+      .escape(),
+    check("from", "invalid from input")
+      .isEmail()
+      .normalizeEmail(),
+    check("subject", "invalid subject input")
       .if(body("origin").contains("CONTACT"))
-      .isLength({ min: 2 }),
-    check("body", "body failed").isLength({ min: 2 }),
-    check("resumeText","resume text failed")
+      .isAlphanumeric()
+      .isLength({ min: 2 })
+      .escape(),
+    check("body", "invalid body input")
+      .isAlphanumeric()
+      .isLength({ min: 2 })
+      .escape(),
+    check("resumeText", "invalid resume text")
       .if(body("origin").contains("CAREERS"))
       .if(body("resumeFormat").contains("paste"))
+      .isAlphanumeric()
       .isLength({ min: 2 })
+      .escape()
   ],
   (req, res) => {
     //calls form validation and returns error if there is one
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log(errors.array())
+      console.log(errors.array());
       return res.status(422).json({ errors: errors.array() });
     }
     //form parameters
