@@ -1,12 +1,18 @@
 FROM nginx:stable
 
-COPY dummy.sh .
+COPY scripts/dummy.sh .
+
 ARG ENV
+ENV NODE_ENV ${ENV}
+
 RUN if [ "$ENV" = "development" ] ; then apt-get update \
   && apt-get install openssl \
   && bash ./dummy.sh \
-; else echo "prod" ; fi 
+  ; else echo "prod" ; fi 
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
+
+COPY scripts/docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["nginx", "-g", "daemon off;"]
