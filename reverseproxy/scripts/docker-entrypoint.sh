@@ -2,7 +2,7 @@
 
 set -e
 
-if [ ${NODE_ENV}="development" ]
+if [[ ${NODE_ENV} == "development" ]];
     then 
         export AUTH_BASIC_VALUE=off
 else 
