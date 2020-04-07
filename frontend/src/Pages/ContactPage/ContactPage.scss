@@ -3,17 +3,12 @@
 @import "Styles/MediaQueries.scss";
 
 .contact-page {
-  display: flex !important;
-  flex-wrap: wrap;
+  display: inline !important;
   padding-bottom: $default-spacing * 2;
 
-  @include mobile {
-    display: inline !important;
-    width: 80%;
-  }
-  @include tablet {
-    display: inline !important;
-    width: 80%;
+  @include desktop {
+    display: flex !important;
+    flex-wrap: wrap;
   }
   .contact-info {
     display: flex;
@@ -21,18 +16,16 @@
     margin-left: 0;
     @include desktop {
       align-items: flex-start;
-      margin-left: $default-spacing;
-    }
-    @include tablet {
-      align-items: flex-start;
-      margin-left: $default-spacing;
     }
 
     iframe {
-      margin: $font-size-subtitle * 1.2 0 $default-spacing 0;
-
+      margin: $font-size-subtitle * 1.3 0 $default-spacing * 1.3 0;
+      width: 80%;
       @include mobile {
         width: 90%;
+      }
+      @include desktop {
+        width: 100%;
       }
     }
     .skeleton {
@@ -46,6 +39,12 @@
 
     .contact-info-div {
       width: 90%;
+      padding: 0 $default-spacing 0 $default-spacing;
+      text-align: center;
+      @include desktop {
+        text-align: left;
+        padding: 0;
+      }
 
       .contact-info-title {
         font: bold $font-size-subtitle Roboto;
