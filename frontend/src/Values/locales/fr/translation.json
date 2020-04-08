@@ -76,7 +76,8 @@
       "body": "Body / Cover Letter",
       "upload": "Upload a file",
       "paste": "Copy and Paste",
-      "resume": "Resume"
+      "resume": "Resume",
+      "success": "Application submitted successfully"
     },
     "dropzoneText": "Upload your resume"
   },

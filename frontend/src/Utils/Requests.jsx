@@ -15,25 +15,17 @@ const sendEmail = emailParameters => {
       headers: {
         "Content-Type": "application/json"
       }
-    })
+    });
 };
 
 const sendFile = file => {
   let formData = new FormData();
   formData.append("resume", file, file.name);
-  axios
+  return axios
     .put("/api/resume", formData, {
       headers: {
         "Content-Type": `multipart/form-data;`
       }
-    })
-    .then(response => {
-      console.log(response);
-      return response;
-    })
-    .catch(error => {
-      console.log(error);
-      return error;
     });
 };
 
