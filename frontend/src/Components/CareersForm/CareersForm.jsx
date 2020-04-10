@@ -10,6 +10,8 @@ import { DropzoneArea } from "material-ui-dropzone";
 import "./CareersForm.scss";
 import { CustomSnackbar } from "Components";
 
+const MAX_FILE_SIZE = 3000000;
+
 const useInputStyles = makeStyles((theme) => ({
   root: {
     "& label.Mui-focused": {
@@ -55,7 +57,8 @@ const CareersForm = () => {
     setRadioValue(e.target.value);
   };
 
-  const onFile = (file) => {
+  //called when a file is dropped
+  const onDrop = (file) => {
     sendFile(file).then((response) => {
       if (response.status === 200) {
         setOpenSnackbar(true);
@@ -66,6 +69,18 @@ const CareersForm = () => {
       }
     });
   };
+
+  //called when a file is rejected
+  const onRejected = (files) => {
+    let rejectMessage = (files[0].size > MAX_FILE_SIZE) ? t("careers.form.largeFile") :
+                        (files[0].type !== "application/pdf") ? t("careers.form.incorrectFile") :
+                        t("careers.form.invalidFile");
+    setOpenSnackbar(true);
+    setSnackbar({
+      severity: "error",
+      message: rejectMessage
+    });
+  }
 
   //if form passes validation, send email
   const onSubmit = (data) => {
@@ -91,7 +106,7 @@ const CareersForm = () => {
         }
       })
       .catch((error) => {
-        //console.log(error);
+        console.log(error);
       });
   };
 
@@ -175,7 +190,9 @@ const CareersForm = () => {
               <DropzoneArea
                 key={refreshValue}
                 dropzoneClass="resume-upload"
-                onDrop={onFile}
+                onDrop={onDrop}
+                maxFileSize={MAX_FILE_SIZE}
+                onDropRejected={onRejected}
                 showPreviewsInDropzone={false}
                 acceptedFiles={["application/pdf"]}
                 filesLimit={1}

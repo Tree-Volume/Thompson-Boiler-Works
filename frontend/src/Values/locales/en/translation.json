@@ -87,7 +87,11 @@
       "upload": "Upload a file",
       "paste": "Copy and Paste",
       "resumeText": "Resume",
-      "success": "Application submitted successfully"
+      "success": "Application submitted successfully",
+      "largeFile": "File is too large, it must be under 3MB",
+      "incorrectFile": "File type is incorrect, it must be a pdf",
+      "invalidFile": "File is invalid"
+
     },
     "dropzoneText": "Upload your resume"
   },
