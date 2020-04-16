@@ -12,6 +12,7 @@ import "./CareersForm.scss";
 
 const MAX_FILE_SIZE = 3000000;
 
+//underlining
 const useInputStyles = makeStyles((theme) => ({
   root: {
     "& label.Mui-focused": {
@@ -26,6 +27,7 @@ const useInputStyles = makeStyles((theme) => ({
 const CareersForm = () => {
   const { t } = useTranslation();
   const classes = useInputStyles();
+  //form validation
   const { handleSubmit, reset, register, errors } = useForm({
     validationSchema: yupobject().shape({
       resumeFormat: yupstring(),
@@ -60,37 +62,40 @@ const CareersForm = () => {
   //called when a file is dropped
   const onDrop = (file) => {
     sendFile(file)
-    .then(response => {
-      if (response.status === 200) {
-        setOpenSnackbar(true);
-        setSnackbar({
-          severity: "success",
-          message: t("careers.form.success"),
-        });
-      }
-    })
-    .catch(error=> {
-      if (error.response.status === 500) {
-        setOpenSnackbar(true);
-        setSnackbar({
-          severity: "success",
-          message: t("careers.form.errorFile"),
-        });
-      }
-    })
+      .then((response) => {
+        if (response.status === 200) {
+          setOpenSnackbar(true);
+          setSnackbar({
+            severity: "success",
+            message: t("careers.form.success"),
+          });
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 500) {
+          setOpenSnackbar(true);
+          setSnackbar({
+            severity: "success",
+            message: t("careers.form.errorFile"),
+          });
+        }
+      });
   };
 
   //called when a file is rejected
   const onRejected = (files) => {
-    let rejectMessage = (files[0].size > MAX_FILE_SIZE) ? t("careers.form.largeFile") :
-                        (files[0].type !== "application/pdf") ? t("careers.form.incorrectFile") :
-                        t("careers.form.invalidFile");
+    let rejectMessage =
+      files[0].size > MAX_FILE_SIZE
+        ? t("careers.form.largeFile")
+        : files[0].type !== "application/pdf"
+        ? t("careers.form.incorrectFile")
+        : t("careers.form.invalidFile");
     setOpenSnackbar(true);
     setSnackbar({
       severity: "error",
-      message: rejectMessage
+      message: rejectMessage,
     });
-  }
+  };
 
   //if form passes validation, send email
   const onSubmit = (data) => {

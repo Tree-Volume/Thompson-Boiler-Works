@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const sendEmail = emailParameters => {
-  /*
   const emailObject = {
     origin: emailParameters.origin,
     name: emailParameters.name,
@@ -10,16 +9,7 @@ const sendEmail = emailParameters => {
     body: emailParameters.body,
     resumeFormat: emailParameters.resumeFormat,
     resumeText: emailParameters.resumeText
-  };*/
-  const emailObject = {
-    origin: "CAREERS",
-    name: 1,
-    from: emailParameters.from,
-    subject: emailParameters.subject,
-    body: emailParameters.body,
-    resumeFormat: emailParameters.resumeFormat,
-    resumeText: emailParameters.resumeText 
-  }
+  };
   return axios
     .post("/api/email", emailObject, {
       headers: {

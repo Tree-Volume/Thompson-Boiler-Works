@@ -28,6 +28,7 @@ const ContactForm = () => {
     message: "",
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  //form validation
   const { handleSubmit, reset, register, errors } = useForm({
     validationSchema: yupobject().shape({
       name: yupstring()
@@ -44,6 +45,7 @@ const ContactForm = () => {
         .max(1000, t("formValidation.length.resumeText")),
     }),
   });
+  //handles email submission
   const onSubmit = (data) => {
     const emailParameters = {
       origin: "CONTACT",

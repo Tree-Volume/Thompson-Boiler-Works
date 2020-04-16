@@ -8,8 +8,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const CustomSnackbar = (props) => {
-  const { openSnackbar, setOpenSnackbar, severity, message } = props;
+const CustomSnackbar = ({ openSnackbar, setOpenSnackbar, severity, message }) => {
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
