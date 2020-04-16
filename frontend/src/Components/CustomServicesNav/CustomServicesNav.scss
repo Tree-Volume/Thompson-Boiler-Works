@@ -6,8 +6,8 @@
   min-width: 100px;
   text-align: center;
   position: sticky;
-  padding: $default-spacing 0;
-  border-bottom: 1px solid #b5b5b5;
+  padding: $default-spacing;
+  white-space: nowrap;
 
   @include desktop {
     border-bottom: 0;

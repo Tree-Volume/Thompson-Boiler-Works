@@ -16,11 +16,16 @@
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
     background-color: $color-background-white;
+    border-bottom: 1px solid #b5b5b5;
     top: 90px;
+    overflow-x: auto;
+
     @include mobile {
       top: 70px;
     }
     @include desktop {
+      border-bottom: 0;
+      overflow-x: unset;
       margin: 0 !important;
     }
   }
