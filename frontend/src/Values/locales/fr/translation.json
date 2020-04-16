@@ -145,7 +145,10 @@
       "email": "Email",
       "subject": "Subject",
       "body": "Body",
-      "button": "Submit"
+      "button": "Submit",
+      "success": "Email sent successfully",
+      "badInput": "Invalid form input",
+      "fail": "Email failed to send"
     },
     "info": {
       "company": "Thompson Boiler Works",

@@ -24,7 +24,7 @@ const CustomSnackbar = (props) => {
         vertical: "bottom",
         horizontal: "left",
       }}
-      autoHideDuration={20000}
+      autoHideDuration={10000}
       onClose={handleClose}
     >
       <Alert severity={severity} onClose={handleClose}>

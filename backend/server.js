@@ -17,7 +17,7 @@ var upload = multer({
       cb(null, true);
     } else {
       cb(null, false);
-      return cb(new Error("Only .pdf format allowed!"));
+      return cb(new Error("Invalid file type"));
     }
   }
 });
@@ -47,28 +47,29 @@ const transporter = nodemailer.createTransport({
 var resume;
 const app = express();
 const router = express.Router();
+const resumeUpload = upload.single("resume")
 app.use(express.json());
 
 router.post(
   "/email",
   [
     check("origin", "origin failed"),
-    check("name", "name failed")
+    check("name", "Invalid name input")
       .isAlpha()
       .isLength({ min: 2 })
       .escape(),
-    check("from", "invalid from input")
+    check("from", "Invalid from input")
       .isEmail()
       .normalizeEmail(),
-    check("subject", "invalid subject input")
+    check("subject", "Invalid subject input")
       .if(body("origin").contains("CONTACT"))
       .isAlphanumeric()
       .isLength({ min: 2 })
       .escape(),
-    check("body", "invalid body input")
+    check("body", "Invalid body input")
       .isLength({ min: 2 })
       .escape(),
-    check("resumeText", "invalid resume text")
+    check("resumeText", "Invalid resume text")
       .if(body("origin").contains("CAREERS"))
       .if(body("resumeFormat").contains("paste"))
       .isLength({ min: 2 })
@@ -78,7 +79,6 @@ router.post(
     //calls form validation and returns error if there is one
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log(errors.array());
       return res.status(422).json({ errors: errors.array() });
     }
     //form parameters
@@ -121,11 +121,14 @@ router.post(
   }
 );
 
-router.put("/resume", upload.single("resume"), (req, res) => {
-  //store file
-  resume = req.file;
-  //send response
-  res.send(req.file);
+router.put("/resume", (req, res) => {
+  resumeUpload(req,res,(err) => {
+    if (err) return res.status(500).send(err.message);
+    //store file
+    resume = req.file;
+    //send response
+    res.send(req.file);
+  })
 });
 
 app.use("/api", router);

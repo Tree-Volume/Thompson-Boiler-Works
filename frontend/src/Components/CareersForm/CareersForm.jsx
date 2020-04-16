@@ -6,9 +6,9 @@ import { string as yupstring, object as yupobject } from "yup";
 import { useForm } from "react-hook-form";
 import { sendEmail, sendFile } from "Utils/Requests";
 import { DropzoneArea } from "material-ui-dropzone";
+import { CustomSnackbar } from "Components";
 
 import "./CareersForm.scss";
-import { CustomSnackbar } from "Components";
 
 const MAX_FILE_SIZE = 3000000;
 
@@ -59,7 +59,8 @@ const CareersForm = () => {
 
   //called when a file is dropped
   const onDrop = (file) => {
-    sendFile(file).then((response) => {
+    sendFile(file)
+    .then(response => {
       if (response.status === 200) {
         setOpenSnackbar(true);
         setSnackbar({
@@ -67,7 +68,16 @@ const CareersForm = () => {
           message: t("careers.form.success"),
         });
       }
-    });
+    })
+    .catch(error=> {
+      if (error.response.status === 500) {
+        setOpenSnackbar(true);
+        setSnackbar({
+          severity: "success",
+          message: t("careers.form.errorFile"),
+        });
+      }
+    })
   };
 
   //called when a file is rejected
@@ -106,7 +116,13 @@ const CareersForm = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response.status === 500) {
+          setOpenSnackbar(true);
+          setSnackbar({
+            severity: "error",
+            message: t("careers.form.fail"),
+          });
+        }
       });
   };
 
