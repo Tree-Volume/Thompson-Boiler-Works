@@ -75,7 +75,7 @@ const CareersForm = () => {
         if (error.response.status === 500) {
           setOpenSnackbar(true);
           setSnackbar({
-            severity: "success",
+            severity: "error",
             message: t("careers.form.errorFile"),
           });
         }
