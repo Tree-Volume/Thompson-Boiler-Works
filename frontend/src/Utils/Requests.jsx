@@ -7,48 +7,25 @@ const sendEmail = emailParameters => {
     from: emailParameters.from,
     subject: emailParameters.subject,
     body: emailParameters.body,
+    resumeFormat: emailParameters.resumeFormat,
     resumeText: emailParameters.resumeText
   };
-  axios
-    .post(
-      "/api/email",
-      { emailObject },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
+  return axios
+    .post("/api/email", emailObject, {
+      headers: {
+        "Content-Type": "application/json"
       }
-    )
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
     });
 };
 
 const sendFile = file => {
-  console.log(file);
   let formData = new FormData();
   formData.append("resume", file, file.name);
-  for (var pair of formData.entries()) {
-    console.log(pair[0]+ ' - ' + pair[1].name); 
-  }
-  axios
-    .post(
-      "/api/file",
-      formData,
-      {
-        headers: {
-          "Content-Type": `multipart/form-data;`,
-        }
+  return axios
+    .put("/api/resume", formData, {
+      headers: {
+        "Content-Type": `multipart/form-data;`
       }
-    )
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
     });
 };
 

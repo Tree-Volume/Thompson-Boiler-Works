@@ -86,7 +86,14 @@
       "body": "Body / Cover Letter",
       "upload": "Upload a file",
       "paste": "Copy and Paste",
-      "resumeText": "Resume"
+      "resumeText": "Resume",
+      "success": "Application submitted successfully",
+      "errorFile": "Error uploading file",
+      "incorrectFile": "Invalid file type",
+      "invalidFile": "File is invalid",
+      "largeFile": "File is too large",
+      "fail": "Email failed to send"
+
     },
     "dropzoneText": "Upload your resume"
   },
@@ -140,7 +147,10 @@
       "email": "Email",
       "subject": "Subject",
       "body": "Body",
-      "button": "Submit"
+      "button": "Submit",
+      "success": "Email sent successfully",
+      "badInput": "Invalid form input",
+      "fail": "Email failed to send"
     },
     "info": {
       "company": "Thompson Boiler Works",

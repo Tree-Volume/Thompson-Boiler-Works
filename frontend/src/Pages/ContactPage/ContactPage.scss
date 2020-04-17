@@ -59,3 +59,13 @@
     }
   }
 }
+
+// conditional styled underlining
+.blackUnderline {
+  label.Mui-focused {
+    color: black;
+  }
+  .MuiFilledInput-underline:after {
+    border-bottom-color: black;
+  }
+}

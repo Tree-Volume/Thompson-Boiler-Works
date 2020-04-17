@@ -1,4 +1,5 @@
 const express = require("express");
+const { check, body, validationResult } = require("express-validator");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const multer = require("multer");
@@ -9,7 +10,17 @@ var storage = multer.diskStorage({
     cb(null, file.fieldname + "-" + Date.now() + "." + mime.getExtension(file.mimetype));
   }
 });
-var upload = multer({ storage: storage });
+var upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype == "application/pdf") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error("Invalid file type"));
+    }
+  }
+});
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
   `${secrets.GMAIL_CLIENT_ID}`,
@@ -36,44 +47,88 @@ const transporter = nodemailer.createTransport({
 var resume;
 const app = express();
 const router = express.Router();
+const resumeUpload = upload.single("resume")
 app.use(express.json());
 
-router.post("/email", (req, res) => {
-  const emailObject = req.body.emailObject;
-  let subject = `TBW-WEBSITE - ${emailObject.origin} - FROM: ${emailObject.name} ${
-    emailObject.origin === "CONTACT" ? `REGARDING:${emailObject.subject}` : ""
-  }`;
-  const options = {
-    from: email,
-    to: "contact.thompsonboilerworks@gmail.com",
-    subject: subject,
-    attachments:
-      emailObject.origin === "CAREERS" && emailObject.resumeText === undefined
-        ? [
-            {
-              filename: resume.filename,
-              path: resume.path
-            }
-          ]
-        : [],
-    html: `<h1>${
-      emailObject.origin === "CONTACT" ? emailObject.subject : "Careers Application"
-    }</h1>
-          <p>From: ${emailObject.name} (${emailObject.from})</p>
-          <p>${emailObject.body}</p>
-          <p>${emailObject.resumeText !== undefined ? emailObject.resumeText : ""}</p>`
-  };
+router.post(
+  "/email",
+  [
+    check("origin", "origin failed"),
+    check("name", "Invalid name input")
+      .isAlpha()
+      .isLength({ min: 2 })
+      .escape(),
+    check("from", "Invalid from input")
+      .isEmail()
+      .normalizeEmail(),
+    check("subject", "Invalid subject input")
+      .if(body("origin").contains("CONTACT"))
+      .isAlphanumeric()
+      .isLength({ min: 2 })
+      .escape(),
+    check("body", "Invalid body input")
+      .isLength({ min: 2 })
+      .escape(),
+    check("resumeText", "Invalid resume text")
+      .if(body("origin").contains("CAREERS"))
+      .if(body("resumeFormat").contains("paste"))
+      .isLength({ min: 2 })
+      .escape()
+  ],
+  (req, res) => {
+    //calls form validation and returns error if there is one
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    //form parameters
+    const formOrigin = req.body.origin;
+    const formName = req.body.name;
+    const formFrom = req.body.from;
+    const formSubject = req.body.subject;
+    const formBody = req.body.body;
+    const formResumeFormat = req.body.resumeFormat;
+    const formResumeText = req.body.resumeText;
+    //format subject of email
+    const subject = `TBW-WEBSITE - ${formOrigin} - FROM: ${formName} ${
+      formOrigin === "CONTACT" ? `REGARDING: ${formSubject}` : ""
+    }`;
+    //format email
+    const options = {
+      from: email,
+      to: "contact.thompsonboilerworks@gmail.com",
+      subject: subject,
+      attachments:
+        formOrigin === "CAREERS" && formResumeText === undefined
+          ? [
+              {
+                filename: resume.filename,
+                path: resume.path
+              }
+            ]
+          : [],
+      html: `<h1>${formOrigin === "CONTACT" ? formSubject : "Careers Application"}</h1>
+             <p>From: ${formName} (${formFrom})</p>
+             <p>${formBody}</p>
+             <p>${formResumeText !== undefined ? formResumeText : ""}</p>`
+    };
+    //send email
+    transporter.sendMail(options, (error, info) => {
+      if (error) res.status(500).send(error.message);
+      transporter.close();
+      res.send(info);
+    });
+  }
+);
 
-  transporter.sendMail(options, (error, info) => {
-    if (error) res.status(500).send(error.message);
-    transporter.close();
-    res.send(info);
-  });
-});
-
-router.post("/file", upload.single("resume"), (req, res) => {
-  resume = req.file;
-  res.send(req.file);
+router.put("/resume", (req, res) => {
+  resumeUpload(req,res,(err) => {
+    if (err) return res.status(500).send(err.message);
+    //store file
+    resume = req.file;
+    //send response
+    res.send(req.file);
+  })
 });
 
 app.use("/api", router);

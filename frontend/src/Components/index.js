@@ -8,3 +8,4 @@ export { default as Project } from "./Project";
 export { default as ContactForm } from "./ContactForm";
 export { default as CareersForm } from "./CareersForm";
 export { default as LanguageMenu } from "./LanguageMenu";
+export { default as CustomSnackbar} from "./CustomSnackbar"
