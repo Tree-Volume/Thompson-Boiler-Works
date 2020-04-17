@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, TextField, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import { makeStyles } from "@material-ui/core/styles";
 import { string as yupstring, object as yupobject } from "yup";
 import { useForm } from "react-hook-form";
 import { sendEmail, sendFile } from "Utils/Requests";
@@ -12,21 +11,9 @@ import "./CareersForm.scss";
 
 const MAX_FILE_SIZE = 3000000;
 
-//underlining
-const useInputStyles = makeStyles((theme) => ({
-  root: {
-    "& label.Mui-focused": {
-      color: "black",
-    },
-    "& .MuiFilledInput-underline:after": {
-      borderBottomColor: "black",
-    },
-  },
-}));
-
 const CareersForm = () => {
   const { t } = useTranslation();
-  const classes = useInputStyles();
+  const styled = "blackUnderline";
   //form validation
   const { handleSubmit, reset, register, errors } = useForm({
     validationSchema: yupobject().shape({
@@ -44,46 +31,46 @@ const CareersForm = () => {
         is: "paste",
         then: yupstring()
           .required(t("formValidation.required.resumeText"))
-          .max(1000, t("formValidation.length.resumeText")),
-      }),
-    }),
+          .max(1000, t("formValidation.length.resumeText"))
+      })
+    })
   });
   const [radioValue, setRadioValue] = useState("upload");
   const [refreshValue, setRefreshValue] = useState(0);
   const [snackbar, setSnackbar] = useState({
     severity: "error",
-    message: "",
+    message: ""
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const updateRadio = (e) => {
+  const updateRadio = e => {
     setRadioValue(e.target.value);
   };
 
   //called when a file is dropped
-  const onDrop = (file) => {
+  const onDrop = file => {
     sendFile(file)
-      .then((response) => {
+      .then(response => {
         if (response.status === 200) {
           setOpenSnackbar(true);
           setSnackbar({
             severity: "success",
-            message: t("careers.form.success"),
+            message: t("careers.form.success")
           });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         if (error.response.status === 500) {
           setOpenSnackbar(true);
           setSnackbar({
             severity: "error",
-            message: t("careers.form.errorFile"),
+            message: t("careers.form.errorFile")
           });
         }
       });
   };
 
   //called when a file is rejected
-  const onRejected = (files) => {
+  const onRejected = files => {
     let rejectMessage =
       files[0].size > MAX_FILE_SIZE
         ? t("careers.form.largeFile")
@@ -93,12 +80,12 @@ const CareersForm = () => {
     setOpenSnackbar(true);
     setSnackbar({
       severity: "error",
-      message: rejectMessage,
+      message: rejectMessage
     });
   };
 
   //if form passes validation, send email
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     const emailParameters = {
       origin: "CAREERS",
       name: data.name,
@@ -106,26 +93,26 @@ const CareersForm = () => {
       subject: data.subject,
       body: data.body,
       resumeFormat: data.resumeFormat,
-      resumeText: data.resumeText,
+      resumeText: data.resumeText
     };
     sendEmail(emailParameters)
-      .then((response) => {
+      .then(response => {
         if (response.status === 200) {
           reset({ name: "", email: "", subject: "", body: "" });
           setRefreshValue(refreshValue + 1);
           setOpenSnackbar(true);
           setSnackbar({
             severity: "success",
-            message: t("careers.form.success"),
+            message: t("careers.form.success")
           });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         if (error.response.status === 500) {
           setOpenSnackbar(true);
           setSnackbar({
             severity: "error",
-            message: t("careers.form.fail"),
+            message: t("careers.form.fail")
           });
         }
       });
@@ -140,7 +127,7 @@ const CareersForm = () => {
             label={t("careers.form.name")}
             name="name"
             inputRef={register}
-            classes={errors.name ? {} : classes}
+            className={errors.name ? {} : styled}
             variant="filled"
             error={errors.name}
             helperText={errors.name ? errors.name.message : ""}
@@ -150,7 +137,7 @@ const CareersForm = () => {
             label={t("careers.form.email")}
             name="email"
             inputRef={register}
-            classes={errors.email ? {} : classes}
+            className={errors.email ? {} : styled}
             variant="filled"
             color="primary"
             error={errors.email ? true : false}
@@ -161,7 +148,7 @@ const CareersForm = () => {
             label={t("careers.form.body")}
             name="body"
             inputRef={register}
-            classes={errors.body ? {} : classes}
+            className={errors.body ? {} : styled}
             variant="filled"
             color="primary"
             multiline
@@ -200,7 +187,7 @@ const CareersForm = () => {
                 name="resumeText"
                 inputRef={register}
                 variant="filled"
-                classes={errors.resumeText ? {} : classes}
+                className={errors.resumeText ? {} : styled}
                 multiline
                 color="primary"
                 rows="5"
