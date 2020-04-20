@@ -25,7 +25,7 @@ const ContactPage = props => {
             title="map"
             className={`${hidden ? "hidden" : ""}`}
             width="100%"
-            height="50%"
+            height="300px"
             frameBorder="0"
             onLoad={() => setHidden(false)}
             style={{ border: 0 }}
