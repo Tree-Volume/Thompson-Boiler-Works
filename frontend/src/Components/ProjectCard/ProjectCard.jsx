@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Typography } from "@material-ui/core";
-import "./Project.scss";
+import "./ProjectCard.scss";
 
 const Project = ({ title, body, imageLink, imageAlt }) => {
   return (

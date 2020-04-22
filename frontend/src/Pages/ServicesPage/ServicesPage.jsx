@@ -1,9 +1,8 @@
 import React, { useLayoutEffect, useRef } from "react";
-import { PageHeader, Service } from "Components/";
+import { PageHeader, ServiceCard,CustomServicesNav } from "Components/";
 import { Container } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import servicesImage from "Assets/images/contact-page-header.jpg";
-import CustomServicesNav from "Components/CustomServicesNav";
 import "./ServicesPage.scss";
 
 const ServicesPage = props => {
@@ -29,7 +28,7 @@ const ServicesPage = props => {
         <div className="services-content">
           {servicesObject != null &&
             Object.keys(servicesObject).map((key, index) => (
-              <Service
+              <ServiceCard
                 id={`service-${index}`}
                 reference={serviceRefs.current[index]}
                 key={key}
