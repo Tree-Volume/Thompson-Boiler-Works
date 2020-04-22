@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Typography } from "@material-ui/core";
-import "./Service.scss";
+import "./ServiceCard.scss";
 
-const Service = props => {
+const ServiceCard = props => {
   const { id, reference, title, content, image, imageAlt } = props;
   return (
     <div id={id} ref={reference} className="service">
@@ -21,4 +21,4 @@ const Service = props => {
   );
 };
 
-export default Service;
+export default ServiceCard;

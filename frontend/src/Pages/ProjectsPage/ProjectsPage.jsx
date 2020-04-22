@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { Typography, Container } from "@material-ui/core/";
 import { useTranslation } from "react-i18next";
-import { PageHeader, Project } from "Components/";
+import { PageHeader, ProjectCard } from "Components/";
 import projectsImage from "Assets/images/contact-page-header.jpg";
 import "./ProjectsPage.scss";
 
@@ -25,7 +25,7 @@ const ProjectsPage = props => {
         <div className="projects">
           {projectsObject != null &&
             Object.keys(projectsObject).map(key => (
-              <Project
+              <ProjectCard
                 key={key}
                 title={t(`projects.project.${key}.title`)}
                 body={t(`projects.project.${key}.body`)}
