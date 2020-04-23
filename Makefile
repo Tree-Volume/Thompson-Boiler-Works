@@ -8,20 +8,29 @@ up:
 down:
 	docker-compose down -v
 
-#-------------- Test prod containers ------------#
-test-prod:
-	docker-compose -f docker-compose.prod.yml up --build
 
-#------ Required for local devdependencies-------#
+#------ Required for local devdependencies ------#
 install-deps:
-	npm install --prefix ./frontend
-	npm install --prefix ./backend
+	npm install --prefix frontend
+	npm install --prefix backend
 uninstall-deps:
 	rm -rf frontend/node_modules
 	rm -rf backend/node_modules
 
-#--- Required code linting for repo standards ---#
+#--------- Test code for repo standards ---------#
+test:
+	npm run --prefix frontend test
+	npm run --prefix backend test
+test-frontend: 
+	npm run --prefix frontend test 
+test-backend: 
+	npm run --prefix backend test 
+
+#--- Required code linting for repo standards --#
+lint: 
+	npm run --prefix frontend lint
+	npm run --prefix backend lint
 lint-frontend: 
-	docker-compose exec frontend npm run lint
+	npm run --prefix frontend lint
 lint-backend: 
-	docker-compose exec backend npm run lint
+	npm run --prefix backend lint

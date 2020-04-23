@@ -5,7 +5,7 @@
     "node": true,
     "commonjs": true
   },
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
   "settings": {
     "import/resolver": {
       "node": {
