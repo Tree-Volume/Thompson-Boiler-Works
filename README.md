@@ -37,7 +37,7 @@ Explained here are the most important points of the code structure, where to fin
 │   ├── .gitignore          # Files that should not be posted to git (ex. npm modules)
 │   ├── Dockerfile          # Backend container configs
 │   ├── package.json        # Backend code dependencies
-│   ├── server.js           # Main app file starting and handling node server.
+│   ├── index.js           # Main app file starting and handling node server.
 │   └── ...
 ├── frontend                
 │   ├── public              # Static assets that are deployed as-is when built
