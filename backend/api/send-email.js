@@ -29,7 +29,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendEmail = (form) => {
+const sendEmail = (form,resume,cb) => {
   //format subject of email
   const subject = `TBW-WEBSITE - ${form.origin} - FROM: ${form.name} ${
     form.origin === "CONTACT" ? `REGARDING: ${form.subject}` : ""
@@ -40,7 +40,7 @@ const sendEmail = (form) => {
     to: receiver,
     subject: subject,
     attachments:
-      formResumeFormat === "upload"
+      form.resumeFormat === "upload"
         ? [
             {
               filename: resume.filename,
@@ -54,10 +54,10 @@ const sendEmail = (form) => {
             <p>${form.resumeFormat === "upload" ? form.resumeText : ""}</p>`
   };
   //send email
-  return transporter.sendMail(options, (error, info) => {
-    if (error) return 500;
+  transporter.sendMail(options, (error, info) => {
+    if (error) cb(500);
     transporter.close();
-    return 200;
+    cb(200);
   });
 }
 module.exports = sendEmail;

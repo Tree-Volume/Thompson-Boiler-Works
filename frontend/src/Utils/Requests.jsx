@@ -22,7 +22,7 @@ const sendFile = file => {
   let formData = new FormData();
   formData.append("resume", file, file.name);
   return axios
-    .put("/api/resume", formData, {
+    .post("/api/resume", formData, {
       headers: {
         "Content-Type": `multipart/form-data;`
       }
