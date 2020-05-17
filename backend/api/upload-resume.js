@@ -22,8 +22,8 @@ const upload = multer({
 const resumeUpload = upload.single("resume");
 
 const uploadResume = (req,cb) => {
-  resumeUpload(req, null, (err) => {
-    if (err) cb(null);
+  resumeUpload(req, null, (error) => {
+    if (error) cb(null,error.message);
     //send response
     cb(req.file)
   })

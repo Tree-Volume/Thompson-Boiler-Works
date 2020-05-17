@@ -51,13 +51,13 @@ const sendEmail = (form,resume,cb) => {
     html: `<h1>${form.origin === "CONTACT" ? form.subject : "Careers Application"}</h1>
             <p>From: ${form.name} (${form.from})</p>
             <p>${form.body}</p>
-            <p>${form.resumeFormat === "upload" ? form.resumeText : ""}</p>`
+            <p>${form.resumeFormat === "upload" ? "" : form.resumeText }</p>`
   };
   //send email
   transporter.sendMail(options, (error, info) => {
-    if (error) cb(500);
+    if (error) cb(500,error.message);
     transporter.close();
-    cb(200);
+    cb(200,info);
   });
 }
 module.exports = sendEmail;

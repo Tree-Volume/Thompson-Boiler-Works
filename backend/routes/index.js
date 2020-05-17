@@ -31,8 +31,8 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     //call send email api and return status response
-    sendEmail(req.body, resume, (status) => {
-      res.send().status(status);
+    sendEmail(req.body, resume, (status,data) => {
+      res.status(status).send(data);
     });
     
   }
@@ -40,9 +40,9 @@ router.post(
 
 router.post("/api/resume", (req, res) => {
   //upload resume
-  uploadResume(req, (upload) => {
+  uploadResume(req, (upload,data) => {
     //checks if there was an error uploading file
-    if (upload === null) res.send().status(500);
+    if (upload === null) res.send().status(500).send(data);
     //update resume
     resume = upload;
     //send response
