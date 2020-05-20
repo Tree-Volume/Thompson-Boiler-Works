@@ -90,11 +90,11 @@ This website is currently deployed onto Amazon Web Services by making use of the
 
 ## Contributors
 - Eros Di Pede
-  + [github](https://github.com/ForkBombGIT)
-  + [website](https://erosdipede.me/)
+  + [Github](https://github.com/ForkBombGIT)
+  + [Website](https://erosdipede.me/)
 - Josh Gorman
-  + [github](https://github.com/Liannus)
-  + [website](https://joshgorman.ca/)
+  + [Github](https://github.com/Liannus)
+  + [Website](https://joshgorman.ca/)
   
 ## License
 As this code is currently unlicensed, no permissions are given to use or modify this software.
