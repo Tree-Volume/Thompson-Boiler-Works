@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Button, TextField, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Typography,
+} from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { string as yupstring, object as yupobject } from "yup";
 import { useForm } from "react-hook-form";
@@ -31,46 +38,46 @@ const CareersForm = () => {
         is: "paste",
         then: yupstring()
           .required(t("formValidation.required.resumeText"))
-          .max(1000, t("formValidation.length.resumeText"))
-      })
-    })
+          .max(1000, t("formValidation.length.resumeText")),
+      }),
+    }),
   });
   const [radioValue, setRadioValue] = useState("upload");
   const [refreshValue, setRefreshValue] = useState(0);
   const [snackbar, setSnackbar] = useState({
     severity: "error",
-    message: ""
+    message: "",
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const updateRadio = e => {
+  const updateRadio = (e) => {
     setRadioValue(e.target.value);
   };
 
   //called when a file is dropped
-  const onDrop = file => {
+  const onDrop = (file) => {
     sendFile(file)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true);
           setSnackbar({
             severity: "success",
-            message: t("careers.form.success")
+            message: t("careers.form.success"),
           });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.response.status === 500) {
           setOpenSnackbar(true);
           setSnackbar({
             severity: "error",
-            message: t("careers.form.errorFile")
+            message: t("careers.form.errorFile"),
           });
         }
       });
   };
 
   //called when a file is rejected
-  const onRejected = files => {
+  const onRejected = (files) => {
     let rejectMessage =
       files[0].size > MAX_FILE_SIZE
         ? t("careers.form.largeFile")
@@ -80,12 +87,12 @@ const CareersForm = () => {
     setOpenSnackbar(true);
     setSnackbar({
       severity: "error",
-      message: rejectMessage
+      message: rejectMessage,
     });
   };
 
   //if form passes validation, send email
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const emailParameters = {
       origin: "CAREERS",
       name: data.name,
@@ -93,26 +100,26 @@ const CareersForm = () => {
       subject: data.subject,
       body: data.body,
       resumeFormat: data.resumeFormat,
-      resumeText: data.resumeText
+      resumeText: data.resumeText,
     };
     sendEmail(emailParameters)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           reset({ name: "", email: "", subject: "", body: "" });
           setRefreshValue(refreshValue + 1);
           setOpenSnackbar(true);
           setSnackbar({
             severity: "success",
-            message: t("careers.form.success")
+            message: t("careers.form.success"),
           });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.response.status === 500) {
           setOpenSnackbar(true);
           setSnackbar({
             severity: "error",
-            message: t("careers.form.fail")
+            message: t("careers.form.fail"),
           });
         }
       });
@@ -171,6 +178,11 @@ const CareersForm = () => {
               control={<Radio disableRipple />}
               label={t("careers.form.upload")}
             />
+            {(radioValue === "upload") ? 
+                <Typography className="info-text" variant="body1">{t("careers.form.dropzoneLabel")}</Typography>
+              :
+              <></>
+            }
             <FormControlLabel
               value="paste"
               name="resumeFormat"
