@@ -92,10 +92,10 @@
       "incorrectFile": "Invalid file type",
       "invalidFile": "File is invalid",
       "largeFile": "File is too large",
-      "fail": "Email failed to send"
-
-    },
-    "dropzoneText": "Upload your resume"
+      "fail": "Email failed to send",
+      "dropzoneText": "Upload your resume",
+      "dropzoneLabel": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
   },
   "projects": {
     "title": "Projects",

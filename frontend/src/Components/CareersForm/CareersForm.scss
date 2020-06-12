@@ -32,6 +32,13 @@ form {
         border-radius: 0;
       }
     }
+    .info-text {
+      font-weight: 300;
+      font-size: $font-size-subtitle * 0.7;
+      @include desktop {
+        font-size: $font-size-subtitle * 0.8;
+      }
+    }
     .resume-upload {
       margin-bottom: $default-spacing;
       display: flex;
