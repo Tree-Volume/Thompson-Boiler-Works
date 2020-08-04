@@ -21,9 +21,9 @@ Despite being available on github, this repo is intended as a read-only resource
 ## Getting Started
 *This section is intended for usage of future developers or upon permissional changes.*
 
-After cloning the repo to your local machine enter the `frontend` directory and run `npm install`.
+After cloning the repo to your local machine enter the root directory and run `make install-deps`.
 
-Having completed this, in the root directory run `docker-compose up`.
+Having completed this, in the root directory run `make up`.
 
 This runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
