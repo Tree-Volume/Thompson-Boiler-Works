@@ -15,21 +15,22 @@ oauth2Client.setCredentials({
   refresh_token: `${secrets.GMAIL_REFRESH_TOKEN}`,
 });
 
-const accessToken = oauth2Client.getAccessToken();
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    type: "OAuth2",
-    user: sender,
-    clientId: `${secrets.GMAIL_CLIENT_ID}`,
-    clientSecret: `${secrets.GMAIL_CLIENT_SECRET}`,
-    refreshToken: `${secrets.GMAIL_REFRESH_TOKEN}`,
-    accessToken: accessToken,
-  },
-});
-
 const sendEmail = (form, resume, cb) => {
+
+  const accessToken = oauth2Client.getAccessToken();
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      type: "OAuth2",
+      user: sender,
+      clientId: `${secrets.GMAIL_CLIENT_ID}`,
+      clientSecret: `${secrets.GMAIL_CLIENT_SECRET}`,
+      refreshToken: `${secrets.GMAIL_REFRESH_TOKEN}`,
+      accessToken: accessToken,
+    },
+  });
+
   //format subject of email
   const subject = `TBW-WEBSITE - ${form.origin} - FROM: ${form.name} ${
     form.origin === "CONTACT" ? `REGARDING: ${form.subject}` : ""
