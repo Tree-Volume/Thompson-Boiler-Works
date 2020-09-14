@@ -16,7 +16,7 @@
 ## About the Repo
 This repo shows the development state of the website built at [ThompsonBoilerWorks.ca](https://ThompsonBoilerWorks.ca).
 
-Despite being available on github, this repo is intended as a read-only resource and has been licensed as such. Permissions are not given to use or modify this software.
+Despite being available on github, this repository is intended as a read-only resource and has been licensed as such. Permissions are not given to use or modify this software.
 
 ## Getting Started
 *This section is intended for usage of future developers or upon permissional changes.*
