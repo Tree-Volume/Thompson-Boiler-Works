@@ -15,4 +15,4 @@ fi
 
 # Download the new certificates
 docker stop $(docker ps -q --filter ancestor=liannus/tbwsite:reverseproxy )
-sudo ./certbot-auto certonly --standalone --debug --non-interactive --email joshgorman@cmail.carleton.ca --agree-tos --domains thompsonboilerworks.ca --keep-until-expiring
+sudo ./certbot-auto certonly --standalone --debug --non-interactive --email contact.thompsonboilerworks@gmail.com --agree-tos --domains thompsonboilerworks.ca --keep-until-expiring
