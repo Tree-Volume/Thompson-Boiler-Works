@@ -48,7 +48,7 @@ Explained here are the most important points of the code structure, where to fin
 │   │   ├── Components      # Non-page level react components (ex. navbar)
 │   │   ├── Pages           # React component pages (ex. about, contact)
 │   │   ├── Styles          # Global styles and SCSS mixins
-│   │   ├── Utils           # Reusable functions and globals\
+│   │   ├── Utils           # Reusable functions and globals
 │   │   ├── Values          # Localization data (language translations)
 │   │   ├── App.jsx         # Main app file composing the entire application
 │   │   └── ...
