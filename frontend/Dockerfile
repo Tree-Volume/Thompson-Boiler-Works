@@ -1,7 +1,9 @@
-FROM node:current-alpine
+FROM node:13-alpine
 
 ARG ENV
 ENV NODE_ENV ${ENV}
+
+RUN node --version
 
 RUN mkdir /frontend
 WORKDIR /frontend
